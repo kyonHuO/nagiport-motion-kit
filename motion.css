@@ -1,0 +1,149 @@
+/* Motion and inline-diagram styles. Respects prefers-reduced-motion. */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 8px 0 0;
+}
+
+.diagram .node rect {
+  fill: #19171f;
+  stroke: #4a3956;
+}
+
+.diagram .node.accent rect {
+  stroke: #7a63a8;
+}
+
+.diagram text {
+  fill: #cfc6d8;
+  font: 12px var(--mono);
+}
+
+.diagram text.dn {
+  fill: #f0edf4;
+  font-size: 13px;
+}
+
+.diagram text.dm {
+  fill: #9d90ab;
+  font-size: 10px;
+}
+
+.diagram .dash-arrow {
+  fill: none;
+  stroke: #8d70c8;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .diagram .dash-arrow {
+    animation: none;
+  }
+}
+
+/* Responsive HTML diagrams (readable on mobile) */
+
+.pipe-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.pipe-node {
+  flex: 1 1 0;
+  min-width: 150px;
+  border: 1px solid #4a3956;
+  border-radius: 10px;
+  padding: 16px 14px;
+  text-align: center;
+}
+
+.pipe-node.accent {
+  border-color: #7a63a8;
+}
+
+.pipe-name {
+  margin: 0;
+  font-size: 15px;
+  color: #f0edf4;
+}
+
+.pipe-sub {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #9d90ab;
+}
+
+.pipe-arrow {
+  flex: 0 0 36px;
+  align-self: center;
+  border-top: 2px dashed #8d70c8;
+  margin: 0 6px;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cat-card {
+  border: 1px solid #4a3956;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.cat-name {
+  margin: 0;
+  font-size: 14px;
+  color: #f0edf4;
+}
+
+.cat-sample {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #b8adbf;
+}
+
+@media (max-width: 760px) {
+  .pipe-grid {
+    flex-direction: column;
+  }
+  .pipe-arrow {
+    flex: 0 0 auto;
+    width: 0;
+    height: 20px;
+    align-self: center;
+    border-top: 0;
+    border-left: 2px dashed #8d70c8;
+    margin: 4px 0;
+  }
+  .cat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
