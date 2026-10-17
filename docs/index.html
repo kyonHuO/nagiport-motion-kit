@@ -82,6 +82,8 @@
   .btn-primary:hover{background:#4d79ff}
   .btn-ghost{border-color:var(--line);color:#dfe5f2;background:rgba(255,255,255,.02)}
   .btn-ghost:hover{border-color:var(--blue);color:#fff}
+  .notice{display:flex;gap:12px;align-items:flex-start;border:1px solid #33406a;background:linear-gradient(180deg,rgba(59,107,255,.10),rgba(59,107,255,.02));border-radius:12px;padding:14px 16px;margin:0 0 34px;font-size:12.5px;line-height:1.85;color:#c6cfe2;max-width:760px}
+  .notice b{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#b9c9ff;border:1px solid #2c3f78;border-radius:999px;padding:3px 9px;margin-right:2px;white-space:nowrap}
   .hero-note{display:flex;align-items:center;gap:10px;margin-top:26px;color:var(--muted);font-size:12px}
   .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#b9c4d8}
   .pill i{width:6px;height:6px;border-radius:50%;background:var(--blue);display:block}
@@ -192,11 +194,14 @@
       <div class="grid"></div>
     </div>
     <div class="wrap">
+      <div class="notice" data-reveal>
+        <span><b>DEMO</b> このページは検討中のデモです。掲載している文言・料金・構成・提供内容はすべて案で、販売条件は確定していません。確認できた範囲は各項目に明記します。</span>
+      </div>
       <p class="eyebrow" data-reveal>Nagiport Motion Kit — 001</p>
       <h1 data-reveal>動くサイトを、<br><span class="accent">貼るだけ。</span></h1>
       <p class="hero-lead" data-reveal>
-        スクロールで動くヒーロー、料金表、FAQ。日本語で崩れないように調整した完成品のサイトキットです。
-        文言と画像を差し替えるだけで、公開まで進められます。
+        スクロールで動くヒーロー、料金表、FAQ。日本語で崩れにくいサイトキットを目指して検討中です。
+        文言と画像を差し替えるだけで使える形を想定しています（検証中）。
       </p>
       <div class="hero-actions" data-reveal>
         <a class="btn btn-primary" href="#templates">テンプレートを見る <span aria-hidden="true">→</span></a>
@@ -263,23 +268,23 @@
       <div class="section-head" data-reveal>
         <p class="eyebrow">What you get</p>
         <h2>できること</h2>
-        <p>「動く」だけでなく、日本語とスマホで崩れないことを確認済みの形で届けます。</p>
+        <p>「動く」だけでなく、日本語とスマホで崩れにくい形を目指しています。下記は検討中の案で、確認できた範囲は各項目に明記します。</p>
       </div>
       <div class="features">
         <div class="feature" data-reveal>
-          <div class="k">01 / TYPOGRAPHY</div>
-          <h3>日本語で崩れない</h3>
-          <p>改行、禁則、行間、見出しのバランスまで調整済み。長い日本語の文言に差し替えても、組みが破綻しにくい設計です。</p>
+          <div class="k">01 / TYPOGRAPHY（検討案）</div>
+          <h3>日本語で崩れにくい</h3>
+          <p>改行、禁則、行間、見出しのバランスを調整する想定です。長い日本語に差し替えた場合の組みは、このページの文言でしか確認していません。</p>
         </div>
         <div class="feature" data-reveal>
-          <div class="k">02 / RESPONSIVE</div>
-          <h3>スマホで崩れない</h3>
-          <p>375pxから確認。横はみ出しが出ないこと、タップしやすい余白であることを前提に組んでいます。</p>
+          <div class="k">02 / RESPONSIVE（確認範囲）</div>
+          <h3>スマホで横に広がらない</h3>
+          <p>このページは375 / 768 / 1440px幅で横はみ出しがないことを確認しました。タップ余白の検証は未実施です。</p>
         </div>
         <div class="feature" data-reveal>
-          <div class="k">03 / NO SETUP</div>
-          <h3>貼るだけで公開</h3>
-          <p>サーバーもCLIも不要。ファイルを置いて公開するだけの構成で、専門知識がなくても公開まで進められます。</p>
+          <div class="k">03 / NO SETUP（想定）</div>
+          <h3>ファイルを置くだけ（想定）</h3>
+          <p>サーバーやCLIを使わず、ファイルを置いて公開するだけの構成を想定しています。実際の公開手順は未検証です。</p>
         </div>
       </div>
     </div>
@@ -290,24 +295,25 @@
       <div class="section-head" data-reveal>
         <p class="eyebrow">Pricing</p>
         <h2>料金（予定）</h2>
-        <p>価格は検討中のため、変更される場合があります。販売開始時に確定します。</p>
+        <p>以下の価格・構成は検討中の案です。販売条件ではなく、変更される可能性があります。</p>
       </div>
       <div class="plans">
         <div class="plan" data-reveal>
+          <span class="badge">検討案</span>
           <span class="name">SINGLE</span>
           <div class="price">2,980<small>円</small></div>
-          <p class="desc">テンプレート1点。ヒーロー＋本文＋問い合わせの1ページ構成。</p>
-          <span class="tagline">予定価格</span>
+          <p class="desc">テンプレート1点（案）。ヒーロー＋本文＋問い合わせの1ページ構成。</p>
+          <span class="tagline">未確定の検討案</span>
         </div>
         <div class="plan hot" data-reveal>
-          <span class="badge">準備中</span>
+          <span class="badge">検討案・準備中</span>
           <span class="name">STARTER SET</span>
           <div class="price">9,800<small>円</small></div>
-          <p class="desc">ヒーロー3種＋料金表・実績・問い合わせの部品セット。差し替え手順つき。</p>
-          <span class="tagline">予定価格</span>
+          <p class="desc">ヒーロー3種（案）＋料金表・実績・問い合わせの部品セット。差し替え手順つき（想定）。</p>
+          <span class="tagline">未確定の検討案</span>
         </div>
       </div>
-      <p class="fine">※ 表示は予定価格です。販売開始時に確定し、このページで告知します。</p>
+      <p class="fine">※ すべて検討中の案で、販売条件は確定していません。販売開始時に確定し、このページで告知します。</p>
     </div>
   </section>
 
@@ -319,16 +325,20 @@
       </div>
       <div class="faq">
         <details data-reveal>
+          <summary>このページの内容は確定ですか？<span class="ic" aria-hidden="true">＋</span></summary>
+          <div class="a">いいえ。掲載している料金・構成・文言は検討中の案です。販売条件は確定しておらず、変更される場合があります。</div>
+        </details>
+        <details data-reveal>
           <summary>商品はいつ買えますか？<span class="ic" aria-hidden="true">＋</span></summary>
           <div class="a">現在準備中です。完成次第、このページで販売を開始します。</div>
         </details>
         <details data-reveal>
           <summary>プログラミングは必要ですか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">不要です。文言と画像を差し替えるだけで使える形を想定しています。</div>
+          <div class="a">想定では不要です（検証中）。文言と画像を差し替えるだけで使える形を目指しています。</div>
         </details>
         <details data-reveal>
           <summary>スマホ対応していますか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">375px幅から確認し、横はみ出しが出ないことを前提に調整します。</div>
+          <div class="a">このページは375 / 768 / 1440px幅で横はみ出しがないことを確認しました。各テンプレートでの検証は未実施です。</div>
         </details>
         <details data-reveal>
           <summary>返金やサポートはありますか？<span class="ic" aria-hidden="true">＋</span></summary>
@@ -343,7 +353,7 @@
   <div class="wrap foot-in">
     <div>
       <div class="foot-brand">NAGIPORT MOTION KIT</div>
-      <p class="foot-note">日本語のための動くサイトキット。商品は準備中です。掲載内容は変更される場合があります。</p>
+      <p class="foot-note">日本語のための動くサイトキット（準備中）。このページは検討中のデモで、掲載している料金・構成・文言はすべて案です。</p>
     </div>
     <div class="foot-links">
       <a href="#templates">テンプレート</a>
