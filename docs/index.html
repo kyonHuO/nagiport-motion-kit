@@ -52,6 +52,70 @@
   .head-cta .arw{color:var(--blue-2)}
   @media (max-width:860px){ .nav{display:none} }
 
+  /* ---------- motion reel (opening, 1 viewport) ---------- */
+  .reel{position:fixed;inset:0;z-index:70;overflow:hidden;isolation:isolate;display:grid;place-items:center;background:radial-gradient(130% 90% at 50% 0%,#0a1024 0%,#07080b 62%);transition:transform .95s cubic-bezier(.72,0,.18,1)}
+  body.reel-out .reel{transform:translateY(-101%);pointer-events:none}
+  body.reel-out main{animation:settle .95s cubic-bezier(.72,0,.18,1) both}
+  @keyframes settle{from{transform:translateY(44px)}to{transform:none}}
+  body.reel-lock{overflow:hidden}
+  .reel-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+  .reel-bg .grid{position:absolute;inset:0;opacity:.42;background-image:linear-gradient(rgba(120,150,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.08) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(90% 70% at 50% 40%,#000 10%,transparent 78%)}
+  .reel-bg .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
+  .reel-bg .r1{width:52vmax;height:52vmax;left:-14vmax;top:-20vmax;background:radial-gradient(circle,#1d3cff 0%,rgba(29,60,255,0) 62%)}
+  .reel-bg .r2{width:36vmax;height:36vmax;right:-8vmax;bottom:-16vmax;background:radial-gradient(circle,#7a4dff 0%,rgba(122,77,255,0) 66%);opacity:.3}
+  .reel-bg .scan{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.045) 0 1px,transparent 1px 4px);opacity:.5;mix-blend-mode:overlay}
+
+  .reel-inner{position:relative;width:100%}
+
+  .reel-top{position:absolute;inset:0 0 auto 0;padding-top:20px;z-index:2}
+  .reel-top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .reel-mark{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:#c2cbdd}
+  .reel-mark i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:9px;vertical-align:middle}
+  .reel-skip{appearance:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:rgba(9,12,20,.66);font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#b9c4d8;cursor:pointer}
+  .reel-skip:hover{border-color:var(--blue);color:#fff}
+
+  .stage{position:relative;width:min(1200px,calc(100% - 48px));height:min(58svh,470px)}
+  @media (max-width:560px){ .stage{width:calc(100% - 32px);height:min(52svh,380px)} }
+  .frame{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;opacity:0;animation:slot 8s cubic-bezier(.2,.7,.2,1) infinite}
+  .frame:nth-child(1){animation-delay:0s}
+  .frame:nth-child(2){animation-delay:2s}
+  .frame:nth-child(3){animation-delay:4s}
+  .frame:nth-child(4){animation-delay:6s}
+  @keyframes slot{
+    0%{opacity:0;transform:translateY(22px)}
+    5%{opacity:1;transform:none}
+    21%{opacity:1;transform:none}
+    26%{opacity:0;transform:translateY(-16px)}
+    100%{opacity:0;transform:translateY(-16px)}
+  }
+  .frame .big{margin:0;font-weight:800;letter-spacing:-.05em;line-height:.94;font-size:clamp(54px,15.5vw,180px);text-transform:uppercase}
+  .frame .big .accent{color:var(--blue);text-shadow:0 0 70px rgba(59,107,255,.4)}
+  .frame .outline{color:transparent;-webkit-text-stroke:1px #4a72d8}
+  @media (min-width:760px){ .frame .outline{-webkit-text-stroke-width:1.4px} }
+  .frame .jp{margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(40px,11vw,104px)}
+  .frame .cap{margin:26px 0 0;font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:#8c99b3;text-transform:uppercase}
+  .frame .rule{width:min(220px,42vw);height:1px;background:linear-gradient(90deg,transparent,#3b6bff,transparent);margin-top:26px}
+
+  .morph{width:min(30vw,190px);aspect-ratio:1;border:1px solid var(--blue);background:radial-gradient(circle,rgba(59,107,255,.22),rgba(59,107,255,0) 68%);box-shadow:0 0 70px rgba(59,107,255,.28) inset;animation:morph 8s cubic-bezier(.2,.7,.2,1) infinite}
+  @keyframes morph{
+    0%{border-radius:50%;transform:rotate(0)}
+    22%{border-radius:50%;transform:rotate(0)}
+    31%{border-radius:8px;transform:rotate(90deg)}
+    47%{border-radius:50%;transform:rotate(180deg)}
+    58%{border-radius:8px;transform:rotate(270deg)}
+    74%{border-radius:50%;transform:rotate(360deg)}
+    100%{border-radius:50%;transform:rotate(360deg)}
+  }
+
+  .reel-foot{position:absolute;inset:auto 0 0 0;padding-bottom:30px;z-index:2}
+  .reel-foot .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#7d8aa4}
+  .reel-hint{display:inline-flex;align-items:center;gap:10px}
+  .reel-hint .arrow{display:inline-block;animation:nudge 2.2s ease-in-out infinite}
+  @keyframes nudge{0%,100%{transform:translateY(-1px)}50%{transform:translateY(4px)}}
+  .reel-bar{position:absolute;inset:auto 0 0 0;height:2px;background:rgba(255,255,255,.08)}
+  .reel-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#b9c9ff);animation:reelbar 8s linear forwards}
+  @keyframes reelbar{to{width:100%}}
+
   /* ---------- hero ---------- */
   .hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(64px,11vw,140px) 0 clamp(56px,9vw,110px)}
   .hero-bg{position:absolute;inset:-20% -10%;z-index:-2;pointer-events:none}
@@ -154,6 +218,8 @@
   .foot-note{margin-top:10px;line-height:1.9;max-width:520px}
   .foot-links{display:flex;gap:18px;font-size:11px;color:#7b88a3}
   .foot-links a:hover{color:#fff}
+  .foot-links button{appearance:none;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer}
+  .foot-links button:hover{color:#fff}
 
   /* reveal */
   [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -164,13 +230,64 @@
     .track{animation:none}
     [data-reveal]{opacity:1;transform:none;transition:none}
     .progress>i{transition:none}
+    .reel{display:none;transition:none}
+    .frame{animation:none}
+    .frame:nth-child(1){opacity:1}
+    .morph{animation:none;border-radius:50%}
+    .reel-hint .arrow{animation:none}
+    .reel-bar{display:none}
+    body.reel-out .reel{transform:none}
+    body.reel-out main{animation:none}
   }
 </style>
-<noscript><style>[data-reveal]{opacity:1;transform:none}.progress{display:none}</style></noscript>
+<noscript><style>[data-reveal]{opacity:1;transform:none}.progress{display:none}.reel{display:none}</style></noscript>
 </head>
 <body>
-<a class="skip" href="#main">本文へ</a>
+<a class="skip" href="#top">本文へ</a>
 <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<section class="reel" id="reel" aria-label="オープニング（モーションリール）">
+  <div class="reel-bg" aria-hidden="true">
+    <div class="glow r1"></div>
+    <div class="glow r2"></div>
+    <div class="grid"></div>
+    <div class="scan"></div>
+  </div>
+  <div class="reel-top">
+    <div class="wrap">
+      <span class="reel-mark"><i aria-hidden="true"></i>NAGIPORT / MOTION REEL</span>
+      <button class="reel-skip" id="reel-skip" type="button">SKIP →</button>
+    </div>
+  </div>
+  <div class="reel-inner">
+    <div class="stage" aria-hidden="true">
+      <div class="frame">
+        <p class="big">Motion<span class="accent">.</span></p>
+        <p class="cap">Nagiport Motion Kit / 001</p>
+      </div>
+      <div class="frame">
+        <p class="big outline">Reel</p>
+        <p class="cap">Scroll driven / Japanese typography</p>
+      </div>
+      <div class="frame">
+        <div class="morph"></div>
+        <p class="cap">Typography / space / motion</p>
+      </div>
+      <div class="frame">
+        <p class="jp">貼るだけ。</p>
+        <div class="rule"></div>
+        <p class="cap">Copy / paste / publish</p>
+      </div>
+    </div>
+  </div>
+  <div class="reel-foot">
+    <div class="wrap">
+      <span class="reel-hint"><span class="arrow" aria-hidden="true">↓</span>スクロールで進む ／ まもなく自動で進みます</span>
+      <span>01 — 04</span>
+    </div>
+  </div>
+  <div class="reel-bar" aria-hidden="true"><i></i></div>
+</section>
 
 <header class="site-head">
   <div class="wrap head-in">
@@ -356,6 +473,7 @@
       <p class="foot-note">日本語のための動くサイトキット（準備中）。このページは検討中のデモで、掲載している料金・構成・文言はすべて案です。</p>
     </div>
     <div class="foot-links">
+      <button id="reel-replay" type="button">オープニングをもう一度</button>
       <a href="#templates">テンプレート</a>
       <a href="#pricing">料金</a>
       <a href="#faq">FAQ</a>
@@ -390,6 +508,56 @@
       });
     }, {rootMargin:'0px 0px -8% 0px', threshold:0.12});
     items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- opening reel: a full-screen page that slides away ---------- */
+  var gate = document.getElementById('reel');
+  if(gate){
+    var opened = false, timer = null;
+
+    function openPage(){
+      if(opened){ return; }
+      opened = true;
+      if(timer){ clearTimeout(timer); timer = null; }
+      document.body.classList.remove('reel-lock');
+      document.body.classList.add('reel-out');
+      setTimeout(function(){ gate.style.display = 'none'; }, 1000);
+    }
+
+    if(reduce || window.location.hash){
+      gate.style.display = 'none';
+    } else {
+      document.body.classList.add('reel-lock');
+
+      timer = setTimeout(openPage, 8000);
+
+      gate.addEventListener('wheel', openPage, { passive: true });
+      gate.addEventListener('touchmove', openPage, { passive: true });
+      gate.addEventListener('click', function(e){
+        if(!e.target.closest('button')){ openPage(); }
+      });
+      document.addEventListener('keydown', function(e){
+        if(opened){ return; }
+        if(e.key === 'Escape' || e.key === 'Enter' || e.key === ' ' || e.key.indexOf('Arrow') === 0 || e.key === 'PageDown'){
+          openPage();
+        }
+      });
+      var skip = document.getElementById('reel-skip');
+      if(skip){ skip.addEventListener('click', function(){ openPage(); }); }
+
+      var replay = document.getElementById('reel-replay');
+      if(replay){
+        replay.addEventListener('click', function(){
+          document.body.classList.remove('reel-out');
+          document.body.classList.add('reel-lock');
+          gate.style.display = '';
+          gate.offsetHeight;
+          opened = false;
+          window.scrollTo(0, 0);
+          timer = setTimeout(openPage, 8000);
+        });
+      }
+    }
   }
 })();
 </script>
