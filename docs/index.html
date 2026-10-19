@@ -113,7 +113,7 @@
   .reel-hint .arrow{display:inline-block;animation:nudge 2.2s ease-in-out infinite}
   @keyframes nudge{0%,100%{transform:translateY(-1px)}50%{transform:translateY(4px)}}
   .reel-bar{position:absolute;inset:auto 0 0 0;height:2px;background:rgba(255,255,255,.08)}
-  .reel-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#b9c9ff);animation:reelbar 8s linear forwards}
+  .reel-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#b9c9ff);animation:reelbar 7.4s linear forwards}
   @keyframes reelbar{to{width:100%}}
 
   /* ---------- hero ---------- */
@@ -529,7 +529,7 @@
     } else {
       document.body.classList.add('reel-lock');
 
-      timer = setTimeout(openPage, 8000);
+      timer = setTimeout(openPage, 7400);
 
       gate.addEventListener('wheel', openPage, { passive: true });
       gate.addEventListener('touchmove', openPage, { passive: true });
@@ -554,7 +554,7 @@
           gate.offsetHeight;
           opened = false;
           window.scrollTo(0, 0);
-          timer = setTimeout(openPage, 8000);
+          timer = setTimeout(openPage, 7400);
         });
       }
     }
