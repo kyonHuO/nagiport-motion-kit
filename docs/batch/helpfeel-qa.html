@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ffffff">
+<title>Nagiport Motion Kit｜Helpfeel型・疑問解消構成（検討中）</title>
+<meta name="description" content="「何ができる？→どう解決？→サポートは？」の順で、顧客の疑問を1ページで解消していくHelpfeel型の国内BtoB構成案。参考元は掲載内容・見出し・導線のみで、動きは自社CSSで組み直しています（検討中）。">
+<style>
+  :root{
+    --navy:#0b2e63;
+    --navy-deep:#082047;
+    --navy-soft:#e8eef8;
+    --accent:#2f7df6;
+    --fg:#1c1f26;
+    --muted:#5a6070;
+    --border:#d5dae4;
+    --bg:#ffffff;
+    --bg-sub:#f6f8fb;
+    --radius:12px;
+    --font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+  a{color:var(--navy);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:.2em}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--fg);padding:12px 16px;border:2px solid var(--accent);z-index:100}
+  .skip:focus{left:0}
+  .wrap{width:min(1080px,calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){ .wrap{width:calc(100% - 32px)} }
+
+  .site-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;flex-wrap:wrap;padding-block:10px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font-weight:700;font-size:17px}
+  .brand .mark{width:18px;height:18px;background:var(--navy);border-radius:4px;position:relative}
+  .brand .mark::after{content:"";position:absolute;inset:3px;background:#fff;border-radius:1px}
+  .brand small{display:block;font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.1em}
+  .nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+  .nav a{color:var(--fg);padding-block:6px;border-bottom:2px solid transparent}
+  .nav a:hover{border-bottom-color:var(--accent);color:var(--navy)}
+
+  .notice{background:var(--navy-soft);border-left:6px solid var(--accent);padding:13px 18px;font-size:13px;line-height:1.8;color:#334;margin:24px 0 0}
+  .notice b{font-size:11px;letter-spacing:.14em;color:var(--navy-deep);margin-right:8px}
+
+  .hero{padding:56px 0 40px}
+  .hero .kicker{font-size:12px;letter-spacing:.18em;color:var(--accent);margin:0 0 14px;font-weight:700}
+  .hero h1{font-size:clamp(28px,4.6vw,44px);line-height:1.35;margin:0;font-weight:700;letter-spacing:-.01em;max-width:820px}
+  .hero h1 span{color:var(--navy)}
+  .hero .lead{margin:18px 0 0;max-width:700px;color:var(--muted);font-size:15px}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;border-radius:var(--radius);font-weight:700;font-size:14.5px;text-decoration:none;border:1px solid transparent;transition:background .15s ease,color .15s ease}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-deep)}
+  .btn-outline{border-color:var(--navy);color:var(--navy);background:#fff}
+  .btn-outline:hover{background:var(--navy-soft)}
+
+  .section{padding:52px 0;border-top:1px solid var(--border)}
+  .section.alt{background:var(--bg-sub)}
+  .section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+  .section-head .no{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700}
+  .section-head h2{font-size:clamp(22px,3.2vw,30px);margin:0;line-height:1.4}
+  .section-head p{margin:0;color:var(--muted);max-width:720px;font-size:14.5px}
+
+  /* 用途カード（何ができる） */
+  .cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  @media (max-width:720px){ .cases{grid-template-columns:1fr} }
+  .case{border:1px solid var(--border);border-radius:var(--radius);padding:24px;background:#fff;display:flex;flex-direction:column;gap:10px;transition:border-color .2s ease,transform .2s ease}
+  .case:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .case .role{font-size:13px;font-weight:700;color:var(--navy)}
+  .case .claim{font-size:17px;font-weight:700;line-height:1.5;margin:0}
+  .case .tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 0}
+  .case .tags span{font-size:11.5px;background:var(--navy-soft);color:var(--navy-deep);border-radius:999px;padding:3px 10px}
+  .case .proof{margin-top:auto;padding-top:10px;font-size:12.5px;color:var(--muted)}
+  .case .proof b{font-size:22px;color:var(--accent);font-weight:700;margin-right:6px}
+
+  /* どう解決（3段） */
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:900px}
+  @media (max-width:720px){ .steps{grid-template-columns:1fr} }
+  .step{border:1px solid var(--border);border-radius:var(--radius);padding:22px;background:#fff}
+  .step .idx{font-family:monospace;font-size:12px;color:var(--accent);letter-spacing:.1em}
+  .step h3{margin:6px 0 8px;font-size:17px;line-height:1.5}
+  .step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.85}
+
+  /* サポートは（信頼性） */
+  .trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:900px}
+  @media (max-width:720px){ .trust{grid-template-columns:1fr} }
+  .trust-item{border:1px solid var(--border);border-radius:var(--radius);padding:22px;background:#fff;text-align:center}
+  .trust-item .num{font-size:34px;font-weight:700;color:var(--navy)}
+  .trust-item .cap{margin:4px 0 0;font-size:12.5px;color:var(--muted);line-height:1.7}
+  .trust-item .cap small{display:block;font-size:11px;color:#8a90a0;margin-top:6px}
+
+  .faq{border-top:1px solid var(--border);max-width:860px}
+  .faq details{border-bottom:1px solid var(--border)}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-weight:700;font-size:15px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .ic{flex:0 0 auto;width:24px;height:24px;border:1px solid var(--navy);border-radius:50%;display:grid;place-items:center;font-size:14px;line-height:1}
+  .faq summary .ic::before{content:"+"}
+  .faq details[open] summary .ic::before{content:"−"}
+  .faq .a{padding:0 4px 20px;color:var(--muted);font-size:14px;max-width:760px}
+
+  .site-foot{border-top:1px solid var(--border);background:var(--bg-sub);padding:40px 0 56px}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+  .foot-brand{font-weight:700;font-size:15px}
+  .foot-note{margin:8px 0 0;font-size:12.5px;color:var(--muted);max-width:600px;line-height:1.9}
+  .foot-links{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-meta{margin-top:24px;font-size:12px;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="./index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Nagiport</b><small>MOTION KIT / 疑問解消構成案</small></span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#what">何ができる</a>
+      <a href="#how">どう解決</a>
+      <a href="#support">サポートは</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <p class="notice"><b>DEMO</b>Helpfeel型の構成（何ができる？→どう解決？→サポートは？）を真似した、国内BtoB向けの疑問解消1ページ案です。参考元は掲載内容・見出し・導線のみで、動きは自社CSSで組み直し、コード・素材は使っていません。文言・数値・実績はすべて仮です。</p>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">NAGIPORT MOTION KIT / Helpfeel型・疑問解消構成</p>
+      <h1>まず「何ができるか」を、<span>用途ごとに</span>見せます。</h1>
+      <p class="lead">顧客が最初に持つ「うちで使えるの？」という疑問を、用途別のカードで先に解消する構成案です。次にどう解決し、最後にサポートと信頼性で締めます。国内BtoBの定番の順です（検討中）。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#what">何ができるかを見る</a>
+        <a class="btn btn-outline" href="#support">サポート・信頼性は</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">01 / WHAT — 何ができる？</span>
+        <h2>用途別に、どこに効くか</h2>
+        <p>「うちの部署で使えるの？」に、用途ごとに答えます。実績の数字は仮です。</p>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <span class="role">カスタマーサポート</span>
+          <p class="claim">対話型エージェントが、問い合わせを減らしCXを改善</p>
+          <div class="tags"><span>#自己解決率向上</span><span>#問い合わせ削減</span><span>#顧客の疑問を解決</span></div>
+          <p class="proof"><b>84%</b>問い合わせ削減（仮の実績）</p>
+        </div>
+        <div class="case">
+          <span class="role">マーケティング</span>
+          <p class="claim">「分からない」をなくし、「買いたい」に繋げる顧客誘導</p>
+          <div class="tags"><span>#AI検索最適化</span><span>#離脱防止</span></div>
+          <p class="proof"><b>-38%</b>離脱率（仮の実績）</p>
+        </div>
+        <div class="case">
+          <span class="role">社内ヘルプデスク</span>
+          <p class="claim">回答を自動化し、本業に集中する</p>
+          <div class="tags"><span>#脱属人化</span><span>#社内の疑問を解決</span></div>
+          <p class="proof"><b>5.2倍</b>社内利用者数（仮の実績）</p>
+        </div>
+        <div class="case">
+          <span class="role">コールセンター</span>
+          <p class="claim">ナレッジを整備し、対応をオートパイロット化</p>
+          <div class="tags"><span>#AHT短縮</span><span>#人材不足解消</span></div>
+          <p class="proof"><b>-25%</b>対応時間（仮の実績）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">02 / HOW — どう解決？</span>
+        <h2>3段で、疑問を解消していく</h2>
+        <p>「どうやるの？」に、導入の流れで答えます。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="idx">STEP 1</span>
+          <h3>ナレッジを繋ぐ</h3>
+          <p>既存のドキュメントやFAQを繋ぐだけ。整理はエージェントが自動で行い、属人化しにくい形にします。</p>
+        </div>
+        <div class="step">
+          <span class="idx">STEP 2</span>
+          <h3>回答を検証する</h3>
+          <p>AIの回答は出典を必ず添えて提示。人が確認してから公開する形なので、誤答の不安を下げられます。</p>
+        </div>
+        <div class="step">
+          <span class="idx">STEP 3</span>
+          <h3>効果で広げる</h3>
+          <p>削減率・解決率・AHTなどの数字で改善が見えるので、次の部署への展開の根拠にしやすい形です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">03 / SUPPORT — サポートは？</span>
+        <h2>信頼性とサポートの範囲</h2>
+        <p>「安全？誰が支えてくれる？」に、信頼性の根拠とサポート範囲で答えます。</p>
+      </div>
+      <div class="trust">
+        <div class="trust-item">
+          <p class="num">ISMS</p>
+          <p class="cap">情報セキュリティ認証<small>※掲載は案・実際の認証有無は未確定</small></p>
+        </div>
+        <div class="trust-item">
+          <p class="num">99.5%</p>
+          <p class="cap">想定稼働率（案）<small>※実際のSLAは未確定</small></p>
+        </div>
+        <div class="trust-item">
+          <p class="num">平日</p>
+          <p class="cap">相談受付（案）<small>※時間帯・範囲は未確定</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">04 / FAQ</span>
+        <h2>よくある質問（案）</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>この構成の参考元はどこですか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">Helpfeelの掲載内容・見出し・導線の順（用途→解決→サポート）を参考にしています。コード・素材・映像は使っていません。動きは自社のCSSで組み直しています。</p>
+        </details>
+        <details>
+          <summary>掲載の実績の数字は、何に基づいていますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">すべて仮の値です。実データでの検証は行っておらず、検討中の案として掲載しています。</p>
+        </details>
+        <details>
+          <summary>動きを全部消せますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">OS側の「アニメーションを減らす」設定を選ぶと、カードのホバーなどの動きはすべて消えて通常の見やすいページになります。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand">Nagiport Motion Kit（Helpfeel型・疑問解消構成案）</p>
+      <p class="foot-note">このページは検討中のデモです。掲載の文言・数値・実績・提供内容はすべて仮で、販売条件は確定していません。参考元のコード・素材・映像は使っていません。</p>
+    </div>
+    <nav class="foot-links" aria-label="フッター">
+      <a href="./index.html">バッチ一覧へ</a>
+      <a href="./thematic-demo.html">Thematic型・分析デモ案</a>
+      <a href="./navy-corp.html">白紺・業務向け案</a>
+    </nav>
+  </div>
+  <div class="wrap foot-meta">© 2026 Nagiport（検討中のデモ・noindex）</div>
+</footer>
+</body>
+</html>

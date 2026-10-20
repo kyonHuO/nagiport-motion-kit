@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0d0d12">
+<title>Nagiport Motion Kit｜Thematic型・分析デモ構成（検討中）</title>
+<meta name="description" content="「口コミ原文→分類→件数→改善点」の分析デモをヒーローに据えた、Thematic型の構成案。参考元は掲載内容・見出し・導線のみで、動きは自社CSSで組み直しています（検討中）。">
+<style>
+  :root{
+    --bg:#0d0d12;
+    --panel:#15161f;
+    --panel-2:#1b1c28;
+    --line:#2a2a38;
+    --fg:#f2f2f6;
+    --muted:#9a9aab;
+    --accent:#7c9cff;
+    --accent-deep:#4a6fe0;
+    --good:#69d2a2;
+    --bad:#ff8a7a;
+    --font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:.2em}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:#000;padding:12px 16px;border:2px solid var(--accent);z-index:100}
+  .skip:focus{left:0}
+  .wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){ .wrap{width:calc(100% - 32px)} }
+
+  .site-header{background:rgba(13,13,18,.92);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;flex-wrap:wrap;padding-block:10px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font-weight:700;font-size:17px}
+  .brand .mark{width:18px;height:18px;border:2px solid var(--accent);border-radius:4px;position:relative}
+  .brand .mark::after{content:"";position:absolute;inset:3px;background:var(--accent);border-radius:1px}
+  .brand small{display:block;font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.1em}
+  .nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+  .nav a{color:var(--fg);padding-block:6px;border-bottom:2px solid transparent}
+  .nav a:hover{border-bottom-color:var(--accent)}
+
+  .notice{background:#182036;border:1px solid #2c3f78;border-left:6px solid var(--accent);padding:13px 18px;font-size:13px;line-height:1.8;color:#c3c8d8;margin:24px 0 0}
+  .notice b{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#b9c9ff;border:1px solid #2c3f78;border-radius:999px;padding:2px 8px;margin-right:8px}
+
+  .hero{padding:56px 0 40px}
+  .hero .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--accent);margin:0 0 14px}
+  .hero h1{font-size:clamp(28px,4.6vw,44px);line-height:1.3;margin:0;font-weight:700;letter-spacing:-.01em;max-width:820px}
+  .hero h1 span{color:var(--accent)}
+  .hero .lead{margin:18px 0 0;max-width:700px;color:var(--muted);font-size:15px}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;border-radius:10px;font-weight:700;font-size:14.5px;border:1px solid transparent;transition:background .15s ease,color .15s ease}
+  .btn-primary{background:var(--accent);color:#0d0d12}
+  .btn-primary:hover{background:#94adff}
+  .btn-outline{border-color:var(--accent);color:var(--accent);background:transparent}
+  .btn-outline:hover{background:#1b2138}
+
+  /* 分析デモのパネル */
+  .demo{margin-top:40px;border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .demo-tabs{display:flex;gap:6px;padding:14px 16px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+  .demo-tabs button{appearance:none;border:0;background:transparent;color:var(--muted);font-family:var(--font);font-size:13.5px;font-weight:700;padding:10px 16px;border-radius:8px 8px 0 0;cursor:pointer;border-bottom:2px solid transparent}
+  .demo-tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent);background:var(--panel-2)}
+  .demo-body{padding:22px 22px 24px}
+  .demo-q{margin:0;font-size:15px;font-weight:700}
+  .demo-q small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);margin-bottom:6px;font-weight:400}
+  .demo-a{margin:12px 0 0;color:var(--muted);font-size:14px;max-width:720px}
+  .demo-a b{color:var(--fg)}
+  .src-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .src b{color:var(--fg);font-weight:600}
+  .demo-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{font-size:12.5px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--fg)}
+  .chip b{color:var(--accent)}
+  .demo-foot{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+
+  .section{padding:52px 0;border-top:1px solid var(--line)}
+  .section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+  .section-head .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--accent)}
+  .section-head h2{font-size:clamp(22px,3.2vw,30px);margin:0;line-height:1.4}
+  .section-head p{margin:0;color:var(--muted);max-width:720px;font-size:14.5px}
+
+  /* 分類バー */
+  .themes{display:flex;flex-direction:column;gap:14px;max-width:880px}
+  .theme{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 18px}
+  .theme .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;font-weight:700}
+  .theme .top .count{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400}
+  .theme .top .count b{color:var(--accent);font-size:14px}
+  .bar{height:8px;border-radius:4px;background:#222332;margin-top:12px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:4px;transition:width .9s cubic-bezier(.22,.61,.36,1)}
+  .theme:nth-child(2) .bar i{background:#5f7fd8}
+  .theme:nth-child(3) .bar i{background:#43589c}
+  .theme:nth-child(4) .bar i{background:#33406b}
+  .themes.in .bar i{width:var(--w)}
+  .theme .mix{margin:10px 0 0;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+  /* 売上影響 */
+  .impact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:880px}
+  @media (max-width:720px){ .impact{grid-template-columns:1fr} }
+  .imp{display:flex;justify-content:space-between;gap:14px;align-items:baseline;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px 18px;font-size:14px}
+  .imp .money{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--bad);white-space:nowrap}
+  .imp small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+  /* 生の声 */
+  .voices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:920px}
+  @media (max-width:720px){ .voices{grid-template-columns:1fr} }
+  .voice{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:18px}
+  .voice .tag{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+  .voice .tag .src{margin:0}
+  .voice .tag .up{font-family:var(--mono);font-size:11px;color:var(--accent)}
+  .voice blockquote{margin:0;font-size:14.5px;line-height:1.85;color:var(--fg)}
+  .voice .neg{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--bad)}
+  .voice .read{margin:6px 0 0;font-size:12.5px;color:var(--muted)}
+
+  /* 先行シグナル */
+  .signal{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:24px;max-width:880px}
+  .signal .row{display:grid;grid-template-columns:110px 1fr 64px;gap:14px;align-items:center;font-size:13.5px;margin-bottom:14px}
+  .signal .row:last-child{margin-bottom:0}
+  .signal .row .lbl{color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+  .signal .row .track{height:14px;border-radius:7px;background:#222332;position:relative;overflow:hidden}
+  .signal .row .track i{position:absolute;top:0;bottom:0;border-radius:7px}
+  .signal .row .val{font-family:var(--mono);font-size:13px;text-align:right}
+  .early{display:inline-block;background:rgba(105,210,162,.14);border:1px solid rgba(105,210,162,.4);color:var(--good);font-size:12px;border-radius:999px;padding:2px 10px;margin-left:10px}
+  @media (max-width:560px){ .signal .row{grid-template-columns:84px 1fr 52px} }
+
+  .prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:760px}
+  @media (max-width:640px){ .prices{grid-template-columns:1fr} }
+  .price{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--panel)}
+  .price.featured{border:2px solid var(--accent)}
+  .price .label{display:inline-block;background:#1b2138;color:#b9c9ff;font-size:12px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:4px}
+  .price .name{font-size:13px;letter-spacing:.1em;color:var(--muted);font-weight:700;margin:14px 0 4px}
+  .price .amount{font-size:32px;font-weight:700;color:var(--fg)}
+  .price .amount small{font-size:13px;font-weight:400;color:var(--muted);margin-left:4px}
+  .price p{margin:8px 0 0;color:var(--muted);font-size:14px}
+
+  .faq{border-top:1px solid var(--line);max-width:860px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-weight:700;font-size:15px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .ic{flex:0 0 auto;width:24px;height:24px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;font-size:14px;line-height:1}
+  .faq summary .ic::before{content:"+"}
+  .faq details[open] summary .ic::before{content:"−"}
+  .faq .a{padding:0 4px 20px;color:var(--muted);font-size:14px;max-width:760px}
+
+  .site-foot{border-top:1px solid var(--line);background:#0a0a0f;padding:40px 0 56px}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+  .foot-brand{font-weight:700;font-size:15px}
+  .foot-note{margin:8px 0 0;font-size:12.5px;color:var(--muted);max-width:600px;line-height:1.9}
+  .foot-links{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-meta{margin-top:24px;font-size:12px;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+    .themes .bar i{width:var(--w)}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="./index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Nagiport</b><small>MOTION KIT / 分析デモ構成案</small></span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#demo">デモ</a>
+      <a href="#themes">分類</a>
+      <a href="#impact">売上影響</a>
+      <a href="#voices">生の声</a>
+      <a href="#plans">プラン</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <p class="notice"><b>DEMO</b>Thematic型の構成（口コミ原文→分類→件数→改善点）を、黒＋青の配色で組み直した案です。参考元は掲載内容・見出し・導線のみで、動きは自社CSSで組み直し、コード・素材は使っていません。文言・数値・料金はすべて仮です。</p>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">NAGIPORT MOTION KIT / 分析デモ構成（Thematic型）</p>
+      <h1>フィードバックは届いている。<span>答えは届いていない。</span></h1>
+      <p class="lead">問い合わせ・評価・レビュー・アンケートを1つの画面で分類し、件数と売上影響まで見せる構成案です。ヒーローに「質問→答え」のデモパネルを据える、Thematic型の見せ方をそのまま真似た形です（検討中）。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#demo">デモを見る</a>
+        <a class="btn btn-outline" href="#plans">プラン（案）</a>
+      </div>
+
+      <div class="demo" id="demo">
+        <div class="demo-tabs" role="tablist" aria-label="デモの切り替え">
+          <button type="button" role="tab" aria-selected="true" data-q="0">Ask</button>
+          <button type="button" role="tab" aria-selected="false" data-q="1">Answer</button>
+          <button type="button" role="tab" aria-selected="false" data-q="2">Score change</button>
+          <button type="button" role="tab" aria-selected="false" data-q="3">Revenue at risk</button>
+        </div>
+        <div class="demo-body">
+          <p class="demo-q"><small>QUESTION / 01</small>「配送」のクレームは、何がきっかけで増えている？」</p>
+          <p class="demo-a">直近四半期で<b>「配送」関連 1,284件</b>（前四半期比 +34%）。内訳の大半は<b>「出荷後の連絡がない」</b>で、配送料そのものの不満ではありません。</p>
+          <div class="src-row">
+            <span class="src">チケット <b>612</b></span>
+            <span class="src">電話 <b>288</b></span>
+            <span class="src">アプリ評価 <b>241</b></span>
+            <span class="src">アンケート <b>143</b></span>
+          </div>
+          <div class="demo-chips">
+            <span class="chip">出荷連絡がない <b>704</b></span>
+            <span class="chip">追跡URLが届かない <b>318</b></span>
+            <span class="chip">再配送の手順が不明 <b>262</b></span>
+          </div>
+        </div>
+        <p class="demo-foot">DEMO PANEL — 数値はすべて仮。実データ接続は商品として提供するかは未確定。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="themes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">01 / THEMES</span>
+        <h2>分類された声（件数）</h2>
+        <p>4ソース合計 38,213件から抽出した主要テーマ。件数で並べ、出所も見える形です。</p>
+      </div>
+      <div class="themes" id="themeList">
+        <div class="theme">
+          <div class="top"><span>出荷後の連絡がない</span><span class="count"><b>7,412</b> 件</span></div>
+          <div class="bar"><i style="--w:100%"></i></div>
+          <p class="mix">チケット 38.2% / 電話 27.5% / アプリ評価 22.1% / アンケート 12.2%</p>
+        </div>
+        <div class="theme">
+          <div class="top"><span>追跡URLが届かない</span><span class="count"><b>4,186</b> 件</span></div>
+          <div class="bar"><i style="--w:56%"></i></div>
+          <p class="mix">アプリ評価 44.6% / チケット 31.0% / 電話 14.9% / アンケート 9.5%</p>
+        </div>
+        <div class="theme">
+          <div class="top"><span>再配送の手順が不明</span><span class="count"><b>2,603</b> 件</span></div>
+          <div class="bar"><i style="--w:35%"></i></div>
+          <p class="mix">電話 41.3% / チケット 33.7% / アプリ評価 15.2% / アンケート 9.8%</p>
+        </div>
+        <div class="theme">
+          <div class="top"><span>配送料が高い（本当は違う）</span><span class="count"><b>1,147</b> 件</span></div>
+          <div class="bar"><i style="--w:15%"></i></div>
+          <p class="mix">アンケート 52.0% / アプリ評価 24.4% / チケット 15.1% / 電話 8.5%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="impact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">02 / REVENUE AT RISK</span>
+        <h2>売上影響に紐づけて</h2>
+        <p>テーマをアカウントの売上と結合し、どの改善がどの金額に関わるかを見せる案です。金額はすべて仮。</p>
+      </div>
+      <div class="impact">
+        <div class="imp"><div>出荷連絡がない<small>再注文率の低下と関連</small></div><span class="money">¥1.6M</span></div>
+        <div class="imp"><div>追跡URLが届かない<small>問い合わせ負荷の集中</small></div><span class="money">¥1.1M</span></div>
+        <div class="imp"><div>再配送の手順が不明<small>返金リクエストの増加</small></div><span class="money">¥0.8M</span></div>
+        <div class="imp"><div>配送料が高い（本当は違う）<small>誤解に基づく離脱</small></div><span class="money">¥0.5M</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voices">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">03 / RAW VOICES</span>
+        <h2>分類の裏にある生の声</h2>
+        <p>件数の出典となる原文を、出所と感情の比率ごとに見せる案です。引用文はすべて架空の仮文です。</p>
+      </div>
+      <div class="voices">
+        <div class="voice">
+          <div class="tag"><span class="src">アプリ評価</span><span class="up">+318 件</span></div>
+          <blockquote>「発送のメールだけ来て、それ以降連絡がない。届くのか不安で毎朝アプリを開いてしまう。」</blockquote>
+          <p class="neg">71% 否定的</p>
+          <p class="read">配送料ではなく「連絡」の欠落として読まれる</p>
+        </div>
+        <div class="voice">
+          <div class="tag"><span class="src">電話</span><span class="up">+264 件</span></div>
+          <blockquote>「追跡番号はどこにありますか？と聞かれるたびに同じ説明を繰り返している。」</blockquote>
+          <p class="neg">64% 否定的</p>
+          <p class="read">サポート担当者の負担として読まれる</p>
+        </div>
+        <div class="voice">
+          <div class="tag"><span class="src">アンケート</span><span class="up">+143 件</span></div>
+          <blockquote>「配送料が高い」と書いているが、文面を読むと再配送の手順が分からないことへの不満が多い。</blockquote>
+          <p class="neg">58% 否定的</p>
+          <p class="read">「配送料」のラベルで集計されると誤る</p>
+        </div>
+        <div class="voice">
+          <div class="tag"><span class="src">チケット</span><span class="up">+412 件</span></div>
+          <blockquote>「2回目以降の配送をどう頼めばいいか分からず、結局最初からやり直しになっている。」</blockquote>
+          <p class="neg">69% 否定的</p>
+          <p class="read">導線の問題として改善可能性が高い</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="signal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">04 / EARLY SIGNAL</span>
+        <h2>アプリ評価は5週間早く気づいていた</h2>
+        <p>「出荷連絡がない」の増加は、アプリ評価で最初のサポートチケットより5週間前に現れていたという見せ方の案です。</p>
+      </div>
+      <div class="signal">
+        <div class="row">
+          <span class="lbl">アプリ評価</span>
+          <span class="track"><i style="left:0;width:82%;background:var(--accent)"></i></span>
+          <span class="val">-5週</span>
+        </div>
+        <div class="row">
+          <span class="lbl">チケット</span>
+          <span class="track"><i style="left:18%;width:64%;background:#5f7fd8"></i></span>
+          <span class="val">-0週</span>
+        </div>
+        <div class="row">
+          <span class="lbl">アンケート</span>
+          <span class="track"><i style="left:34%;width:48%;background:#33406b"></i></span>
+          <span class="val">+2週</span>
+        </div>
+      </div>
+      <p style="margin:16px 0 0;font-size:13px;color:var(--muted);max-width:760px">評価は12%しか「配送料」のテーマを拾えていなかった（仮の値）。<span class="early">5週早い</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">05 / PLANS</span>
+        <h2>プラン（案）</h2>
+        <p>他のバッチ案と同じく2つの形を並べた案です。金額はすべて仮で、確定していません。</p>
+      </div>
+      <div class="prices">
+        <div class="price">
+          <span class="label">案・基本</span>
+          <p class="name">分析デモ構成 一式</p>
+          <p class="amount">（未定）<small>税込</small></p>
+          <p>この構成の完成HTML一式と差し替え手順の動画。ファイルを置いて公開するだけの形です。</p>
+        </div>
+        <div class="price featured">
+          <span class="label">案・比較用</span>
+          <p class="name">分析デモ構成 一式＋相談1回分</p>
+          <p class="amount">（未定）<small>税込</small></p>
+          <p>基本の内容に、公開前に一度だけ使い方の相談が受けられる形を想定しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">06 / FAQ</span>
+        <h2>よくある質問（案）</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>この画面の数は、どこから来ますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">掲載の件数・金額・比率はすべて仮の値です。実データへの接続は商品として提供するか未確定で、検討中です。</p>
+        </details>
+        <details>
+          <summary>参考にしたサイトの素材は入っていますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">入っていません。掲載内容・見出し・導線の構成だけを確認し、動きは自社のCSSで組み直しています。</p>
+        </details>
+        <details>
+          <summary>動きを全部消せますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">OS側の「アニメーションを減らす」設定を選ぶと、バーの伸びなどの動きはすべて消えて通常の見やすいページになります。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand">Nagiport Motion Kit（Thematic型・分析デモ構成案）</p>
+      <p class="foot-note">このページは検討中のデモです。掲載の文言・数値・料金・提供内容はすべて仮で、販売条件は確定していません。参考元のコード・素材・映像は使っていません。</p>
+    </div>
+    <nav class="foot-links" aria-label="フッター">
+      <a href="./index.html">バッチ一覧へ</a>
+      <a href="./navy-corp.html">白紺・業務向け案</a>
+      <a href="./dark-corp.html">黒青・業務向け案</a>
+    </nav>
+  </div>
+  <div class="wrap foot-meta">© 2026 Nagiport（検討中のデモ・noindex）</div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll(".demo-tabs button"));
+  if(!tabs.length)return;
+  var content=[
+    {no:"QUESTION / 01",q:"「配送」のクレームは、何がきっかけで増えている？",a:"直近四半期で<b>「配送」関連 1,284件</b>（前四半期比 +34%）。内訳の大半は<b>「出荷後の連絡がない」</b>で、配送料そのものの不満ではありません。"},
+    {no:"ANSWER / 02",q:"どのソースが先に反応していた？",a:"アプリ評価が最初のサポートチケットより<b>5週間早く</b>増加を示していた。アンケートは<b>12%</b>しか「配送料」のテーマを拾えていなかった（仮の値）。"},
+    {no:"SCORE CHANGE / 03",q:"改善後、スコアはどう動く？",a:"「出荷連絡」の改善だけで、配送関連の否定比率が<b>-18pt</b>下がる見込み（仮のシミュレーション値）。"},
+    {no:"REVENUE AT RISK / 04",q:"どのテーマが売上に関わる？",a:"「出荷連絡がない」が<b>¥1.6M</b>、「追跡URLが届かない」が<b>¥1.1M</b>と関連。改善優先順位の根拠にする見せ方（仮の値）。"}
+  ];
+  var body=document.querySelector(".demo-body");
+  var qEl=body.querySelector(".demo-q"), aEl=body.querySelector(".demo-a");
+  var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function select(i){
+    tabs.forEach(function(t,j){t.setAttribute("aria-selected",j===i?"true":"false");});
+    if(reduced){qEl.innerHTML="<small>"+content[i].no+"</small>"+content[i].q;aEl.innerHTML=content[i].a;return;}
+    body.style.opacity="0";
+    setTimeout(function(){
+      qEl.innerHTML="<small>"+content[i].no+"</small>"+content[i].q;
+      aEl.innerHTML=content[i].a;
+      body.style.opacity="1";
+    },140);
+  }
+  tabs.forEach(function(t){t.addEventListener("click",function(){select(parseInt(t.dataset.q,10));});});
+  body.style.transition="opacity .15s ease";
+
+  var list=document.getElementById("themeList");
+  if(list&&"IntersectionObserver" in window&&!reduced){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.25});
+    io.observe(list);
+  }else if(list){list.classList.add("in");}
+})();
+</script>
+</body>
+</html>
