@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fff6ee">
+<title>Nagiport Motion Kit｜暖色・相談窓口向け（比較用1案）</title>
+<meta name="description" content="温かみのある暖色系の、相談窓口向け1ページ案。文章と機能は白紺案と揃え、配色と雰囲気の比較に使う形です（比較用1案）。">
+<style>
+  :root{
+    --peach:#e8641f;
+    --peach-deep:#c14d12;
+    --peach-soft:#fdeadd;
+    --cream:#fff6ee;
+    --fg:#3a2a20;
+    --fg-muted:#8a6a55;
+    --border:#eed9c6;
+    --bg:#fffaf5;
+    --bg-sub:#fff2e6;
+    --radius:14px;
+    --font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:var(--peach-deep);text-decoration:underline;text-underline-offset:.2em}
+  a:hover{text-decoration-thickness:2px}
+  :focus-visible{outline:3px solid var(--peach);outline-offset:2px}
+  img{max-width:100%;display:block}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--fg);padding:12px 16px;border:2px solid var(--peach);border-radius:8px;z-index:100}
+  .skip:focus{left:0}
+  .wrap{width:min(1080px,calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){ .wrap{width:calc(100% - 32px)} }
+
+  .site-header{background:var(--cream);border-bottom:1px solid var(--border)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px;flex-wrap:wrap;padding-block:12px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font-weight:700;font-size:18px}
+  .brand .mark{width:20px;height:20px;background:var(--peach);border-radius:50%;display:inline-block}
+  .brand small{display:block;font-size:11px;font-weight:400;color:var(--fg-muted);letter-spacing:.08em}
+  .nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px}
+  .nav a{color:var(--fg);text-decoration:none;padding-block:6px;border-bottom:2px solid transparent}
+  .nav a:hover{border-bottom-color:var(--peach);color:var(--peach-deep)}
+  @media (max-width:720px){ .nav{gap:14px;font-size:13px} }
+
+  .notice{background:var(--peach-soft);border-left:6px solid var(--peach);padding:14px 18px;font-size:13.5px;line-height:1.8;margin:24px 0 0;border-radius:0 8px 8px 0}
+  .notice b{font-size:12px;letter-spacing:.14em;color:var(--peach-deep);margin-right:8px}
+
+  .hero{padding:64px 0 56px}
+  .hero .kicker{font-size:12px;letter-spacing:.18em;color:var(--fg-muted);margin:0 0 14px;font-weight:700}
+  .hero h1{font-size:clamp(30px,5vw,50px);line-height:1.35;margin:0 0 0;letter-spacing:.01em;font-weight:700}
+  .hero h1 span{color:var(--peach-deep)}
+  .hero .lead{margin:20px 0 0;max-width:720px;color:var(--fg-muted);font-size:15.5px;line-height:1.9}
+  .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;border-radius:var(--radius);font-weight:700;font-size:15px;text-decoration:none;border:1px solid transparent;transition:background .15s ease,color .15s ease}
+  .btn-primary{background:var(--peach);color:#fff}
+  .btn-primary:hover{background:var(--peach-deep)}
+  .btn-outline{border-color:var(--peach);color:var(--peach-deep);background:#fff}
+  .btn-outline:hover{background:var(--peach-soft)}
+
+  .section{padding:52px 0;border-top:1px solid var(--border)}
+  .section.alt{background:var(--bg-sub)}
+  .section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+  .section-head .no{font-size:12px;letter-spacing:.16em;color:var(--peach-deep);font-weight:700}
+  .section-head h2{font-size:clamp(22px,3.2vw,30px);margin:0;line-height:1.4}
+  .section-head p{margin:0;color:var(--fg-muted);max-width:720px;font-size:14.5px}
+
+  .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  @media (max-width:820px){ .features{grid-template-columns:1fr} }
+  .feature{border:1px solid var(--border);border-radius:var(--radius);padding:24px;background:#fff}
+  .feature .num{font-size:12px;letter-spacing:.12em;color:var(--peach-deep);font-weight:700}
+  .feature h3{margin:8px 0 8px;font-size:18px;line-height:1.5}
+  .feature p{margin:0;color:var(--fg-muted);font-size:14px;line-height:1.85}
+
+  .table-scroll{overflow-x:auto}
+  .table{width:100%;border-collapse:collapse;font-size:14px}
+  .table th,.table td{border:1px solid var(--border);padding:12px 14px;text-align:left;vertical-align:top}
+  .table th{background:var(--bg-sub);font-weight:700;white-space:nowrap}
+  .table td.hl{color:var(--peach-deep);font-weight:700;white-space:nowrap}
+
+  .prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:760px}
+  @media (max-width:640px){ .prices{grid-template-columns:1fr} }
+  .price{border:1px solid var(--border);border-radius:var(--radius);padding:24px;background:#fff}
+  .price.featured{border:2px solid var(--peach)}
+  .price .label{display:inline-block;background:var(--peach-soft);color:var(--peach-deep);font-size:12px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:999px}
+  .price .name{font-size:13px;letter-spacing:.1em;color:var(--fg-muted);font-weight:700;margin:14px 0 4px}
+  .price .amount{font-size:34px;font-weight:700;line-height:1.2;color:var(--peach-deep)}
+  .price .amount small{font-size:14px;font-weight:400;color:var(--fg-muted);margin-left:4px}
+  .price p{margin:8px 0 0;color:var(--fg-muted);font-size:14px;line-height:1.8}
+
+  .faq{border-top:1px solid var(--border);max-width:860px}
+  .faq details{border-bottom:1px solid var(--border)}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-weight:700;font-size:15.5px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .ic{flex:0 0 auto;width:24px;height:24px;border:1px solid var(--peach);border-radius:50%;display:grid;place-items:center;font-size:14px;line-height:1}
+  .faq details[open] summary .ic::before{content:"−"}
+  .faq summary .ic::before{content:"+"}
+  .faq .a{padding:0 4px 20px;color:var(--fg-muted);font-size:14px;line-height:1.9;max-width:760px}
+
+  .site-foot{border-top:1px solid var(--border);background:var(--bg-sub);padding:40px 0 56px;margin-top:8px}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+  .foot-brand{font-weight:700;font-size:15px}
+  .foot-note{margin:8px 0 0;font-size:12.5px;color:var(--fg-muted);line-height:1.9;max-width:600px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-meta{margin-top:24px;font-size:12px;color:var(--fg-muted)}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="./index.html">
+      <span class="mark" aria-hidden="true"></span>
+      <span><b>Nagiport</b><small>MOTION KIT / 暖色案</small></span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#overview">概要</a>
+      <a href="#features">できること</a>
+      <a href="#plans">プラン</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <p class="notice"><b>DEMO</b>温かみのある暖色系の、相談窓口向けレイアウト案です。文章と機能は白紺案と揃えてあり、配色と雰囲気の比較に使う形です（比較用1案）。</p>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">NAGIPORT MOTION KIT / 暖色・相談窓口案</p>
+      <h1>相談の入り口に、<span>やさしい動き</span>。</h1>
+      <p class="lead">堅苦しくなく、安心して問い合わせられそうな雰囲気を出す1ページのサイトテンプレートです。日本語の行間で崩れにくい作りで、文言と画像を差し替えて使う形を想定しています（検証中）。</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#plans">プランを見る</a>
+        <a class="btn btn-outline" href="./navy-corp.html">白紺案と比較する</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="overview">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">01 / OVERVIEW</span>
+        <h2>このキットについて</h2>
+        <p>ヒーロー、機能紹介、料金、FAQまでを1ページにまとめた構成案です。このページ自体も検討中のデモで、まだ商品は準備中です。</p>
+      </div>
+      <div class="table-scroll">
+        <table class="table">
+          <thead><tr><th>項目</th><th>内容（案）</th></tr></thead>
+          <tbody>
+            <tr><td class="hl">想定する使い方</td><td>文言と画像を差し替えて、そのまま公開する形を想定しています（検証中）。</td></tr>
+            <tr><td class="hl">必要な作業</td><td>ファイルを置いて公開するだけの構成。サーバーやCLIの操作は想定していません。</td></tr>
+            <tr><td class="hl">確認済みの範囲</td><td>Linux上のChrome（ヘッドレス）で375 / 768 / 1440px幅の横はみ出しがないことのみ。実機・Safari・Firefoxは未検証です。</td></tr>
+            <tr><td class="hl">未確定の項目</td><td>料金、提供時期、サポート範囲、返金条件。いずれも検討中です。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">02 / FEATURES</span>
+        <h2>できること</h2>
+        <p>白紺案と同じ3つの動きを、暖色系で出してみます。比較用に文章と機能は揃えています。</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <span class="num">A</span>
+          <h3>見出しが読める動き方</h3>
+          <p>スクロールに合わせて見出しが静かに立ち上がる動き。強調しすぎず、目線の誘導だけに使います。</p>
+        </div>
+        <div class="feature">
+          <span class="num">B</span>
+          <h3>表が崩れない構成</h3>
+          <p>料金表・比較表は幅が狭くなっても横スクロールで対応。日本語の長いセルでも折り返しが乱れません。</p>
+        </div>
+        <div class="feature">
+          <span class="num">C</span>
+          <h3>動きを止められる</h3>
+          <p>OSで「アニメーションを減らす」を選ぶと、すべての動きが消えます。利用者の設定を尊重する作りです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">03 / PLANS</span>
+        <h2>プラン（案）</h2>
+        <p>2つの形を比較用に並べた案です。金額はすべて仮で、確定していません。</p>
+      </div>
+      <div class="prices">
+        <div class="price">
+          <span class="label">案・基本</span>
+          <p class="name">テンプレート一式</p>
+          <p class="amount">（未定）<small>税込</small></p>
+          <p>完成したHTML一式と差し替え手順の動画。ファイルを置いて公開するだけの形です。</p>
+        </div>
+        <div class="price featured">
+          <span class="label">案・比較用</span>
+          <p class="name">テンプレート一式＋相談1回分</p>
+          <p class="amount">（未定）<small>税込</small></p>
+          <p>基本の内容に、公開前に一度だけ使い方の相談が受けられる形を想定しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="no">04 / FAQ</span>
+        <h2>よくある質問（案）</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>サーバーの準備は必要ですか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">想定しているのはファイルを置いて公開するだけの形です。特別なサーバー機能は使っていません（検証中）。</p>
+        </details>
+        <details>
+          <summary>動きを全部消せますか？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">OS側の「アニメーションを減らす」設定を選ぶと、すべての動きが消えて通常の見やすいページになります。</p>
+        </details>
+        <details>
+          <summary>差し替えた後、壊れたら？<span class="ic" aria-hidden="true"></span></summary>
+          <p class="a">保証の範囲はまだ確定していません。差し替えで起きた不具合の対応範囲は検討中です。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand">Nagiport Motion Kit（暖色・相談窓口案）</p>
+      <p class="foot-note">このページは比較用の検討中のデモです。掲載している文言・料金・提供内容はすべて案で、販売条件は確定していません。</p>
+    </div>
+    <nav class="foot-links" aria-label="フッター">
+      <a href="./index.html">バッチ一覧へ</a>
+      <a href="./navy-corp.html">白紺・業務向け案</a>
+      <a href="./warm-services.html">サービス案内案</a>
+    </nav>
+  </div>
+  <div class="wrap foot-meta">© 2026 Nagiport（検討中のデモ・noindex）</div>
+</footer>
+</body>
+</html>
