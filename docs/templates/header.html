@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 28 / HEADER — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 28 / HEADER（ヘッダー・ナビ）
+  固定ヘッダー＋ナビゲーション。ブランド名・メニュー項目・CTAボタンを
+  data-edit で差し替え。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:1200px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+  .head{padding:clamp(64px,10vw,120px) 0 24px}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px 0 0;color:var(--muted);max-width:560px}
+  .site-head{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(7,8,11,.72);border-bottom:1px solid var(--line)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(59,107,255,.16)}
+  .nav{display:flex;gap:26px;font-size:12px;color:var(--muted)}
+  .nav a:hover{color:var(--fg)}
+  .head-cta{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:12px;background:#0d111b;transition:border-color .18s ease,color .18s ease}
+  .head-cta:hover{border-color:var(--blue);color:#fff}
+  .head-cta .arw{color:var(--blue-2)}
+  @media (max-width:860px){.nav{display:none}}
+  .demo{padding-bottom:80px}
+  .demo .card{border:1px dashed #2a3350;border-radius:16px;padding:22px;background:linear-gradient(180deg,#0c1019,#090c13);color:#8894ad;font-size:13px}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="site-head" id="top">
+  <div class="wrap head-in">
+    <a class="brand" href="#"><span class="dot" aria-hidden="true"></span><span data-edit="brand">NAGIPORT&nbsp;/&nbsp;SITE</span></a>
+    <nav class="nav" aria-label="主要">
+      <a href="#" data-edit="nav1">メニュー1</a>
+      <a href="#" data-edit="nav2">メニュー2</a>
+      <a href="#" data-edit="nav3">メニュー3</a>
+      <a href="#" data-edit="nav4">メニュー4</a>
+    </nav>
+    <a class="head-cta" href="#" data-edit="cta">CTA <span class="arw" aria-hidden="true">→</span></a>
+  </div>
+</header>
+<header class="head wrap">
+  <p class="eyebrow" data-reveal data-edit="eyebrow">HEADER — ヘッダー・ナビ</p>
+  <h1 data-reveal data-edit="main-headline">ヘッダー。</h1>
+  <p data-reveal data-edit="main-lead">固定ヘッダー＋ナビゲーションです。ブランド名・メニュー項目・CTAボタンを data-edit に差し替えてください。</p>
+</header>
+<section class="demo wrap" data-reveal>
+  <div class="card">ここに本文が続きます。ヘッダーの下に、ヒーローや本文を並べます。</div>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>

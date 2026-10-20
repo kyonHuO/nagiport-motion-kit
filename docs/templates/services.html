@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 23 / SERVICES — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 23 / SERVICES（サービス一覧）
+  6つのサービスを並べる。各サービスのアイコン・タイトル・説明を data-edit で差し替え。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:1100px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+  .head{padding:clamp(64px,10vw,120px) 0 24px}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px 0 0;color:var(--muted);max-width:560px}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:80px}
+  @media (max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:520px){.grid{grid-template-columns:1fr}}
+  .svc{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,#0c1019,#090c13);transition:border-color .2s ease,transform .2s ease}
+  .svc:hover{border-color:#3d4a72;transform:translateY(-3px)}
+  .svc .ico{width:48px;height:48px;border-radius:12px;background:radial-gradient(circle,#1d3cff,#7a4dff);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+  .svc h3{margin:0 0 8px;font-size:18px;font-weight:700}
+  .svc p{margin:0;color:var(--muted);font-size:13px;line-height:1.95}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="head wrap" id="top">
+  <p class="eyebrow" data-reveal data-edit="eyebrow">SERVICES — サービス一覧</p>
+  <h1 data-reveal data-edit="main-headline">サービス。</h1>
+  <p data-reveal data-edit="main-lead">6つのサービスを並べます。各サービスのアイコン・タイトル・説明を data-edit に差し替えてください。</p>
+</header>
+<section class="grid wrap">
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s1-title">サービス1</h3><p data-edit="s1-body">サービス1の説明を差し替えます。</p></div>
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s2-title">サービス2</h3><p data-edit="s2-body">サービス2の説明を差し替えます。</p></div>
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s3-title">サービス3</h3><p data-edit="s3-body">サービス3の説明を差し替えます。</p></div>
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s4-title">サービス4</h3><p data-edit="s4-body">サービス4の説明を差し替えます。</p></div>
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s5-title">サービス5</h3><p data-edit="s5-body">サービス5の説明を差し替えます。</p></div>
+  <div class="svc" data-reveal><span class="ico" aria-hidden="true">✦</span><h3 data-edit="s6-title">サービス6</h3><p data-edit="s6-body">サービス6の説明を差し替えます。</p></div>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>

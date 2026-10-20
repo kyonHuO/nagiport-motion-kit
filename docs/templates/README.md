@@ -1,6 +1,6 @@
 # Nagiport Motion Kit — テンプレート一式
 
-`templates/` 配下の20ファイルが、そのまま公開できる完成形です。
+`templates/` 配下の34ファイルが、そのまま公開できる完成形です。
 サーバー・CLI不要。このファイルをそのまま置いて、公開できます。
 
 ## ファイル一覧
@@ -27,6 +27,20 @@
 | 18 | `video.html` | 動画紹介 |
 | 19 | `download.html` | 資料ダウンロード |
 | 20 | `trust.html` | 信頼・実績ロゴ |
+| 21 | `blog.html` | 記事一覧（カード6件） |
+| 22 | `blog-post.html` | 記事本文（見出し・引用・タグ） |
+| 23 | `services.html` | サービス一覧（6件） |
+| 24 | `404.html` | エラー画面 |
+| 25 | `map.html` | 所在地・地図 |
+| 26 | `cookie.html` | Cookie同意バナー |
+| 27 | `privacy.html` | プライバシーポリシー |
+| 28 | `header.html` | ヘッダー・ナビ |
+| 29 | `footer.html` | フッター |
+| 30 | `features.html` | 特徴6点 |
+| 31 | `hero-split.html` | 2カラムヒーロー |
+| 32 | `team-grid.html` | チームグリッド・4人 |
+| 33 | `cta-split.html` | 2カラムCTA |
+| 34 | `pricing-simple.html` | 料金表・2プラン |
 
 ## 差し替え手順
 

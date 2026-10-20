@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 26 / COOKIE — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 26 / COOKIE（Cookie同意バナー）
+  Cookie同意バナー。本文・同意ボタン・拒否ボタン・プライバシーポリシーへの導線を
+  data-edit で差し替え。同意は localStorage に保存します（差替え時は確認）。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:720px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+  .head{padding:clamp(64px,10vw,120px) 0 24px}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px 0 0;color:var(--muted);max-width:560px}
+  .banner{position:fixed;inset:auto 0 0 0;z-index:90;border-top:1px solid #2c3f78;background:rgba(12,16,28,.96);backdrop-filter:blur(14px);padding:20px 24px;transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .banner.show{transform:none}
+  .banner-in{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .banner p{margin:0;flex:1;min-width:240px;color:#c3cada;font-size:13px;line-height:1.8}
+  .banner p a{color:var(--blue-2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid var(--line);color:#dfe5f2;transition:border-color .18s ease,color .18s ease}
+  .btn:hover{border-color:var(--blue);color:#fff}
+  .btn-ok{background:var(--blue);color:#fff;border-color:transparent}
+  .btn-ok:hover{background:#4d79ff}
+  .note{padding-bottom:80px;color:#6d7a95;font-size:12px;font-family:var(--mono);letter-spacing:.1em}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}.banner{transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="head wrap" id="top">
+  <p class="eyebrow" data-reveal data-edit="eyebrow">COOKIE — Cookie同意</p>
+  <h1 data-reveal data-edit="main-headline">Cookie同意バナー。</h1>
+  <p data-reveal data-edit="main-lead">Cookie同意バナーです。本文・同意ボタン・拒否ボタン・プライバシーポリシーへの導線を data-edit に差し替えてください。</p>
+</header>
+<p class="note wrap" data-reveal data-edit="note">※ バナーは画面下部に固定表示されます。同意は localStorage に保存されます。</p>
+
+<div class="banner" id="banner">
+  <div class="wrap banner-in">
+    <p data-edit="cookie-text">当サイトは、より良い体験のために Cookie を使用しています。詳細は<a href="#" data-edit="cookie-policy">プライバシーポリシー</a>をご確認ください。</p>
+    <button class="btn" type="button" id="deny" data-edit="btn-deny">拒否する</button>
+    <button class="btn btn-ok" type="button" id="accept" data-edit="btn-accept">同意する</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='nagi-cookie-consent';
+  var saved=null; try{ saved=localStorage.getItem(KEY); }catch(e){}
+  if(!saved){ var b=document.getElementById('banner'); setTimeout(function(){ b.classList.add('show'); },600); }
+  function done(val){ try{localStorage.setItem(KEY,val);}catch(e){} var b=document.getElementById('banner'); b.classList.remove('show'); }
+  var a=document.getElementById('accept'), d=document.getElementById('deny');
+  if(a)a.addEventListener('click',function(){done('1');});
+  if(d)d.addEventListener('click',function(){done('0');});
+  var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var it=document.querySelectorAll('[data-reveal]');
+  if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}
+})();
+</script>
+</body>
+</html>
