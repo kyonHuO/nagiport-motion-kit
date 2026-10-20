@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 08 / CTA — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 08 / CTA（大きな導線）
+  ページの最後に置く「今すぐ始めよう」ブロック。見出し・説明・ボタンを data-edit で差し替え。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:900px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .cta{position:relative;isolation:isolate;overflow:hidden;min-height:80svh;display:flex;align-items:center;padding:clamp(64px,10vw,120px) 0;text-align:center}
+  .cta-bg{position:absolute;inset:-20% -10%;z-index:-2;pointer-events:none}
+  .cta-bg .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
+  .cta-bg .g1{width:52vmax;height:52vmax;left:-16vmax;top:-22vmax;background:radial-gradient(circle,#1d3cff 0%,rgba(29,60,255,0) 62%)}
+  .cta-bg .g2{width:38vmax;height:38vmax;right:-10vmax;bottom:-16vmax;background:radial-gradient(circle,#7a4dff 0%,rgba(122,77,255,0) 66%);opacity:.3}
+  .cta-bg .grid{position:absolute;inset:0;opacity:.32;background-image:linear-gradient(rgba(120,150,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.08) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(90% 70% at 50% 50%,#000 10%,transparent 78%)}
+  .cta .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 24px}
+  .cta h1{margin:0 auto;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:clamp(42px,8vw,110px);max-width:900px;text-wrap:balance}
+  .cta h1 .accent{color:var(--blue);text-shadow:0 0 60px rgba(59,107,255,.35)}
+  .cta p{max-width:560px;margin:28px auto 0;color:#c3cada;font-size:15px;line-height:2}
+  .cta .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:0 30px;border-radius:999px;font-weight:700;font-size:15px;margin-top:36px;background:var(--blue);color:#fff;box-shadow:0 12px 40px rgba(59,107,255,.34);transition:transform .18s ease,background .18s ease}
+  .cta .btn:hover{background:#4d79ff}
+  .cta .btn:active{transform:translateY(1px)}
+  .cta .sub{display:block;margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#7d8aa4}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}.cta-bg .glow,.cta-bg .grid{animation:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<section class="cta" id="top">
+  <div class="cta-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div></div>
+  <div class="wrap">
+    <p class="eyebrow" data-reveal data-edit="eyebrow">CTA — 最後に</p>
+    <h1 data-reveal data-edit="main-headline">今日から<br><span class="accent">始めましょう。</span></h1>
+    <p data-reveal data-edit="main-lead">最後の導線です。ここから先は何ができるかを、一文で伝えます。ボタンも差し替え対象です。</p>
+    <a class="btn" href="#" data-reveal data-edit="cta-primary">始める <span aria-hidden="true">→</span></a>
+    <span class="sub" data-reveal data-edit="sub">登録不要・すぐ開始（例）</span>
+  </div>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>

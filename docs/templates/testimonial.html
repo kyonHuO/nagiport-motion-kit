@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 07 / TESTIMONIAL — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 07 / TESTIMONIAL（お客様の声）
+  3つの声を並べる。各声は data-edit で差し替え。引用符と名前・肩書も差し替え対象。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:1100px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+  .head{padding:clamp(64px,10vw,120px) 0 24px}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px 0 0;color:var(--muted);max-width:560px}
+  .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:80px}
+  @media (max-width:900px){.quotes{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+  .quote{border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(180deg,#0c1019,#090c13);display:flex;flex-direction:column;gap:18px}
+  .quote .mark{font-size:40px;line-height:.6;color:var(--blue-2);font-family:Georgia,serif}
+  .quote p{margin:0;color:#d3dae8;font-size:15px;line-height:2;flex:1}
+  .quote .who{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+  .quote .av{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle,#1d3cff,#7a4dff);display:grid;place-items:center;font-size:13px;font-weight:700}
+  .quote .name{font-size:13px;font-weight:600}
+  .quote .role{font-size:11px;color:var(--muted)}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="head wrap" id="top">
+  <p class="eyebrow" data-reveal data-edit="eyebrow">TESTIMONIAL — お客様の声</p>
+  <h1 data-reveal data-edit="main-headline">利用した方の声。</h1>
+  <p data-reveal data-edit="main-lead">3つの声を並べます。引用と名前・肩書を data-edit に差し替えてください。</p>
+</header>
+<section class="quotes wrap">
+  <article class="quote" data-reveal>
+    <div class="mark" aria-hidden="true">&ldquo;</div>
+    <p data-edit="t1-body">ここに声1を差し替えます。何が変わったかを、その方の口調で書きます。</p>
+    <div class="who"><span class="av" aria-hidden="true">S</span><span><span class="name" data-edit="t1-name">山田 太郎</span><br><span class="role" data-edit="t1-role">株式会社◯◯ 代表</span></span></div>
+  </article>
+  <article class="quote" data-reveal>
+    <div class="mark" aria-hidden="true">&ldquo;</div>
+    <p data-edit="t2-body">ここに声2を差し替えます。</p>
+    <div class="who"><span class="av" aria-hidden="true">T</span><span><span class="name" data-edit="t2-name">佐藤 花子</span><br><span class="role" data-edit="t2-role">フリーランスデザイナー</span></span></div>
+  </article>
+  <article class="quote" data-reveal>
+    <div class="mark" aria-hidden="true">&ldquo;</div>
+    <p data-edit="t3-body">ここに声3を差し替えます。</p>
+    <div class="who"><span class="av" aria-hidden="true">S</span><span><span class="name" data-edit="t3-name">鈴木 一郎</span><br><span class="role" data-edit="t3-role">某企業 マーケティング部長</span></span></div>
+  </article>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>
