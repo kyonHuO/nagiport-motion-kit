@@ -180,6 +180,12 @@
   .card .empty strong{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;color:#8894ad}
   .card .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid #1a2132;font-size:11px;color:#6d7a95}
   .card .tag{font-family:var(--mono);letter-spacing:.1em;font-size:10px;color:#7080a5}
+  .card-live{border-style:solid;border-color:#2a3350;cursor:pointer}
+  .card-live:hover{border-color:var(--blue)}
+  .card-live .live{margin:auto 0;display:flex;flex-direction:column;gap:6px}
+  .card-live .live strong{font-size:14px;letter-spacing:.06em;color:#dfe5f2;font-weight:600}
+  .card-live .live span{font-size:11px;color:#8894ad;line-height:1.7}
+  .card-live .meta .go{color:var(--blue-2);font-family:var(--mono);font-size:10px;letter-spacing:.1em}
 
   /* features */
   .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -343,14 +349,14 @@
       <div class="section-head" data-reveal>
         <p class="eyebrow">Templates</p>
         <h2>テンプレート</h2>
-        <p>各テンプレートは、文言と画像を差し替えるだけで使える形を想定しています（検証中）。いまは商品を準備中のため、枠のみを公開しています。</p>
+        <p>各テンプレートは、文言と画像を差し替えるだけで使える形を想定しています（検証中）。第1作（HERO）を公開しました。残りは準備中です。</p>
       </div>
       <div class="cards">
-        <article class="card" data-reveal>
+        <a class="card card-live" href="examples/01-hero/" data-reveal>
           <div class="num">01</div>
-          <div class="empty"><div class="ring" aria-hidden="true">＋</div><strong>準備中</strong></div>
-          <div class="meta"><span class="tag">HERO</span><span>スクロール演出</span></div>
-        </article>
+          <div class="live"><strong>MIKAZUKI</strong><span>三日月を、ひとつの線に。（架空の作例）</span></div>
+          <div class="meta"><span class="tag">HERO</span><span class="go">開く →</span></div>
+        </a>
         <article class="card" data-reveal>
           <div class="num">02</div>
           <div class="empty"><div class="ring" aria-hidden="true">＋</div><strong>準備中</strong></div>
