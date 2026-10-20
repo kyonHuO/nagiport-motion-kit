@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 03 / PRICING — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 03 / PRICING（料金表）
+  3つのプランを並べる料金表。価格・プラン名・説明を data-edit で差し替え。
+  税込・月額・都度払いなどの表記は自由に書き換えてください。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:1080px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+
+  .head{padding:clamp(64px,10vw,120px) 0 30px;text-align:center}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px auto 0;color:var(--muted);max-width:560px}
+
+  .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:30px 0 40px}
+  @media (max-width:900px){.plans{grid-template-columns:1fr;max-width:460px;margin-inline:auto}}
+  .plan{position:relative;border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,#0c111b,#080b11);display:flex;flex-direction:column;gap:10px}
+  .plan.hot{border-color:#2f4ea8;box-shadow:0 0 0 1px rgba(59,107,255,.20) inset}
+  .plan .name{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#8794af}
+  .plan .price{font-size:clamp(34px,5vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+  .plan .price small{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
+  .plan .desc{color:var(--muted);font-size:13px;margin:6px 0 14px;line-height:1.9}
+  .plan ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .plan li{font-size:13px;color:#c3cada;padding-left:22px;position:relative}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--blue-2);font-weight:700}
+  .plan .btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid var(--line);color:#dfe5f2;transition:border-color .18s ease,color .18s ease}
+  .plan .btn:hover{border-color:var(--blue);color:#fff}
+  .plan.hot .btn{background:var(--blue);color:#fff;border-color:transparent}
+  .fine{padding:0 0 60px;text-align:center;color:#6d7a95;font-size:11px;font-family:var(--mono);letter-spacing:.1em}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="head" id="top">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal data-edit="eyebrow">料金 — PRICING</p>
+    <h1 data-reveal data-edit="main-headline">料金表を差し替え。</h1>
+    <p data-reveal data-edit="main-lead">3つのプランを並べる構成です。価格・プラン名・特徴・説明を data-edit 付きの要素に置き換えてください。</p>
+  </div>
+</header>
+
+<section class="plans wrap">
+  <div class="plan" data-reveal>
+    <span class="name" data-edit="p1-name">STARTER</span>
+    <div class="price" data-edit="p1-price">2,980<small>円</small></div>
+    <p class="desc" data-edit="p1-desc">ライトな利用のための基本プラン。</p>
+    <ul><li data-edit="p1-f1">機能1を差し替え</li><li data-edit="p1-f2">機能2を差し替え</li><li data-edit="p1-f3">機能3を差し替え</li></ul>
+    <a class="btn" href="#" data-edit="p1-cta">選ぶ</a>
+  </div>
+  <div class="plan hot" data-reveal>
+    <span class="name" data-edit="p2-name">STANDARD</span>
+    <div class="price" data-edit="p2-price">9,800<small>円</small></div>
+    <p class="desc" data-edit="p2-desc">おすすめです。よく使う機能が揃います。</p>
+    <ul><li data-edit="p2-f1">機能1を差し替え</li><li data-edit="p2-f2">機能2を差し替え</li><li data-edit="p2-f3">機能3を差し替え</li><li data-edit="p2-f4">機能4を差し替え</li></ul>
+    <a class="btn" href="#" data-edit="p2-cta">選ぶ</a>
+  </div>
+  <div class="plan" data-reveal>
+    <span class="name" data-edit="p3-name">PRO</span>
+    <div class="price" data-edit="p3-price">29,800<small>円</small></div>
+    <p class="desc" data-edit="p3-desc">本格的な利用のための上位プラン。</p>
+    <ul><li data-edit="p3-f1">機能1を差し替え</li><li data-edit="p3-f2">機能2を差し替え</li><li data-edit="p3-f3">機能3を差し替え</li></ul>
+    <a class="btn" href="#" data-edit="p3-cta">選ぶ</a>
+  </div>
+</section>
+<p class="fine wrap" data-reveal data-edit="fine">※ 金額は差し替え例です。税込・月額・都度払いの表記も自由に変えられます。</p>
+
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>
