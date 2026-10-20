@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 15 / NEWSLETTER — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 15 / NEWSLETTER（メール登録）
+  メールアドレス入力＋送信ボタンの登録フォーム。見出し・説明文・ボタン文言を
+  data-edit で差し替え。送信先（action）は差し替え手順で自社の方へ向けてください。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:720px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .nl{position:relative;isolation:isolate;overflow:hidden;min-height:80svh;display:flex;align-items:center;padding:clamp(64px,10vw,120px) 0;text-align:center}
+  .nl-bg{position:absolute;inset:-20% -10%;z-index:-2;pointer-events:none}
+  .nl-bg .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
+  .nl-bg .g1{width:52vmax;height:52vmax;left:-16vmax;top:-22vmax;background:radial-gradient(circle,#1d3cff 0%,rgba(29,60,255,0) 62%)}
+  .nl-bg .g2{width:38vmax;height:38vmax;right:-10vmax;bottom:-16vmax;background:radial-gradient(circle,#7a4dff 0%,rgba(122,77,255,0) 66%);opacity:.3}
+  .nl .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 22px}
+  .nl h1{margin:0 auto;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:clamp(38px,7vw,92px);max-width:720px;text-wrap:balance}
+  .nl h1 .accent{color:var(--blue);text-shadow:0 0 60px rgba(59,107,255,.35)}
+  .nl p{max-width:520px;margin:26px auto 0;color:#c3cada;font-size:15px;line-height:2}
+  form{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+  input[type=email]{flex:1;min-width:240px;background:#0b0f18;border:1px solid var(--line);border-radius:999px;padding:16px 22px;color:var(--fg);font:inherit;font-size:14px}
+  input[type=email]:focus{outline:none;border-color:var(--blue)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--blue);background:var(--blue);color:#fff;transition:transform .18s ease,background .18s ease}
+  .btn:hover{background:#4d79ff}
+  .btn:active{transform:translateY(1px)}
+  .fine{margin-top:20px;font-size:11px;color:#7d8aa4;font-family:var(--mono);letter-spacing:.1em}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}.nl-bg .glow{animation:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<section class="nl" id="top">
+  <div class="nl-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div></div>
+  <div class="wrap">
+    <p class="eyebrow" data-reveal data-edit="eyebrow">NEWSLETTER — メール登録</p>
+    <h1 data-reveal data-edit="main-headline">最新情報をお届け<span class="accent">。</span></h1>
+    <p data-reveal data-edit="main-lead">メール登録フォームです。見出し・説明文・ボタン文言を data-edit に差し替えてください。送信先は差し替え手順で自社の方へ。</p>
+    <form data-reveal>
+      <input type="email" name="email" placeholder="メールアドレス" aria-label="メールアドレス" required>
+      <button class="btn" type="submit" data-edit="cta-submit">登録する</button>
+    </form>
+    <p class="fine" data-reveal data-edit="fine">送信は月1回・いつでも解除できます（例）。</p>
+  </div>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>

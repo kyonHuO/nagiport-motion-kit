@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 19 / DOWNLOAD — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 19 / DOWNLOAD（資料ダウンロード）
+  1つの資料をダウンロードする導線。タイトル・説明・ボタン文言・ファイルURLを
+  data-edit で差し替え。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:760px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .dl{position:relative;isolation:isolate;overflow:hidden;min-height:80svh;display:flex;align-items:center;padding:clamp(64px,10vw,120px) 0;text-align:center}
+  .dl-bg{position:absolute;inset:-20% -10%;z-index:-2;pointer-events:none}
+  .dl-bg .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5}
+  .dl-bg .g1{width:52vmax;height:52vmax;left:-16vmax;top:-22vmax;background:radial-gradient(circle,#1d3cff 0%,rgba(29,60,255,0) 62%)}
+  .dl-bg .g2{width:38vmax;height:38vmax;right:-10vmax;bottom:-16vmax;background:radial-gradient(circle,#7a4dff 0%,rgba(122,77,255,0) 66%);opacity:.3}
+  .dl .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 22px}
+  .dl h1{margin:0 auto;font-weight:800;letter-spacing:-.045em;line-height:1.05;font-size:clamp(38px,7vw,92px);max-width:720px;text-wrap:balance}
+  .dl h1 .accent{color:var(--blue);text-shadow:0 0 60px rgba(59,107,255,.35)}
+  .dl p{max-width:520px;margin:26px auto 0;color:#c3cada;font-size:15px;line-height:2}
+  .file{margin:32px auto 0;display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:14px;padding:18px 22px;max-width:440px;background:linear-gradient(180deg,#0b0f18,#080b11)}
+  .file .ico{width:44px;height:44px;border-radius:10px;background:radial-gradient(circle,#1d3cff,#7a4dff);display:grid;place-items:center;font-size:20px;flex:0 0 auto}
+  .file .meta{text-align:left;flex:1}
+  .file .meta .name{font-size:14px;font-weight:600}
+  .file .meta .size{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.1em}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:14px;margin-top:26px;background:var(--blue);color:#fff;box-shadow:0 12px 40px rgba(59,107,255,.34);transition:transform .18s ease,background .18s ease}
+  .btn:hover{background:#4d79ff}
+  .btn:active{transform:translateY(1px)}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}.dl-bg .glow{animation:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<section class="dl" id="top">
+  <div class="dl-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div></div>
+  <div class="wrap">
+    <p class="eyebrow" data-reveal data-edit="eyebrow">DOWNLOAD — 資料ダウンロード</p>
+    <h1 data-reveal data-edit="main-headline">資料を<span class="accent">無料で。</span></h1>
+    <p data-reveal data-edit="main-lead">1つの資料をダウンロードする導線です。タイトル・説明・ファイルURL・ボタン文言を data-edit に差し替えてください。</p>
+    <div class="file" data-reveal>
+      <span class="ico" aria-hidden="true">↓</span>
+      <span class="meta"><span class="name" data-edit="file-name">sample-guide.pdf</span><br><span class="size" data-edit="file-size">2.4 MB / PDF</span></span>
+    </div>
+    <a class="btn" href="#" data-reveal data-edit="cta-download">ダウンロード <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+<script>
+(function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var it=document.querySelectorAll('[data-reveal]');if(r||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io.observe(e);});}})();
+</script>
+</body>
+</html>

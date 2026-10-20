@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<title>テンプレート 12 / STATS — Nagiport Motion Kit</title>
+<!--
+  Nagiport Motion Kit — TEMPLATE 12 / STATS（実績数字）
+  4つの大きな数字を並べる。数字・単位・ラベルを data-edit で差し替え。
+  スクロールで視界に入るとカウントアップします（reduced-motion では静止）。
+-->
+<style>
+  :root{--bg:#07080b;--fg:#f5f7fc;--muted:#98a2b6;--line:#1b2233;--blue:#3b6bff;--blue-2:#7fa0ff;--max:1100px;--sans:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+  @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+  .skip{position:fixed;top:10px;left:10px;z-index:100;background:#fff;color:#000;padding:10px 14px;border-radius:6px;transform:translateY(-200%)}
+  .skip:focus{transform:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--blue-2);text-transform:uppercase;margin:0 0 20px}
+  .head{padding:clamp(64px,10vw,120px) 0 24px;text-align:center}
+  .head h1{margin:0;font-size:clamp(36px,6vw,72px);font-weight:800;letter-spacing:-.04em}
+  .head p{margin:18px auto 0;color:var(--muted);max-width:560px}
+  .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding-bottom:80px}
+  @media (max-width:900px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:520px){.grid4{grid-template-columns:1fr}}
+  .stat{border:1px solid var(--line);border-radius:16px;padding:30px 24px;text-align:center;background:linear-gradient(180deg,#0c1019,#090c13)}
+  .stat .num{font-weight:800;letter-spacing:-.04em;line-height:1;font-size:clamp(40px,6vw,64px);color:var(--blue);text-shadow:0 0 40px rgba(59,107,255,.3)}
+  .stat .unit{font-size:18px;color:var(--blue-2);margin-left:2px}
+  .stat .label{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#top">本文へ</a>
+<header class="head wrap" id="top">
+  <p class="eyebrow" data-reveal data-edit="eyebrow">STATS — 実績数字</p>
+  <h1 data-reveal data-edit="main-headline">数字で伝える。</h1>
+  <p data-reveal data-edit="main-lead">4つの大きな数字を並べます。数字・単位・ラベルを data-edit に差し替えてください。</p>
+</header>
+<section class="grid4 wrap">
+  <div class="stat" data-reveal><span class="num" data-count="128">0</span><span class="unit" data-edit="u1">+</span><span class="label" data-edit="l1">サポート件数</span></div>
+  <div class="stat" data-reveal><span class="num" data-count="98">0</span><span class="unit" data-edit="u2">%</span><span class="label" data-edit="l2">満足度</span></div>
+  <div class="stat" data-reveal><span class="num" data-count="3200">0</span><span class="unit" data-edit="u3">件</span><span class="label" data-edit="l3">導入実績</span></div>
+  <div class="stat" data-reveal><span class="num" data-count="24">0</span><span class="unit" data-edit="u4">時間</span><span class="label" data-edit="l4">平均応答</span></div>
+</section>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function count(el){
+    var target = parseInt(el.getAttribute('data-count'),10)||0;
+    if(reduce){ el.textContent = target.toLocaleString('ja-JP'); return; }
+    var start=null,dur=1200;
+    function tick(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); el.textContent=Math.floor(p*target).toLocaleString('ja-JP'); if(p<1)requestAnimationFrame(tick); else el.textContent=target.toLocaleString('ja-JP'); }
+    requestAnimationFrame(tick);
+  }
+  var nums=document.querySelectorAll('[data-count]');
+  if(reduce||!('IntersectionObserver' in window)){ nums.forEach(function(n){n.textContent=(parseInt(n.getAttribute('data-count'),10)||0).toLocaleString('ja-JP');}); }
+  else{ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io.unobserve(e.target);}});},{threshold:0.5}); nums.forEach(function(n){io.observe(n);}); }
+  var it=document.querySelectorAll('[data-reveal]');
+  if(reduce||!('IntersectionObserver' in window)){it.forEach(function(e){e.classList.add('is-in');});}else{var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io2.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.12});it.forEach(function(e){io2.observe(e);});}
+})();
+</script>
+</body>
+</html>

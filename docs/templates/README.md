@@ -1,6 +1,6 @@
 # Nagiport Motion Kit — テンプレート一式
 
-`templates/` 配下の10ファイルが、そのまま公開できる完成形です。
+`templates/` 配下の20ファイルが、そのまま公開できる完成形です。
 サーバー・CLI不要。このファイルをそのまま置いて、公開できます。
 
 ## ファイル一覧
@@ -17,6 +17,16 @@
 | 08 | `cta.html` | 「今すぐ始める」大きな導線 |
 | 09 | `process.html` | 工程を縦に並べる流れ |
 | 10 | `news.html` | 記事・お知らせ一覧 |
+| 11 | `team.html` | チーム紹介 |
+| 12 | `stats.html` | 実績数字（カウントアップ） |
+| 13 | `gallery.html` | 画像ギャラリー |
+| 14 | `about.html` | 会社・活動紹介 |
+| 15 | `newsletter.html` | メール登録 |
+| 16 | `comparison.html` | 比較表 |
+| 17 | `timeline.html` | 歩み・年表 |
+| 18 | `video.html` | 動画紹介 |
+| 19 | `download.html` | 資料ダウンロード |
+| 20 | `trust.html` | 信頼・実績ロゴ |
 
 ## 差し替え手順
 
