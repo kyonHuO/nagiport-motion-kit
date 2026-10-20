@@ -69,15 +69,26 @@ Push先: https://github.com/kyonHuO/nagiport-motion-kit
 - 公開URL: https://kyonhuo.github.io/nagiport-motion-kit/examples/06-portfolio/
 - 検証（Windows 上の Chrome ヘッドレス、2026-10-20）: 390 / 768 / 1440px で横はみ出しなし。14/14 合格（単語入れ替わり・実績ホバー・リンク全動作・reduced-motion・フォーム0・メールリンク0・外部リンク0）
 
-## 全6作の公開完了
+## 07 CLONE — 完了記録
 
-- 6種類すべてをトップの Templates カードから直接開ける形にしました
-- 参考サイト: Linear・Vercel・Stripe・Locomotive（海外・変わったサイトを含み、多様な構成・配色・動き）
-- 各作例は独自フォルダ・架空ブランド・架空文言。秘密情報・実在サービスへの誤誘導なし
+- 方針変更（ユーザー指示「今後はクローンしてからロゴ削除して」）: 実サイトをそのままクローンし、ロゴのみ削除
+- クローン元: https://framer.com/ （2026-10-20 取得。構成・文言・配色・フォント・動きを再現）
+- ロゴ削除: ヘッダーの F マーク（SVG）＋「Framer」ワードマーク、フッターの「Framer」テキスト
+- 免責: フッターに「framer.com のクローン・ロゴ削除・権利は Framer」の旨を明記
+- 保存先: `docs/examples/07-framer-clone/index.html`（研究ノート `RESEARCH.md`）
+- 公開URL: https://kyonhuo.github.io/nagiport-motion-kit/examples/07-framer-clone/
+- 検証（Windows 上の Chrome ヘッドレス、2026-10-20）: 390 / 768 / 1440px で横はみ出しなし。15/15 合格（ドットグリッド・シマー・フェードイン・タブ切替・reduced-motion・フォーム0・メールリンク0・外部リンク0）
+- リグレッションテスト: 53/53 合格。push 完了（a78af48）
+
+## 公開中の作例（計7）
+
+- 01〜06: 独自フォルダ・架空ブランド・架空文言（Linear・Vercel・Stripe・Locomotive 参考）
+- 07: 実サイトクローン（framer.com・ロゴ削除）
+- 全7種類をトップの Templates カードから直接開ける形にしました
 - 既存34ページ・variants・frik-motion・ルート側は未変更。変更は docs/index.html のカードと docs/examples/ の追加のみ
 
 ## 次の作業
 
-1. 必要であれば、作例の追加バリエーション（別参考サイト）を作成
+1. クローン方針で追加作例を作成（動きの強い別サイト・ロゴ削除）
 2. トップの FAQ「スマホ対応していますか」の文言を実測値に更新（必要時）
 3. 実機（iOS/Android・Safari）での確認は未実施（ヘッドレス Chrome のみ）
