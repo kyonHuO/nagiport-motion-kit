@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f0f0e7" />
+    <meta
+      name="description"
+      content="STILLWATER — 宿泊・自然のロッジ向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>STILLWATER — 宿泊・自然のロッジ</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="STILLWATER トップ"
+          >STILLWATER</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#stay">客室</a><a href="#day">過ごし方</a
+          ><a href="#faq">ご案内</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="lodge-scene">
+            <figure>
+              <img
+                class="hero-art"
+                src="assets/illustration.svg"
+                width="1000"
+                height="1000"
+                alt="山と湖を望む木のロッジのオリジナル風景"
+                fetchpriority="high"
+              />
+            </figure>
+            <div class="lodge-copy intro">
+              <p class="kicker">A SMALL LODGE BY THE LAKE</p>
+              <h1>予定は、<br />湖を眺めること。</h1>
+              <p>いつもの速さを、岸辺に置いて。</p>
+              <a class="btn" href="#stay">客室を見つける ↗</a>
+            </div>
+          </div>
+          <div class="stay-strip">
+            <span>森と湖の、一棟貸しロッジ。</span
+            ><span>静けさも、旅の目的地に。</span>
+          </div>
+        </div>
+      </section>
+      <section id="stay" class="section" data-reveal>
+        <div class="wrap">
+          <h2>ふたりでも、家族でも。</h2>
+          <div class="rooms">
+            <article>
+              <div class="room-num">01</div>
+              <div>
+                <h3>Lake cabin</h3>
+                <p>
+                  湖に向かう大きな窓と、読書のためのソファ。<br />2名 / 45m² /
+                  ウッドデッキ
+                </p>
+                <p class="price">¥28,000<span>〜 / 泊</span></p>
+                <button
+                  class="btn"
+                  type="button"
+                  data-demo="Lake cabin 宿泊デモ"
+                >
+                  この客室を見る <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </article>
+            <article>
+              <div class="room-num">02</div>
+              <div>
+                <h3>Forest house</h3>
+                <p>
+                  木々に囲まれた、家族で泊まれる小さな家。<br />4名 / 72m² /
+                  キッチン付き
+                </p>
+                <p class="price">¥42,000<span>〜 / 泊</span></p>
+                <button
+                  class="btn"
+                  type="button"
+                  data-demo="Forest house 宿泊デモ"
+                >
+                  この客室を見る <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+            </article>
+          </div>
+          <p class="fine">
+            税込の架空料金・客室です。追加料金やキャンセル条件は実際の施設に合わせて編集してください。
+          </p>
+        </div>
+      </section>
+      <section id="day" class="section" data-reveal>
+        <div class="wrap">
+          <h2>何もしない、一日のしおり。</h2>
+          <div class="day-grid">
+            <article>
+              <span>07:00</span>
+              <h3>湯気と、朝の湖。</h3>
+              <p>コーヒーを淹れたら、デッキへ。朝の光が水面をほどきます。</p>
+            </article>
+            <article>
+              <span>13:00</span>
+              <h3>森を、ひとまわり。</h3>
+              <p>本を持って散歩へ。急いで戻る必要はありません。</p>
+            </article>
+            <article>
+              <span>20:00</span>
+              <h3>灯りを、ひとつ。</h3>
+              <p>窓の向こうに夜が来たら、ただ静かに語らう時間。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="faq" class="section" data-reveal>
+        <div class="wrap">
+          <h2>よくあるご質問</h2>
+          <details>
+            <summary>チェックイン・アウトは何時ですか？</summary>
+            <p>
+              デモでは15:00チェックイン、11:00チェックアウトです。実施設の情報に差し替えてください。
+            </p>
+          </details>
+          <details>
+            <summary>食事は付いていますか？</summary>
+            <p>
+              客室は素泊まりの想定です。食事、交通、設備などの条件は購入後に編集できます。
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© STILLWATER / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>

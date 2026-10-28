@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4eddf" />
+    <meta
+      name="description"
+      content="EMBER TABLE — 飲食・レストラン向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>EMBER TABLE — 飲食・レストラン</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="EMBER TABLE トップ"
+          >EMBER TABLE</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#menu">メニュー</a><a href="#story">私たちの料理</a
+          ><a href="#visit">アクセス</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="split">
+            <div class="intro">
+              <p class="kicker">火を囲む、小さな食卓。</p>
+              <h1>季節を焼く。<br />会話がほどける。</h1>
+              <p class="lead">
+                薪の香りと、畑から届くひと皿。<br />今日は少しだけ、ゆっくり食べよう。
+              </p>
+              <div class="actions">
+                <a class="btn" href="#menu">季節のメニューを見る ↗</a>
+              </div>
+              <p class="hours">DINNER 17:30 — 22:00 / 水曜定休</p>
+            </div>
+            <figure>
+              <img
+                class="hero-art"
+                src="assets/illustration.svg"
+                width="1000"
+                height="1000"
+                alt="薪火料理を盛り付けた陶器の皿のオリジナルイラスト"
+                fetchpriority="high"
+              />
+              <figcaption class="eyeline">
+                <span>FIRE / FIELD / TABLE</span><span>秋の食卓</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="menu" class="section" data-reveal>
+        <div class="wrap">
+          <h2>秋を、ひと皿ずつ。</h2>
+          <div class="tabs" data-filter-group aria-label="メニュー分類">
+            <button data-filter="all" aria-pressed="true">すべて</button
+            ><button data-filter="food" aria-pressed="false">料理</button
+            ><button data-filter="drink" aria-pressed="false">飲みもの</button>
+          </div>
+          <div class="menu-list">
+            <article data-category="food">
+              <div>
+                <h3>畑の野菜、薪火のロースト</h3>
+                <p>皮ごとの甘さ。ハーブと焦がしバター。</p>
+              </div>
+              <p>¥1,400</p>
+            </article>
+            <article data-category="food">
+              <div>
+                <h3>鴨胸肉と秋の果実</h3>
+                <p>香ばしい皮と、季節の酸味。</p>
+              </div>
+              <p>¥3,200</p>
+            </article>
+            <article data-category="food">
+              <div>
+                <h3>栗ときのこの土鍋ごはん</h3>
+                <p>ふたりで分ける、炊きたての一鍋。</p>
+              </div>
+              <p>¥2,600</p>
+            </article>
+            <article data-category="drink">
+              <div>
+                <h3>季節のノンアルコール</h3>
+                <p>果実、茶葉、スパイスのペアリング。</p>
+              </div>
+              <p>¥800</p>
+            </article>
+          </div>
+          <p class="small">
+            税込のサンプル価格。食材・アレルギーは実店舗の情報に差し替えてください。
+          </p>
+        </div>
+      </section>
+      <section id="story" class="section" data-reveal>
+        <div class="wrap">
+          <h2>おいしさは、<br />近くの風景から。</h2>
+          <div class="split">
+            <p class="lead">
+              つくる人を知る。旬を待つ。余すことなく味わう。私たちが大切にしたいのは、そんな当たり前の積み重ねです。
+            </p>
+            <div class="principles">
+              <p>01　畑の旬を、その日のメニューに。</p>
+              <p>02　火加減は、素材に合わせて。</p>
+              <p>03　一皿を、会話のきっかけに。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="visit" class="section" data-reveal>
+        <div class="wrap">
+          <h2>今夜の席を、ひとつ。</h2>
+          <div class="split">
+            <div>
+              <p>
+                17:30–22:00（ラストオーダー 21:00）<br />水曜定休 /
+                カウンター・テーブル席
+              </p>
+              <p>
+                東京都・架空の店舗です。<br />住所・交通案内をここに掲載できます。
+              </p>
+            </div>
+            <div>
+              <button class="btn" type="button" data-demo="ご予約のデモ">
+                席を選ぶ <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© EMBER TABLE / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>

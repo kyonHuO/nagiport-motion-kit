@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1b1d1b" />
+    <meta
+      name="description"
+      content="SIGNAL / 27 — イベント・カンファレンス向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>SIGNAL / 27 — イベント・カンファレンス</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="SIGNAL / 27 トップ"
+          >SIGNAL / 27</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#program">プログラム</a><a href="#speakers">登壇者</a
+          ><a href="#tickets">チケット</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="event-hero">
+            <div class="event-date">
+              <span>2027. 06. 12 SAT</span
+              ><span>TOKYO / CREATIVE GATHERING</span>
+            </div>
+            <div class="event-title intro">
+              <h1>次の波は、<br />ここから。</h1>
+              <p>
+                デザイン、テクノロジー、これからの表現。<br />つくる人が交わる、一日のフェスティバル。
+              </p>
+              <a class="btn" href="#tickets">参加方法を見る ↗</a>
+            </div>
+            <figure>
+              <img
+                class="hero-art"
+                src="assets/illustration.svg"
+                width="1000"
+                height="1000"
+                alt="蛍光色の楕円リングが重なるシグナルのアート"
+                fetchpriority="high"
+              />
+            </figure>
+            <div class="event-word" aria-hidden="true">SIGNAL</div>
+          </div>
+        </div>
+      </section>
+      <section id="program" class="section" data-reveal>
+        <div class="wrap">
+          <h2>一日で、視点が変わる。</h2>
+          <div class="tabs" data-filter-group aria-label="プログラム会場">
+            <button data-filter="all" aria-pressed="true">すべて</button
+            ><button data-filter="talk" aria-pressed="false">TALK</button
+            ><button data-filter="workshop" aria-pressed="false">
+              WORKSHOP
+            </button>
+          </div>
+          <div class="schedule">
+            <article data-category="talk">
+              <time>10:00</time>
+              <div>
+                <p class="number">OPENING TALK</p>
+                <h3>まだ名前のない仕事。</h3>
+                <p>分野の境界を越えて、つくる理由を探る。</p>
+              </div>
+              <span>高橋 凪</span>
+            </article>
+            <article data-category="workshop">
+              <time>11:30</time>
+              <div>
+                <p class="number">WORKSHOP</p>
+                <h3>手を動かして、考える。</h3>
+                <p>紙と図形から、新しい発想を持ち帰る。</p>
+              </div>
+              <span>小林 透</span>
+            </article>
+            <article data-category="talk">
+              <time>14:00</time>
+              <div>
+                <p class="number">CROSS TALK</p>
+                <h3>AIと、人の余白。</h3>
+                <p>道具が変わるとき、表現はどこへ向かうか。</p>
+              </div>
+              <span>高橋 凪 × 伊藤 灯</span>
+            </article>
+            <article data-category="talk">
+              <time>16:30</time>
+              <div>
+                <p class="number">CLOSING</p>
+                <h3>次の波を、持ち帰る。</h3>
+                <p>今日の出会いを、明日の実験につなげる。</p>
+              </div>
+              <span>全登壇者</span>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="speakers" class="section" data-reveal>
+        <div class="wrap">
+          <h2>違う視点が、出会う。</h2>
+          <div class="grid speakers">
+            <article>
+              <div class="speaker-shape shape-a" aria-hidden="true"></div>
+              <h3>高橋 凪</h3>
+              <p>デザイナー / 分野の間をつなぐ表現を探る。</p>
+            </article>
+            <article>
+              <div class="speaker-shape shape-b" aria-hidden="true"></div>
+              <h3>小林 透</h3>
+              <p>アーティスト / 手と素材から思考を始める。</p>
+            </article>
+            <article>
+              <div class="speaker-shape shape-c" aria-hidden="true"></div>
+              <h3>伊藤 灯</h3>
+              <p>クリエイティブテクノロジスト / 新しい道具を実験する。</p>
+            </article>
+          </div>
+          <p class="fine">
+            日時・会場・登壇者・プログラムは架空のサンプルです。
+          </p>
+        </div>
+      </section>
+      <section id="tickets" class="section" data-reveal>
+        <div class="wrap">
+          <h2>その場にいる、を選ぼう。</h2>
+          <div class="ticket">
+            <div>
+              <p class="kicker">ONE DAY PASS</p>
+              <h3>トーク ＋ 展示 ＋ 交流</h3>
+              <p>2027年6月12日 / 架空の東京会場</p>
+            </div>
+            <div>
+              <p class="price">¥5,500 <small>税込サンプル価格</small></p>
+              <button class="btn" type="button" data-demo="チケット購入のデモ">
+                チケットを選ぶ <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="faq" class="section" data-reveal>
+        <div class="wrap">
+          <h2>よくあるご質問</h2>
+          <details>
+            <summary>チケットは購入できますか？</summary>
+            <p>
+              このページはイベント用テンプレートです。開催予定はなく、購入・決済は発生しません。
+            </p>
+          </details>
+          <details>
+            <summary>ワークショップの定員は？</summary>
+            <p>
+              公開時に実際の定員や参加条件を設定してください。ここでは参加申し込みを受け付けません。
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© SIGNAL / 27 / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>

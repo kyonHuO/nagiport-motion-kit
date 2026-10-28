@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eae8e1" />
+    <meta
+      name="description"
+      content="FORM / atelier — 建築・設計事務所向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>FORM / atelier — 建築・設計事務所</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="FORM / atelier トップ"
+          >FORM / atelier</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#work">設計事例</a><a href="#approach">設計の考え方</a
+          ><a href="#contact">相談する</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="architecture-top intro">
+            <h1>余白から、<br />暮らしをつくる。</h1>
+            <p>
+              建築は、毎日の背景になる。<br />光と素材、人と場所。<br />その間を、丁寧につなぎます。
+            </p>
+          </div>
+          <figure class="wide-building">
+            <img
+              class="hero-art"
+              src="assets/illustration.svg"
+              width="1000"
+              height="1000"
+              alt="光の入るコンクリート住宅の建築パース"
+              fetchpriority="high"
+            />
+          </figure>
+          <div class="eyeline">
+            <span>住宅 / 店舗 / リノベーション</span
+            ><span>FORM ATELIER — SELECTED WORKS</span>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="section" data-reveal>
+        <div class="wrap">
+          <h2>Selected works</h2>
+          <div class="tabs" data-filter-group aria-label="設計事例の分類">
+            <button data-filter="all" aria-pressed="true">すべて</button
+            ><button data-filter="house" aria-pressed="false">住宅</button
+            ><button data-filter="shop" aria-pressed="false">店舗</button>
+          </div>
+          <div class="project-grid">
+            <article data-category="house">
+              <div class="drawing drawing-0" aria-hidden="true">
+                <i></i><b></b>
+              </div>
+              <div class="eyeline">
+                <h3>光庭の家</h3>
+                <span>HOUSE / 2026</span>
+              </div>
+              <p>小さな中庭から、住まい全体に光を届ける。</p>
+            </article>
+            <article data-category="shop">
+              <div class="drawing drawing-1" aria-hidden="true">
+                <i></i><b></b>
+              </div>
+              <div class="eyeline">
+                <h3>路地の喫茶室</h3>
+                <span>SHOP / 2026</span>
+              </div>
+              <p>通りの余韻を、そのまま店内へ。</p>
+            </article>
+            <article data-category="house">
+              <div class="drawing drawing-2" aria-hidden="true">
+                <i></i><b></b>
+              </div>
+              <div class="eyeline">
+                <h3>丘のアトリエ</h3>
+                <span>RENOVATION / 2025</span>
+              </div>
+              <p>古い骨格を生かし、新しい暮らしを重ねる。</p>
+            </article>
+          </div>
+          <p class="fine">設計事例・年代はすべて架空のサンプルです。</p>
+        </div>
+      </section>
+      <section id="approach" class="section" data-reveal>
+        <div class="wrap">
+          <h2>土地を読み、<br />時間を設計する。</h2>
+          <div class="split">
+            <p class="lead">
+              図面を引く前に、そこで過ごす時間を想像します。新しさだけを追わず、長く触れたくなる素材と、変化を受け止める余白を選びます。
+            </p>
+            <ul class="list">
+              <li><span>01 / Listen</span><span>暮らしの輪郭を聞く</span></li>
+              <li><span>02 / Explore</span><span>土地の可能性を探す</span></li>
+              <li>
+                <span>03 / Compose</span><span>光と素材を組み立てる</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section" data-reveal>
+        <div class="wrap">
+          <h2>まだ、言葉にならない<br />住まいの話から。</h2>
+          <div class="actions">
+            <button class="btn" type="button" data-demo="設計相談のデモ">
+              設計の相談をする <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <p>新築、店舗、改修。計画のはじめからご相談ください。</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© FORM / atelier / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>

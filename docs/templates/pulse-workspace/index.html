@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d1728" />
+    <meta
+      name="description"
+      content="pulse — SaaS・チーム業務ツール向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>pulse — SaaS・チーム業務ツール</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="pulse トップ">pulse</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#product">使い方</a><a href="#pricing">料金</a
+          ><a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="saas-title intro">
+            <p class="kicker">チームの仕事に、ひとつのリズムを。</p>
+            <h1>会議を減らして、<br /><span>前に進もう。</span></h1>
+            <p class="lead">
+              決まったこと、次にやること、困っていること。<br />散らばる仕事を、ひとつのワークスペースに。
+            </p>
+            <div class="actions">
+              <button
+                class="btn"
+                type="button"
+                data-demo="ワークスペース体験のデモ"
+              >
+                ワークスペースを試す <span aria-hidden="true">↗</span></button
+              ><a class="btn alt" href="#product">画面を見る ↓</a>
+            </div>
+          </div>
+          <div class="dashboard" id="product">
+            <aside>
+              <b>pulse</b>
+              <p>WORKSPACE</p>
+              <span>ホーム</span><span class="active">プロジェクト</span
+              ><span>チームノート</span>
+            </aside>
+            <div class="board">
+              <div class="board-head">
+                <h2>次のリリース</h2>
+                <span>サンプル画面</span>
+              </div>
+              <div class="kanban">
+                <div>
+                  <p>これから <b>2</b></p>
+                  <article>
+                    <small>DESIGN</small>
+                    <h3>新しい導入フロー</h3>
+                    <span>10/30　担当：青木</span>
+                  </article>
+                  <article>
+                    <small>RESEARCH</small>
+                    <h3>ユーザーの声を整理</h3>
+                    <span>11/02　担当：森</span>
+                  </article>
+                </div>
+                <div>
+                  <p>進行中 <b>1</b></p>
+                  <article>
+                    <small>BUILD</small>
+                    <h3>招待メールを改善</h3>
+                    <span>10/29　担当：木村</span>
+                    <div class="progress-meter"><i></i></div>
+                  </article>
+                </div>
+                <div>
+                  <p>完了 <b>1</b></p>
+                  <article class="done">
+                    <small>REVIEW</small>
+                    <h3>仕様のすり合わせ</h3>
+                    <span>✓ レビュー済み</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="flow" class="section" data-reveal>
+        <div class="wrap">
+          <h2>仕事の流れが、見える。</h2>
+          <div class="grid">
+            <article class="card">
+              <p class="number">01</p>
+              <h3>計画する</h3>
+              <p>
+                大きな目標を、小さく進められるタスクへ。優先順位と担当が見えます。
+              </p>
+              <p class="price">01</p>
+            </article>
+            <article class="card">
+              <p class="number">02</p>
+              <h3>共有する</h3>
+              <p>会話の背景と決まったことを、その仕事のすぐそばに残します。</p>
+              <p class="price">02</p>
+            </article>
+            <article class="card">
+              <p class="number">03</p>
+              <h3>振り返る</h3>
+              <p>進んだことと止まったことを見渡し、次の一歩を決めます。</p>
+              <p class="price">03</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="pricing" class="section" data-reveal>
+        <div class="wrap">
+          <h2>小さく始めて、育てよう。</h2>
+          <div class="tabs" aria-label="支払い周期">
+            <button data-billing="month" aria-pressed="true">月払い</button
+            ><button data-billing="year" aria-pressed="false">年払い</button>
+          </div>
+          <p id="billing-note">月払い。税込サンプル価格です。</p>
+          <div class="grid pricing">
+            <article class="card">
+              <h3>Personal</h3>
+              <p>ひとりの仕事に。</p>
+              <p class="price">¥0</p>
+              <ul>
+                <li>3プロジェクト</li>
+                <li>基本のボード</li>
+                <li>個人ノート</li>
+              </ul>
+              <button
+                class="btn"
+                type="button"
+                data-demo="Personalプランのデモ"
+              >
+                無料で試す <span aria-hidden="true">↗</span>
+              </button>
+            </article>
+            <article class="card featured">
+              <p class="number">チームの標準に</p>
+              <h3>Team</h3>
+              <p>一緒に進める仕事に。</p>
+              <p class="price" data-month="¥980" data-year="¥780">¥980</p>
+              <p>1人あたり / 月</p>
+              <ul>
+                <li>無制限のプロジェクト</li>
+                <li>チームノート</li>
+                <li>進捗レポート</li>
+              </ul>
+              <button class="btn" type="button" data-demo="Teamプランのデモ">
+                Teamを試す <span aria-hidden="true">↗</span>
+              </button>
+            </article>
+            <article class="card">
+              <h3>Organization</h3>
+              <p>組織で安心して使う。</p>
+              <p class="price" data-month="¥1,980" data-year="¥1,580">¥1,980</p>
+              <p>1人あたり / 月</p>
+              <ul>
+                <li>Teamのすべて</li>
+                <li>権限の管理</li>
+                <li>管理者向けサポート</li>
+              </ul>
+              <button
+                class="btn"
+                type="button"
+                data-demo="Organization相談のデモ"
+              >
+                相談する <span aria-hidden="true">↗</span>
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="faq" class="section" data-reveal>
+        <div class="wrap">
+          <h2>よくあるご質問</h2>
+          <details>
+            <summary>実際にデータを保存できますか？</summary>
+            <p>
+              このサイトはフロントエンドの販売用テンプレートです。アカウント作成、保存、外部送信の機能はありません。
+            </p>
+          </details>
+          <details>
+            <summary>年払いの価格はどう計算していますか？</summary>
+            <p>
+              Teamは月額換算780円、Organizationは1,580円のサンプルです。実際の契約や課金は発生しません。
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© pulse / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>

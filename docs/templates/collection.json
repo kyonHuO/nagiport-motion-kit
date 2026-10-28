@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "ember-table",
+    "name": "EMBER TABLE",
+    "kind": "飲食・レストラン"
+  },
+  {
+    "slug": "lune-ritual",
+    "name": "lune ritual",
+    "kind": "美容・スパ"
+  },
+  {
+    "slug": "stillwater-lodge",
+    "name": "STILLWATER",
+    "kind": "宿泊・自然のロッジ"
+  },
+  {
+    "slug": "form-atelier",
+    "name": "FORM / atelier",
+    "kind": "建築・設計事務所"
+  },
+  {
+    "slug": "habitat-living",
+    "name": "habitat.",
+    "kind": "不動産・住まい探し"
+  },
+  {
+    "slug": "orbit-bottle",
+    "name": "ORBIT",
+    "kind": "EC・プロダクト"
+  },
+  {
+    "slug": "pulse-workspace",
+    "name": "pulse",
+    "kind": "SaaS・チーム業務ツール"
+  },
+  {
+    "slug": "mio-objects",
+    "name": "MIO / OBJECTS",
+    "kind": "クリエイター・ポートフォリオ"
+  },
+  {
+    "slug": "signal-festival",
+    "name": "SIGNAL / 27",
+    "kind": "イベント・カンファレンス"
+  },
+  {
+    "slug": "fieldnotes-school",
+    "name": "fieldnotes",
+    "kind": "教育・クリエイティブスクール"
+  }
+]

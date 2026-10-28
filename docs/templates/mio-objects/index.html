@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f1ece6" />
+    <meta
+      name="description"
+      content="MIO / OBJECTS — クリエイター・ポートフォリオ向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+    />
+    <title>MIO / OBJECTS — クリエイター・ポートフォリオ</title>
+    <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へ移動</a>
+    <header>
+      <div class="wrap navrow">
+        <a class="logo" href="#main" aria-label="MIO / OBJECTS トップ"
+          >MIO / OBJECTS</a
+        ><button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          メニュー
+        </button>
+        <nav id="navigation" aria-label="メインナビゲーション">
+          <a href="#work">作品</a><a href="#about">プロフィール</a
+          ><a href="#contact">制作の相談</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="folio-hero">
+            <div class="intro">
+              <p class="kicker">DESIGN / ILLUSTRATION / PLAY</p>
+              <h1>ちょっと変。<br />だから、<br /><em>忘れない。</em></h1>
+              <p>
+                かたちと色で、日常に小さなひっかかりを。<br />デザイナー・イラストレーター、MIO。
+              </p>
+              <a class="btn alt" href="#work">作品を見る ↓</a>
+            </div>
+            <figure>
+              <img
+                class="hero-art"
+                src="assets/illustration.svg"
+                width="1000"
+                height="1000"
+                alt="丸、星、三角、十字を組み合わせた4色の幾何学アート"
+                fetchpriority="high"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="section" data-reveal>
+        <div class="wrap">
+          <h2>Selected play.</h2>
+          <div class="tabs" data-filter-group aria-label="作品の分類">
+            <button data-filter="all" aria-pressed="true">All works</button
+            ><button data-filter="identity" aria-pressed="false">
+              Identity</button
+            ><button data-filter="print" aria-pressed="false">Print</button>
+          </div>
+          <div class="folio-grid">
+            <article data-category="identity">
+              <div class="poster poster-0" aria-hidden="true">
+                <span>odd.</span><i></i>
+              </div>
+              <div class="eyeline">
+                <h3>ODD COFFEE</h3>
+                <span>IDENTITY / 架空作品</span>
+              </div>
+            </article>
+            <article data-category="print">
+              <div class="poster poster-1" aria-hidden="true">
+                <span>OUT SIDE</span><i></i>
+              </div>
+              <div class="eyeline">
+                <h3>外へ、出よう。</h3>
+                <span>POSTER / 架空作品</span>
+              </div>
+            </article>
+            <article data-category="identity">
+              <div class="poster poster-2" aria-hidden="true">
+                <span>&</span><i></i>
+              </div>
+              <div class="eyeline">
+                <h3>and flowers</h3>
+                <span>IDENTITY / 架空作品</span>
+              </div>
+            </article>
+            <article data-category="print">
+              <div class="poster poster-3" aria-hidden="true">
+                <span>PLAY</span><i></i>
+              </div>
+              <div class="eyeline">
+                <h3>PLAYBOOK</h3>
+                <span>EDITORIAL / 架空作品</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="section" data-reveal>
+        <div class="wrap">
+          <h2>まじめに、<br />あそびをつくる。</h2>
+          <div class="split">
+            <p class="lead">
+              「なんだろう？」と思う、その一瞬が好きです。ブランドの芯を探しながら、少し意外で、ずっと覚えている表現をつくります。
+            </p>
+            <div>
+              <h3>できること</h3>
+              <ul class="list">
+                <li>ブランドアイデンティティ</li>
+                <li>イラストレーション</li>
+                <li>パッケージ・印刷物</li>
+              </ul>
+              <p class="fine">
+                MIOは架空のクリエイターです。作品・経歴はデモ用です。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section" data-reveal>
+        <div class="wrap">
+          <h2>次の「なんだろう？」を<br />一緒につくりませんか。</h2>
+          <button class="btn" type="button" data-demo="制作相談のデモ">
+            制作の話をする <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div>
+          <p>© MIO / OBJECTS / CONCEPT TEMPLATE</p>
+          <p class="demo-note">
+            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
+          </p>
+        </div>
+        <a href="../index.html">← テンプレート一覧</a>
+      </div>
+    </footer>
+    <dialog aria-labelledby="demo-title">
+      <button class="close" type="button" aria-label="デモ画面を閉じる">
+        ×
+      </button>
+      <h2 id="demo-title" class="dialog-title">デモ</h2>
+      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <p>
+        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+      </p>
+      <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
+      <p class="status" role="status" hidden></p>
+    </dialog>
+  </body>
+</html>
