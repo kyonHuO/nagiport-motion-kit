@@ -2,176 +2,148 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4eae2" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#251c38" />
     <meta
       name="description"
-      content="lune ritual — 美容・スパ向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+      content="自分のリズムに戻る、プライベートスパ。架空ブランドの操作可能なデモサイトです。"
     />
-    <title>lune ritual — 美容・スパ</title>
+    <title>lune ritual — 自分のリズムに戻る、プライベートスパ</title>
     <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="lune-ritual">
     <a class="skip" href="#main">本文へ移動</a>
-    <header>
-      <div class="wrap navrow">
-        <a class="logo" href="#main" aria-label="lune ritual トップ"
-          >lune ritual</a
-        ><button
-          class="menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navigation"
-        >
-          メニュー
-        </button>
-        <nav id="navigation" aria-label="メインナビゲーション">
-          <a href="#ritual">トリートメント</a><a href="#care">ケアの流れ</a
-          ><a href="#faq">ご案内</a>
-        </nav>
-      </div>
+    <header class="site-header">
+      <a class="brand" href="#main">lune ritual</a>
+      <nav class="site-nav" id="navigation" aria-label="メインナビゲーション">
+        <a href="#ritual">リチュアル</a><a href="#studio">スタジオ</a>
+      </nav>
+      <button
+        class="menu"
+        aria-controls="navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        メニュー
+      </button>
     </header>
     <main id="main">
-      <section class="hero">
-        <div class="wrap">
-          <div class="beauty-head intro">
-            <p class="kicker">肌と、わたしの余白。</p>
-            <h1>何もしない時間が、<br /><em>わたしを満たす。</em></h1>
-          </div>
-          <div class="beauty-stage">
-            <figure>
-              <img
-                class="hero-art"
-                src="assets/illustration.svg"
-                width="1000"
-                height="1000"
-                alt="アーチと植物に囲まれたセージ色のスキンケアボトル"
-                fetchpriority="high"
-              />
-            </figure>
-            <div class="beauty-side">
-              <p>
-                呼吸を深める。<br />肩の力を抜く。<br />肌に、静かなリズムを。
-              </p>
-              <a class="btn alt" href="#ritual">自分のためのケアを探す ↗</a>
-            </div>
+      <section class="lune-hero">
+        <div class="lune-heading">
+          <p>からだの声に、耳を澄ます。</p>
+          <h1 class="serif">Return<br />to your<br />own tide.</h1>
+          <div class="lune-copy">
+            <p>
+              満ちる日も、欠ける日も。<br />その日のあなたに、合う手あてを。
+            </p>
+            <a href="#ritual" class="lune-cta"
+              >今日のリチュアルを選ぶ <span>↘</span></a
+            >
           </div>
         </div>
-      </section>
-      <section id="ritual" class="section" data-reveal>
-        <div class="wrap">
-          <h2>今の肌に、寄り添う。</h2>
-          <div class="grid">
-            <article class="card">
-              <p class="number">01</p>
-              <h3>Reset / 60min</h3>
-              <p>クレンジングと保湿を中心に、肌の状態を見つめる基本のケア。</p>
-              <p class="price">¥8,800</p>
-            </article>
-            <article class="card">
-              <p class="number">02</p>
-              <h3>Restore / 90min</h3>
-              <p>顔まわりから首・肩まで。ゆっくり休みたい日のためのケア。</p>
-              <p class="price">¥12,100</p>
-            </article>
-            <article class="card">
-              <p class="number">03</p>
-              <h3>Deep rest / 120min</h3>
-              <p>フェイスとボディを組み合わせる、余白のための長い時間。</p>
-              <p class="price">¥16,500</p>
-            </article>
+        <div
+          class="moon-stage art"
+          role="img"
+          aria-label="真珠のように光を反射する、月と水滴の彫刻"
+        >
+          <div class="moon-halo"></div>
+          <div class="moon-object reactive"><div class="moon-inner"></div></div>
+          <span class="moon-axis axis-one"></span
+          ><span class="moon-axis axis-two"></span
+          ><span class="moon-dot"></span>
+          <div class="moon-note">
+            <span class="serif" id="moon-word">release</span>
+            <p>呼吸が、ほどけていく。</p>
           </div>
-          <p class="fine">
-            税込サンプル価格。美容・医療効果を保証するものではありません。
+          <span class="moon-sign serif">lune</span>
+        </div>
+        <div class="lune-bottom">
+          <span>Private body &amp; facial studio</span
+          ><span>ひと枠、ひと組だけの時間。</span>
+        </div>
+      </section>
+      <section class="section ritual-section" id="ritual">
+        <div class="section-head">
+          <h2 class="serif">今日は、どんなあなた？</h2>
+          <p>
+            気分から選ぶ、3つのリチュアル。<br />強さや香りは、その日に合わせて。
           </p>
         </div>
-      </section>
-      <section id="care" class="section" data-reveal>
-        <div class="wrap">
-          <h2>急がなくて、いい。</h2>
-          <ol class="ritual-steps">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>話す</h3>
-                <p>
-                  気になること、その日の体調。言葉にしながら一緒に整えます。
-                </p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>ゆだねる</h3>
-                <p>
-                  香りや触れ方は、心地よさに合わせて。苦手なこともお伝えください。
-                </p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>持ち帰る</h3>
-                <p>日々のケアに取り入れられる、小さな習慣をご提案します。</p>
-              </div>
-            </li>
-          </ol>
+        <div class="ritual-grid">
+          <div class="ritual-options">
+            <button type="button" data-ritual="release" aria-pressed="true">
+              <span class="serif">Release</span><span>こわばりを、ほどく。</span
+              ><b>＋</b></button
+            ><button type="button" data-ritual="restore" aria-pressed="false">
+              <span class="serif">Restore</span
+              ><span>疲れた肌に、うるおいを。</span><b>＋</b></button
+            ><button type="button" data-ritual="reset" aria-pressed="false">
+              <span class="serif">Reset</span
+              ><span>何もしない、を取り戻す。</span><b>＋</b>
+            </button>
+          </div>
+          <div class="ritual-detail" aria-live="polite">
+            <p id="ritual-type">ボディトリートメント</p>
+            <h3 class="serif" id="ritual-title">
+              深く息をして、<br />重さを手放す。
+            </h3>
+            <p id="ritual-description">
+              背中から足先まで、温かなオイルでゆっくりと。呼吸のリズムに合わせて、こわばりをほどきます。
+            </p>
+            <div class="row ritual-price">
+              <span id="ritual-time">90 min</span
+              ><strong class="serif" id="ritual-price">¥12,000</strong>
+            </div>
+            <button class="btn" data-demo="リチュアル選択のデモ" type="button">
+              このリチュアルを選ぶデモ
+            </button>
+            <p class="control-note">税込サンプル価格 / 予約は行われません</p>
+          </div>
         </div>
       </section>
-      <section id="faq" class="section" data-reveal>
-        <div class="wrap">
-          <h2>よくあるご質問</h2>
+      <section class="section lune-about" id="studio">
+        <div class="serif">A little space.<br />All for you.</div>
+        <div>
+          <h2>街のすきまに、<br />あなたに戻る場所。</h2>
+          <p>
+            時計から目を離して、香りと手のぬくもりに身を預ける。施術の前後にも、あわてない時間をご用意します。
+          </p>
           <details>
-            <summary>はじめてでも利用できますか？</summary>
+            <summary>初めてでも利用できますか？</summary>
             <p>
-              はい。最初にカウンセリングの時間を設ける想定のデモです。実際の受付は行っていません。
+              こちらは架空のスタジオのデモです。実際の施術や予約は提供していません。
             </p>
           </details>
           <details>
-            <summary>敏感肌でも受けられますか？</summary>
+            <summary>どんな内容を編集できますか？</summary>
             <p>
-              体調・肌状態によって施術を控える場合があります。実店舗の方針に合わせて説明を編集してください。
+              メニュー、時間、価格、説明を独立したデータから編集できます。実際の予約機能は別途実装してください。
             </p>
           </details>
-        </div>
-      </section>
-      <section id="booking" class="section" data-reveal>
-        <div class="wrap">
-          <h2>次のお休みに、<br />自分のための90分を。</h2>
-          <button
-            class="btn"
-            type="button"
-            data-demo="トリートメント予約のデモ"
-          >
-            トリートメントを選ぶ <span aria-hidden="true">↗</span>
-          </button>
         </div>
       </section>
     </main>
-    <footer>
-      <div class="wrap">
-        <div>
-          <p>© lune ritual / CONCEPT TEMPLATE</p>
-          <p class="demo-note">
-            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
-          </p>
-        </div>
-        <a href="../index.html">← テンプレート一覧</a>
+    <footer class="site-footer">
+      <div>
+        <strong>lune ritual</strong>
+        <p>
+          架空のブランドのデモです。施設・商品・人物・価格はサンプルです。送信・予約・注文・決済は行われません。
+        </p>
       </div>
+      <a href="../index.html">テンプレート一覧へ</a>
     </footer>
     <dialog aria-labelledby="demo-title">
       <button class="close" type="button" aria-label="デモ画面を閉じる">
         ×
       </button>
-      <h2 id="demo-title" class="dialog-title">デモ</h2>
-      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <h2 id="demo-title">デモ</h2>
       <p>
-        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+        操作体験用の画面です。実際のサービス・商品は提供していません。入力や個人情報の収集は行いません。
       </p>
       <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
-      <p class="status" role="status" hidden></p>
+      <p class="status" role="status"></p>
     </dialog>
   </body>
 </html>

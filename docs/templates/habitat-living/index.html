@@ -2,188 +2,243 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f7f5ee" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f0f4ed" />
     <meta
       name="description"
-      content="habitat. — 不動産・住まい探し向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+      content="好きな日常から選ぶ、住まい探し。架空ブランドの操作可能なデモサイトです。"
     />
-    <title>habitat. — 不動産・住まい探し</title>
+    <title>habitat. — 好きな日常から選ぶ、住まい探し</title>
     <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="habitat-living">
     <a class="skip" href="#main">本文へ移動</a>
-    <header>
-      <div class="wrap navrow">
-        <a class="logo" href="#main" aria-label="habitat. トップ">habitat.</a
-        ><button
-          class="menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navigation"
-        >
-          メニュー
-        </button>
-        <nav id="navigation" aria-label="メインナビゲーション">
-          <a href="#homes">住まいを探す</a><a href="#guide">選び方</a
-          ><a href="#faq">よくある質問</a>
-        </nav>
-      </div>
+    <header class="site-header">
+      <a class="brand" href="#main">habitat.</a>
+      <nav class="site-nav" id="navigation" aria-label="メインナビゲーション">
+        <a href="#homes">間取りから探す</a><a href="#list">物件を見る</a
+        ><a href="#about">私たちについて</a>
+      </nav>
+      <button
+        class="menu"
+        aria-controls="navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        メニュー
+      </button>
     </header>
     <main id="main">
-      <section class="hero">
-        <div class="wrap">
-          <div class="split">
-            <div class="intro">
-              <p class="kicker">住所よりも、暮らし方。</p>
-              <h1>「ただいま」が<br />好きになる家。</h1>
-              <p class="lead">
-                日当たり、街の空気、休日の過ごし方。<br />間取りの先にある、あなたの毎日を探そう。
-              </p>
-              <a class="btn" href="#homes">暮らしから探す ↗</a>
+      <section class="habitat-hero" id="homes">
+        <div class="home-search">
+          <p class="micro">住まいは、暮らし方から。</p>
+          <h1>好きな日常を、<br />見つけよう。</h1>
+          <p>広さの数字より、<br />ここで過ごす自分を想像する。</p>
+          <div class="home-filters">
+            <p class="micro">間取りから選ぶ</p>
+            <div class="choices" aria-label="間取り">
+              <button type="button" data-layout="one" aria-pressed="true">
+                1LDK</button
+              ><button type="button" data-layout="two" aria-pressed="false">
+                2LDK
+              </button>
             </div>
-            <figure>
-              <img
-                class="hero-art"
-                src="assets/illustration.svg"
-                width="1000"
-                height="1000"
-                alt="大きな窓と植物のあるリビングのイラスト"
-                fetchpriority="high"
-              />
-              <figcaption class="eyeline">
-                <span>ROOM TO BE YOU.</span
-                ><span>暮らしの風景を想像する。</span>
-              </figcaption>
-            </figure>
           </div>
+          <div class="home-count">
+            <strong id="home-count">2</strong><span>件のサンプル物件</span>
+          </div>
+          <a href="#list">候補を見る ↓</a>
+          <p class="micro search-note">掲載物件はすべて架空です。</p>
+        </div>
+        <div class="home-stage art">
+          <div class="home-stage-top">
+            <span id="plan-name">窓辺のある暮らし</span
+            ><span id="plan-area">48.6㎡</span>
+          </div>
+          <div class="plan-scene">
+            <div class="floorplan">
+              <div class="room living">
+                <span>Living / Dining</span><b>14.2帖</b>
+                <div class="sofa"></div>
+                <div class="table-furniture"></div>
+                <div class="plant"></div>
+              </div>
+              <div class="room bedroom">
+                <span>Bedroom</span><b>6.0帖</b>
+                <div class="bed"></div>
+              </div>
+              <div class="room study">
+                <span>Study</span><b>4.5帖</b>
+                <div class="desk"></div>
+              </div>
+              <div class="room bath">
+                <span>Bath</span>
+                <div class="tub"></div>
+              </div>
+              <div class="room entrance"><span>Entrance</span></div>
+              <div class="balcony">Balcony</div>
+            </div>
+          </div>
+          <div class="home-plan-bottom">
+            <span id="plan-type">1LDK / 南向き</span
+            ><span class="micro">イメージ間取り / 縮尺は参考</span>
+          </div>
+          <div class="plan-stamp">habitat.<span>Find your everyday.</span></div>
         </div>
       </section>
-      <section id="homes" class="section" data-reveal>
-        <div class="wrap">
-          <h2>どんな毎日を、送りたい？</h2>
-          <div class="tabs" data-filter-group aria-label="物件の条件">
-            <button data-filter="all" aria-pressed="true">すべて</button
-            ><button data-filter="green" aria-pressed="false">
-              緑のある暮らし</button
-            ><button data-filter="city" aria-pressed="false">街を楽しむ</button>
-          </div>
-          <div class="grid homes">
-            <article class="home card" data-category="green">
-              <div class="home-art art-0" aria-hidden="true"><i></i></div>
-              <div class="home-info">
-                <p class="number">緑のある暮らし</p>
-                <h3>窓辺に、森。</h3>
-                <p>1LDK / 42m² / 架空の物件</p>
-                <p class="price">¥128,000<small> / 月</small></p>
-                <button class="btn" type="button" data-demo="物件詳細のデモ">
-                  間取りを確認 <span aria-hidden="true">↗</span>
-                </button>
-              </div>
-            </article>
-            <article class="home card" data-category="city">
-              <div class="home-art art-1" aria-hidden="true"><i></i></div>
-              <div class="home-info">
-                <p class="number">街を楽しむ</p>
-                <h3>路地を、庭に。</h3>
-                <p>2LDK / 58m² / 架空の物件</p>
-                <p class="price">¥168,000<small> / 月</small></p>
-                <button class="btn" type="button" data-demo="物件詳細のデモ">
-                  間取りを確認 <span aria-hidden="true">↗</span>
-                </button>
-              </div>
-            </article>
-            <article class="home card" data-category="green">
-              <div class="home-art art-2" aria-hidden="true"><i></i></div>
-              <div class="home-info">
-                <p class="number">緑のある暮らし</p>
-                <h3>空が近い部屋。</h3>
-                <p>1R / 32m² / 架空の物件</p>
-                <p class="price">¥98,000<small> / 月</small></p>
-                <button class="btn" type="button" data-demo="物件詳細のデモ">
-                  間取りを確認 <span aria-hidden="true">↗</span>
-                </button>
-              </div>
-            </article>
-          </div>
-          <p class="fine">
-            物件情報・賃料は架空のサンプルです。管理費・敷金などは設定されていません。実際の募集ではありません。
+      <section class="section property-section" id="list">
+        <div class="section-head">
+          <h2>ただいま、が<br />楽しみになる場所。</h2>
+          <p class="status" id="home-status" role="status">
+            1LDKのサンプルを2件表示しています。
           </p>
         </div>
-      </section>
-      <section id="guide" class="section" data-reveal>
-        <div class="wrap">
-          <h2>いい家は、<br />自分の基準で選ぶ。</h2>
-          <div class="grid">
-            <article class="card">
-              <p class="number">01</p>
-              <h3>朝の光で選ぶ</h3>
-              <p>
-                いつ起きて、どこで朝を過ごすか。光の入り方から暮らしを想像して。
-              </p>
-              <p class="price">01</p>
-            </article>
-            <article class="card">
-              <p class="number">02</p>
-              <h3>歩く距離で選ぶ</h3>
-              <p>
-                駅までだけでなく、好きな店や公園まで。いつもの道も住まいの一部。
-              </p>
-              <p class="price">02</p>
-            </article>
-            <article class="card">
-              <p class="number">03</p>
-              <h3>余白で選ぶ</h3>
-              <p>
-                働く場所、趣味の場所。今の自分にも、これからの自分にも合う広さを。
-              </p>
-              <p class="price">03</p>
-            </article>
-          </div>
+        <div class="property-list">
+          <article class="property" data-home="one">
+            <div class="property-number">A</div>
+            <div>
+              <h3>窓辺のある暮らし</h3>
+              <p>大きな窓と、午後の光。</p>
+              <span class="micro">48.6㎡ / 徒歩7分 / 1LDK</span>
+            </div>
+            <div class="property-price">
+              <b>128,000</b><span>円 / 月・管理費別</span>
+            </div>
+            <button
+              type="button"
+              class="save-home"
+              aria-pressed="false"
+              aria-label="窓辺のある暮らしをお気に入りに追加"
+            >
+              ♡</button
+            ><button
+              type="button"
+              class="btn ghost"
+              data-demo="窓辺のある暮らしの内見デモ"
+            >
+              内見デモ
+            </button>
+          </article>
+          <article class="property" data-home="one">
+            <div class="property-number">B</div>
+            <div>
+              <h3>本と過ごす部屋</h3>
+              <p>壁一面を、好きなものに。</p>
+              <span class="micro">42.8㎡ / 徒歩5分 / 1LDK</span>
+            </div>
+            <div class="property-price">
+              <b>116,000</b><span>円 / 月・管理費別</span>
+            </div>
+            <button
+              type="button"
+              class="save-home"
+              aria-pressed="false"
+              aria-label="本と過ごす部屋をお気に入りに追加"
+            >
+              ♡</button
+            ><button
+              type="button"
+              class="btn ghost"
+              data-demo="本と過ごす部屋の内見デモ"
+            >
+              内見デモ
+            </button>
+          </article>
+          <article class="property" data-home="two">
+            <div class="property-number">C</div>
+            <div>
+              <h3>庭につながる家</h3>
+              <p>子どもと植物が育つ、一階の部屋。</p>
+              <span class="micro">67.2㎡ / 徒歩9分 / 2LDK</span>
+            </div>
+            <div class="property-price">
+              <b>164,000</b><span>円 / 月・管理費別</span>
+            </div>
+            <button
+              type="button"
+              class="save-home"
+              aria-pressed="false"
+              aria-label="庭につながる家をお気に入りに追加"
+            >
+              ♡</button
+            ><button
+              type="button"
+              class="btn ghost"
+              data-demo="庭につながる家の内見デモ"
+            >
+              内見デモ
+            </button>
+          </article>
+          <article class="property" data-home="two">
+            <div class="property-number">D</div>
+            <div>
+              <h3>ふたりの余白</h3>
+              <p>それぞれの時間を、大切に。</p>
+              <span class="micro">62.4㎡ / 徒歩6分 / 2LDK</span>
+            </div>
+            <div class="property-price">
+              <b>158,000</b><span>円 / 月・管理費別</span>
+            </div>
+            <button
+              type="button"
+              class="save-home"
+              aria-pressed="false"
+              aria-label="ふたりの余白をお気に入りに追加"
+            >
+              ♡</button
+            ><button
+              type="button"
+              class="btn ghost"
+              data-demo="ふたりの余白の内見デモ"
+            >
+              内見デモ
+            </button>
+          </article>
         </div>
+        <p class="control-note">
+          架空の賃貸物件・月額サンプルです。管理費・敷金・礼金等の契約条件は含みません。
+        </p>
+        <p class="status" id="save-status" role="status">
+          気になる部屋は、ハートで残せます。このページ内だけの保存です。
+        </p>
       </section>
-      <section id="faq" class="section" data-reveal>
-        <div class="wrap">
-          <h2>よくあるご質問</h2>
-          <details>
-            <summary>オンラインで内見できますか？</summary>
-            <p>
-              このサイトは架空の物件を使ったテンプレートです。内見の受付や個人情報の送信は行いません。
-            </p>
-          </details>
-          <details>
-            <summary>掲載情報は編集できますか？</summary>
-            <p>
-              HTMLの物件カードとCSSの色を編集できます。実際の掲載では必要な取引情報・免許情報等を追加してください。
-            </p>
-          </details>
+      <section class="section habitat-about" id="about">
+        <h2>条件を聞く前に、<br />暮らしの話を。</h2>
+        <div>
+          <p>
+            朝は、コーヒーから？ 休日は、家で過ごす？
+            好きな日常を知ることが、住まい探しのはじまりです。
+          </p>
+          <p>
+            駅からの距離や面積に加えて、窓の向き、床の手触り、街の空気。数字にならない良さも、一緒に見つけます。
+          </p>
+          <button class="btn" data-demo="住まい相談のデモ" type="button">
+            住まい相談のデモを見る
+          </button>
         </div>
       </section>
     </main>
-    <footer>
-      <div class="wrap">
-        <div>
-          <p>© habitat. / CONCEPT TEMPLATE</p>
-          <p class="demo-note">
-            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
-          </p>
-        </div>
-        <a href="../index.html">← テンプレート一覧</a>
+    <footer class="site-footer">
+      <div>
+        <strong>habitat.</strong>
+        <p>
+          架空のブランドのデモです。施設・商品・人物・価格はサンプルです。送信・予約・注文・決済は行われません。
+        </p>
       </div>
+      <a href="../index.html">テンプレート一覧へ</a>
     </footer>
     <dialog aria-labelledby="demo-title">
       <button class="close" type="button" aria-label="デモ画面を閉じる">
         ×
       </button>
-      <h2 id="demo-title" class="dialog-title">デモ</h2>
-      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <h2 id="demo-title">デモ</h2>
       <p>
-        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+        操作体験用の画面です。実際のサービス・商品は提供していません。入力や個人情報の収集は行いません。
       </p>
       <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
-      <p class="status" role="status" hidden></p>
+      <p class="status" role="status"></p>
     </dialog>
   </body>
 </html>

@@ -1,7 +1,10 @@
 "use strict";
-// This demo has no network submission, checkout, storage, or analytics.
-const menu = document.querySelector(".menu"),
-  nav = document.querySelector("nav");
+// Local demonstration only: no submission, checkout, tracking or persistence.
+const $ = (s, r = document) => r.querySelector(s),
+  $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+const menu = $(".menu"),
+  nav = $(".site-nav");
 function closeMenu() {
   nav.classList.remove("open");
   menu.setAttribute("aria-expanded", "false");
@@ -19,14 +22,14 @@ document.addEventListener("keydown", (e) => {
     menu.focus();
   }
 });
-matchMedia("(min-width:621px)").addEventListener("change", closeMenu);
-const dialog = document.querySelector("dialog");
+matchMedia("(min-width:641px)").addEventListener("change", closeMenu);
+const dialog = $("dialog");
 let opener;
-document.querySelectorAll("[data-demo]").forEach((b) =>
+$$("[data-demo]").forEach((b) =>
   b.addEventListener("click", () => {
     opener = b;
-    document.querySelector(".dialog-title").textContent = b.dataset.demo;
-    dialog.querySelector(".status").hidden = true;
+    $("#demo-title").textContent = b.dataset.demo;
+    $(".status", dialog).textContent = "";
     dialog.showModal();
   }),
 );
@@ -34,116 +37,64 @@ function closeDialog() {
   dialog.close();
   opener?.focus();
 }
-dialog.querySelector(".close").addEventListener("click", closeDialog);
+$(".close", dialog).addEventListener("click", closeDialog);
 dialog.addEventListener("cancel", (e) => {
   e.preventDefault();
   closeDialog();
 });
-// closeDialog restores focus synchronously for click, backdrop and Escape.
-dialog.addEventListener("click", (e) => {
-  if (e.target === dialog) {
-    const r = dialog.getBoundingClientRect();
-    if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      closeDialog();
-  }
+$("[data-confirm]", dialog).addEventListener("click", () => {
+  $(".status", dialog).textContent =
+    "デモ操作を確認しました。送信・予約・注文・決済は発生していません。";
 });
-dialog.querySelector("[data-confirm]").addEventListener("click", () => {
-  const s = dialog.querySelector(".status");
-  s.hidden = false;
-  s.textContent =
-    "デモ操作が完了しました。送信・予約・注文・決済は行われていません。";
-});
-document.querySelectorAll("[data-filter]").forEach((b) =>
-  b.addEventListener("click", () => {
-    const group = b.closest("[data-filter-group]");
-    group
-      .querySelectorAll("[data-filter]")
-      .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    document.querySelectorAll("[data-category]").forEach((c) => {
-      c.hidden =
-        b.dataset.filter !== "all" && c.dataset.category !== b.dataset.filter;
-    });
-  }),
-);
-document.querySelectorAll("[data-billing]").forEach((b) =>
-  b.addEventListener("click", () => {
-    document
-      .querySelectorAll("[data-billing]")
-      .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    document
-      .querySelectorAll("[data-month]")
-      .forEach(
-        (p) =>
-          (p.textContent =
-            b.dataset.billing === "year" ? p.dataset.year : p.dataset.month),
-      );
-    document.querySelector("#billing-note").textContent =
-      b.dataset.billing === "year"
-        ? "年払い・月額換算。税込サンプル価格です。"
-        : "月払い。税込サンプル価格です。";
-  }),
-);
-document.querySelectorAll("[data-color]").forEach((b) =>
-  b.addEventListener("click", () => {
-    document
-      .querySelectorAll("[data-color]")
-      .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    document.querySelector(".product-art").style.filter =
-      b.dataset.color === "clay" ? "hue-rotate(295deg) saturate(.75)" : "none";
-    document.querySelector("#color-name").textContent =
-      b.dataset.color === "clay" ? "Clay / クレイ" : "Sage / セージ";
-  }),
-);
-document.querySelectorAll("[data-quantity]").forEach((b) =>
-  b.addEventListener("click", () => {
-    const o = document.querySelector("#quantity");
-    o.textContent = String(
-      Math.max(
-        1,
-        Math.min(9, Number(o.textContent) + Number(b.dataset.quantity)),
-      ),
-    );
-  }),
-);
-document.querySelectorAll("[data-plan]").forEach((b) =>
-  b.addEventListener("click", () => {
-    document
-      .querySelectorAll("[data-plan]")
-      .forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
-    document.querySelector("#plan-output").textContent =
-      b.dataset.plan === "intro"
-        ? "はじめの4週間：観察 → 構図 → 色 → 作品講評"
-        : "次の8週間：編集 → 表現 → 連作 → ポートフォリオ";
-  }),
-);
-const reduce = matchMedia("(prefers-reduced-motion:reduce)");
-if ("IntersectionObserver" in window && !reduce.matches) {
-  document.documentElement.classList.add("js");
-  const io = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.remove("pending");
-          io.unobserve(e.target);
-        }
-      }),
-    { threshold: 0.06 },
+function selectButton(button, selector) {
+  $$(selector).forEach((b) =>
+    b.setAttribute("aria-pressed", String(b === button)),
   );
-  document.querySelectorAll("[data-reveal]").forEach((el) => {
-    el.classList.add("pending");
-    io.observe(el);
-  });
-  reduce.addEventListener("change", () => {
-    if (reduce.matches) {
-      document
-        .querySelectorAll(".pending")
-        .forEach((el) => el.classList.remove("pending"));
-      io.disconnect();
-    }
+}
+// Brief action feedback only. Never starts an automatic or perpetual animation.
+function feedback(element) {
+  if (!element.animate) return;
+  element.animate([{ opacity: 0.55 }, { opacity: 1 }], {
+    duration: reduce.matches ? 120 : 180,
+    easing: "ease-out",
   });
 }
+reduce.addEventListener("change", () => {
+  if (reduce.matches && document.getAnimations)
+    document.getAnimations().forEach((a) => a.cancel());
+});
+
+let project = "courtyard",
+  view = "perspective";
+const projects = {
+  courtyard: ["中庭を囲む家", "住宅 / 長野 / 148㎡ / 2026"],
+  library: ["小さなまちの書庫", "文化施設 / 群馬 / 312㎡ / 2025"],
+  atelier: ["光を編むアトリエ", "アトリエ / 東京 / 86㎡ / 2025"],
+};
+function projectStatus() {
+  $("#project-status").textContent =
+    projects[project][0] + " / " + (view === "plan" ? "平面図" : "透視図");
+}
+$$("[data-project]").forEach((b) =>
+  b.addEventListener("click", () => {
+    selectButton(b, "[data-project]");
+    project = b.dataset.project;
+    $(".model-stage").dataset.project = project;
+    $("#project-name").textContent = projects[project][0];
+    $("#project-meta").textContent = projects[project][1];
+    $(".model-stage").setAttribute(
+      "aria-label",
+      projects[project][0] + "の建築スタディ模型",
+    );
+    projectStatus();
+    feedback($(".architecture"));
+  }),
+);
+$$("[data-view]").forEach((b) =>
+  b.addEventListener("click", () => {
+    selectButton(b, "[data-view]");
+    view = b.dataset.view;
+    $(".model-stage").classList.toggle("plan", view === "plan");
+    projectStatus();
+  }),
+);

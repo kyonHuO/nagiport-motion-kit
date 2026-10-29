@@ -2,188 +2,171 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f6f0dd" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#294fe3" />
     <meta
       name="description"
-      content="fieldnotes — 教育・クリエイティブスクール向けの独立したHTML/CSS/JavaScriptテンプレート。架空のブランドのデモです。"
+      content="上手くなる前に、おもしろがろう。架空ブランドの操作可能なデモサイトです。"
     />
-    <title>fieldnotes — 教育・クリエイティブスクール</title>
+    <title>fieldnotes — 上手くなる前に、おもしろがろう</title>
     <link rel="icon" href="assets/illustration.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="fieldnotes-school">
     <a class="skip" href="#main">本文へ移動</a>
-    <header>
-      <div class="wrap navrow">
-        <a class="logo" href="#main" aria-label="fieldnotes トップ"
-          >fieldnotes</a
-        ><button
-          class="menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navigation"
-        >
-          メニュー
-        </button>
-        <nav id="navigation" aria-label="メインナビゲーション">
-          <a href="#courses">コース</a><a href="#method">学び方</a
-          ><a href="#faq">FAQ</a>
-        </nav>
-      </div>
+    <header class="site-header">
+      <a class="brand" href="#main">fieldnotes</a>
+      <nav class="site-nav" id="navigation" aria-label="メインナビゲーション">
+        <a href="#main">小さな実験</a><a href="#courses">講座を選ぶ</a
+        ><a href="#school">スクールについて</a>
+      </nav>
+      <button
+        class="menu"
+        aria-controls="navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        メニュー
+      </button>
     </header>
     <main id="main">
-      <section class="hero">
-        <div class="wrap">
-          <div class="split">
-            <div class="intro">
-              <p class="kicker">見つける。つくる。また、見つける。</p>
-              <h1>好奇心を、<br />作品に変える。</h1>
-              <p class="lead">
-                上手に描く前に、よく見ることから。<br />自分の視点を育てる、少人数のオンラインクラス。
-              </p>
-              <a class="btn" href="#courses">自分に合うクラスを探す ↗</a>
-              <p class="fine">はじめての人も、つくり続けたい人も。</p>
+      <section class="field-hero">
+        <div class="field-title">
+          <p>観察して、試して、つくってみる。</p>
+          <h1>field<br />notes<span>creative school</span></h1>
+          <p class="field-sub">上手くなる前に、<br />おもしろがろう。</p>
+          <a class="btn" href="#courses">学び方を見つける</a>
+        </div>
+        <div class="desk-stage art">
+          <div class="paper-shadow"></div>
+          <div class="paper-art">
+            <div class="paper-top">
+              <span>今日の実験</span
+              ><span id="experiment-label">形を重ねる</span>
             </div>
-            <figure>
-              <img
-                class="hero-art"
-                src="assets/illustration.svg"
-                width="1000"
-                height="1000"
-                alt="幾何学のスケッチと鉛筆が置かれた学習ノート"
-                fetchpriority="high"
-              />
-            </figure>
+            <div class="paper-canvas">
+              <canvas id="artwork" aria-hidden="true"></canvas>
+            </div>
+            <div class="paper-bottom">
+              <span>Look. Try. Make.</span
+              ><span id="seed-label">Study #07</span>
+            </div>
+          </div>
+          <div class="tape tape-one"></div>
+          <div class="tape tape-two"></div>
+          <div class="pencil"></div>
+          <div class="desk-caption">
+            <span class="serif">What if?</span>
+            <p>「もしも」を、<br />手を動かして確かめる。</p>
           </div>
         </div>
-      </section>
-      <section id="courses" class="section" data-reveal>
-        <div class="wrap">
-          <h2>自分のペースで、<br />はじめよう。</h2>
-          <div class="course-layout">
-            <div class="course-picker tabs" aria-label="コースの選択">
-              <button data-plan="intro" aria-pressed="true">
-                はじめのクラス</button
-              ><button data-plan="studio" aria-pressed="false">
-                つづけるスタジオ
-              </button>
-            </div>
-            <div class="course-output">
-              <p class="kicker">LEARNING PATH</p>
-              <p id="plan-output" aria-live="polite">
-                はじめの4週間：観察 → 構図 → 色 → 作品講評
-              </p>
-            </div>
+        <div class="experiment-controls">
+          <span>まず、ここでひとつ。</span>
+          <div class="choices" aria-label="表現を選択">
+            <button type="button" data-experiment="shape" aria-pressed="true">
+              形で遊ぶ</button
+            ><button type="button" data-experiment="color" aria-pressed="false">
+              色で遊ぶ</button
+            ><button
+              type="button"
+              data-experiment="layout"
+              aria-pressed="false"
+            >
+              構図で遊ぶ
+            </button>
           </div>
-          <div class="grid">
-            <article class="card">
-              <p class="number">01</p>
-              <h3>はじめのクラス</h3>
-              <p>
-                週1回、全4回。身近なものを観察し、自分の手で表現する最初の一歩。
-              </p>
-              <p class="price">¥18,000</p>
-            </article>
-            <article class="card">
-              <p class="number">02</p>
-              <h3>つづけるスタジオ</h3>
-              <p>
-                週1回、全8回。テーマを見つけ、試作と対話を重ねながら連作をつくる。
-              </p>
-              <p class="price">¥32,000</p>
-            </article>
-            <article class="card">
-              <p class="number">03</p>
-              <h3>一日のワークショップ</h3>
-              <p>
-                2時間の単発講座。ひとつのテーマに集中して、つくる楽しさを体験。
-              </p>
-              <p class="price">¥4,500</p>
-            </article>
-          </div>
-          <p class="fine">
-            税込サンプル価格。架空の講座のため、受講申し込みはできません。
+          <button type="button" id="new-study">もう一度つくる ↻</button>
+          <p class="status" id="art-status" role="status">
+            形を重ねる / Study #07
           </p>
         </div>
       </section>
-      <section id="method" class="section" data-reveal>
-        <div class="wrap">
-          <h2>答えを覚えるより、<br />問いを見つける。</h2>
-          <div class="learning-steps">
-            <article>
-              <span>LOOK</span>
-              <h3>観察する。</h3>
-              <p>いつもと違う見方で、日常のかたちや色を集めます。</p>
-            </article>
-            <article>
-              <span>MAKE</span>
-              <h3>試してみる。</h3>
-              <p>手を動かして、小さく実験。うまくいかないことも発見です。</p>
-            </article>
-            <article>
-              <span>SHARE</span>
-              <h3>話してみる。</h3>
-              <p>作品を見せ合い、違う視点から自分の表現を見つけます。</p>
-            </article>
-          </div>
+      <section class="section field-courses" id="courses">
+        <div class="section-head">
+          <h2>自分の「気になる」が、<br />いちばんの教材。</h2>
+          <p>経験よりも、好奇心。<br />小さな実験を積み重ねるスクールです。</p>
         </div>
-      </section>
-      <section id="faq" class="section" data-reveal>
-        <div class="wrap">
-          <h2>よくあるご質問</h2>
-          <details>
-            <summary>道具は何が必要ですか？</summary>
-            <p>
-              基本クラスは紙・鉛筆・色鉛筆を想定しています。実際の講座内容に合わせて編集してください。
-            </p>
-          </details>
-          <details>
-            <summary>絵を描いたことがなくても大丈夫？</summary>
-            <p>
-              経験よりも好奇心を大切にする架空のカリキュラムです。対象年齢や前提条件を公開時に設定してください。
-            </p>
-          </details>
-          <details>
-            <summary>欠席した場合は？</summary>
-            <p>
-              振替や録画、キャンセル規定など、運営方針に応じた説明をここに記載できます。
-            </p>
-          </details>
-        </div>
-      </section>
-      <section id="start" class="section" data-reveal>
-        <div class="wrap">
-          <h2>最初の一枚を、<br />ここから。</h2>
-          <button class="btn" type="button" data-demo="体験クラスのデモ">
-            体験クラスを見る <span aria-hidden="true">↗</span>
+        <div class="course-tabs choices" aria-label="講座を選択">
+          <button type="button" data-class="start" aria-pressed="true">
+            はじめの4週間</button
+          ><button type="button" data-class="practice" aria-pressed="false">
+            深める8週間
           </button>
         </div>
+        <div class="class-detail">
+          <div>
+            <h3 id="class-title">見る目を、つくる。</h3>
+            <p id="class-description">
+              身近な風景やものから、色、形、構図を発見する4週間。観察ノートと小さな作品をつくります。
+            </p>
+            <div class="class-price">
+              <strong id="class-price">¥24,000</strong
+              ><span>税込サンプル / 全回合計</span>
+            </div>
+            <button
+              type="button"
+              class="btn"
+              data-demo="fieldnotes講座体験のデモ"
+            >
+              講座体験のデモを見る
+            </button>
+          </div>
+          <ol class="week-list" id="week-list"></ol>
+        </div>
+        <p class="status" id="class-status" role="status">
+          はじめの4週間を表示しています。
+        </p>
+      </section>
+      <section class="section field-philosophy" id="school">
+        <h2>正解の外に、<br />自分の発見がある。</h2>
+        <div class="cols">
+          <article>
+            <span class="serif">Look closer.</span>
+            <h3>よく見る。</h3>
+            <p>
+              いつもの道にも、知らなかった色がある。気になるものを、ノートに集めるところから。
+            </p>
+          </article>
+          <article>
+            <span class="serif">Try it out.</span>
+            <h3>まず試す。</h3>
+            <p>
+              考えすぎる前に、手を動かす。紙でも、写真でも、コードでも。素材は自由です。
+            </p>
+          </article>
+          <article>
+            <span class="serif">Share the why.</span>
+            <h3>話してみる。</h3>
+            <p>
+              何を考え、どうつくったか。作品の背景を言葉にして、新しい視点を持ち帰る。
+            </p>
+          </article>
+        </div>
+        <p class="micro">
+          架空のスクールです。実際の授業・募集・申し込みは行っていません。
+        </p>
       </section>
     </main>
-    <footer>
-      <div class="wrap">
-        <div>
-          <p>© fieldnotes / CONCEPT TEMPLATE</p>
-          <p class="demo-note">
-            架空のブランドのデモです。掲載内容はサンプルで、送信・予約・注文・決済は行われません。
-          </p>
-        </div>
-        <a href="../index.html">← テンプレート一覧</a>
+    <footer class="site-footer">
+      <div>
+        <strong>fieldnotes</strong>
+        <p>
+          架空のブランドのデモです。施設・商品・人物・価格はサンプルです。送信・予約・注文・決済は行われません。
+        </p>
       </div>
+      <a href="../index.html">テンプレート一覧へ</a>
     </footer>
     <dialog aria-labelledby="demo-title">
       <button class="close" type="button" aria-label="デモ画面を閉じる">
         ×
       </button>
-      <h2 id="demo-title" class="dialog-title">デモ</h2>
-      <p>操作体験用の画面です。入力や個人情報の収集は行いません。</p>
+      <h2 id="demo-title">デモ</h2>
       <p>
-        実際のサービス・商品は提供していません。送信・予約・注文・決済は発生しません。
+        操作体験用の画面です。実際のサービス・商品は提供していません。入力や個人情報の収集は行いません。
       </p>
       <button class="btn" type="button" data-confirm>デモ操作を確認する</button>
-      <p class="status" role="status" hidden></p>
+      <p class="status" role="status"></p>
     </dialog>
   </body>
 </html>
