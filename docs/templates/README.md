@@ -1,4 +1,8 @@
-# Nagiport Motion Kit — 10 site templates
+# Nagiport Motion Kit — 20 site templates
+
+既存10サイトにField Collectionの独立10サイトを追加しました。新規10件の用途・操作・ライセンス・検証範囲は[FIELD-COLLECTION.md](./FIELD-COLLECTION.md)をご覧ください。
+
+## 既存10サイト（前回制作分）
 
 2026-10-30に全面再制作した、独立型HTML/CSS/JavaScriptサイト集です。Nagiport本体の口コミ・SNS分類サービスとは別の商品です。
 

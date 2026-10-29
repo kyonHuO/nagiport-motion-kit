@@ -48,5 +48,55 @@
     "slug": "fieldnotes-school",
     "name": "fieldnotes",
     "kind": "教育・クリエイティブスクール"
+  },
+  {
+    "slug": "tidal-console",
+    "name": "TIDAL",
+    "kind": "海洋観測"
+  },
+  {
+    "slug": "groove-cellar",
+    "name": "GROOVE CELLAR",
+    "kind": "レコードショップ"
+  },
+  {
+    "slug": "ridge-expedition",
+    "name": "RIDGE EXPEDITION",
+    "kind": "登山・遠征計画"
+  },
+  {
+    "slug": "margin-press",
+    "name": "MARGIN PRESS",
+    "kind": "出版・マガジン"
+  },
+  {
+    "slug": "nocturne-cinema",
+    "name": "NOCTURNE",
+    "kind": "映画・上映案内"
+  },
+  {
+    "slug": "torque-cycle",
+    "name": "TORQUE",
+    "kind": "自転車・製品仕様"
+  },
+  {
+    "slug": "herbarium-lab",
+    "name": "HERBARIUM LAB",
+    "kind": "植物・標本研究"
+  },
+  {
+    "slug": "cinder-roastery",
+    "name": "CINDER",
+    "kind": "コーヒー・焙煎"
+  },
+  {
+    "slug": "glyph-foundry",
+    "name": "GLYPH",
+    "kind": "文字・書体展示"
+  },
+  {
+    "slug": "aperture-orbit",
+    "name": "APERTURE ORBIT",
+    "kind": "光学・展示"
   }
 ]
