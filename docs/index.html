@@ -207,6 +207,27 @@
   .feature p{margin:0;color:var(--muted);font-size:13px;line-height:1.95}
 
   /* pricing */
+  #pricing{scroll-margin-top:88px}
+  .purchase-plan{max-width:860px}
+  .support-heading{margin:44px 0 16px;font-size:clamp(22px,3vw,30px);letter-spacing:-.025em}
+  .support-table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}
+  .support-table caption{text-align:left;color:#bac5da;padding:0 0 16px;font-size:13px}
+  .support-table th,.support-table td{border-bottom:1px solid #303b52;padding:20px 16px;vertical-align:top}
+  .support-table thead th{color:#b9c9ff;font-size:12px;letter-spacing:.06em;background:#0d1320}
+  .support-table tbody th{width:22%;font-weight:650}
+  .support-table .support-price{white-space:nowrap;font-size:20px;font-weight:750;letter-spacing:-.02em}
+  .support-table td:last-child{color:#c3cada}
+  .pricing-note{max-width:860px;color:#b5bfd2;font-size:13px;line-height:1.95;margin:22px 0 0}
+  #pricing :focus-visible{outline:2px solid #b9c9ff;outline-offset:5px}
+  @media(max-width:600px){
+    .support-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+    .support-table,.support-table tbody{display:block}
+    .support-table caption{display:block;width:100%}
+    .support-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid #303b52;padding:18px 0;gap:8px 16px}
+    .support-table tbody th,.support-table td{width:auto;border:0;padding:0}
+    .support-table td:last-child{grid-column:1/-1;font-size:13px}
+    .support-table .support-price{font-size:20px}
+  }
   .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:860px}
   @media (max-width:720px){ .plans{grid-template-columns:1fr} }
   .plan{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,#0c111b,#080b11);display:flex;flex-direction:column;gap:8px}
@@ -330,7 +351,7 @@
     </div>
     <div class="wrap">
       <div class="notice" data-reveal>
-        <span><b>DEMO</b> このページは検討中のデモです。掲載している文言・料金・構成・提供内容はすべて案で、販売条件は確定していません。確認できた範囲は各項目に明記します。</span>
+        <span><b>準備中</b> サイトと追加支援の料金をご案内しています。販売開始前のため、注文・決済は受け付けていません。受付窓口・提供期限・返金などの詳細条件は開始前に掲載します。</span>
       </div>
       <p class="eyebrow" data-reveal>Nagiport Motion Kit — 001</p>
       <h1 data-reveal>動くサイトを、<br><span class="accent">貼るだけ。</span></h1>
@@ -488,26 +509,28 @@
     <div class="wrap">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Pricing</p>
-        <h2>料金（予定）</h2>
-        <p>以下の価格・構成は検討中の案です。販売条件ではなく、変更される可能性があります。</p>
+        <h2>サイトを買う。<br>必要な分だけ、頼む。</h2>
+        <p>サイト1作の買い切りと、任意の編集・公開・サポート。すべて税込・単発料金です。販売開始は準備中で、このページからの注文・決済は受け付けていません。</p>
       </div>
-      <div class="plans">
-        <div class="plan" data-reveal>
-          <span class="badge">検討案</span>
-          <span class="name">SINGLE</span>
-          <div class="price">2,980<small>円</small></div>
-          <p class="desc">テンプレート1点（案）。ヒーロー＋本文＋問い合わせの1ページ構成。</p>
-          <span class="tagline">未確定の検討案</span>
-        </div>
-        <div class="plan hot" data-reveal>
-          <span class="badge">検討案・準備中</span>
-          <span class="name">STARTER SET</span>
-          <div class="price">9,800<small>円</small></div>
-          <p class="desc">ヒーロー3種（案）＋料金表・実績・問い合わせの部品セット。差し替え手順つき（想定）。</p>
-          <span class="tagline">未確定の検討案</span>
-        </div>
+      <div class="plan hot purchase-plan" data-reveal>
+        <span class="badge">販売準備中</span>
+        <span class="name">サイト1作・買い切り</span>
+        <div class="price">9,800<small>円（税込）</small></div>
+        <p class="desc">選んだ1サイトのHTML・CSS・JavaScript・素材・編集ガイドをZIPで納品。納品物に起因する初期不具合の修正受付14日間を含みます。47作すべてのセット料金ではありません。</p>
+        <a class="btn btn-ghost" href="#templates">サイトを選ぶ <span aria-hidden="true">↗</span></a>
       </div>
-      <p class="fine">※ すべて検討中の案で、販売条件は確定していません。販売開始時に確定し、このページで告知します。</p>
+      <h3 class="support-heading">編集・公開・サポート料金</h3>
+      <table class="support-table">
+        <caption>サイト本体とは別料金。必要なサービスだけ追加できます。</caption>
+        <thead><tr><th scope="col">サービス</th><th scope="col">税込料金</th><th scope="col">含まれる内容</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">編集代行</th><td class="support-price">19,800円</td><td>お客様提供の文章10か所・画像5点の差し替えと配色調整。確認後の修正1回。機能追加・文章や画像の制作は別見積です。</td></tr>
+          <tr><th scope="row">公開設定支援</th><td class="support-price">9,800円</td><td>対応可能な公開先1か所への設定支援。環境は事前確認。ドメイン・サーバーの契約と実費はお客様負担です。</td></tr>
+          <tr><th scope="row">延長保証90日</th><td class="support-price">5,500円</td><td>納品後90日まで、納品物に起因する不具合へ対応。お客様による改変・外部サービスの変更・機能追加は対象外です。</td></tr>
+          <tr><th scope="row">操作サポート30日</th><td class="support-price">5,500円</td><td>30日間・質問3件まで。操作・編集方法をご案内し、2営業日以内の一次返信が目安です。編集作業は含みません。</td></tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">自動更新・月額課金はありません。編集代行・公開設定支援は、素材・環境・作業範囲を確認し、見積への合意後に受け付けます。期間はダウンロード提供日から起算。保証は法令上の権利を制限しません。受付窓口・営業日・提供期限・返金などの詳細条件は、販売開始前に掲載します。</p>
     </div>
   </section>
 
@@ -520,7 +543,7 @@
       <div class="faq">
         <details data-reveal>
           <summary>このページの内容は確定ですか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">いいえ。掲載している料金・構成・文言は検討中の案です。販売条件は確定しておらず、変更される場合があります。</div>
+          <div class="a">サイト買い切りと追加支援の料金・範囲を掲載しています。販売開始は準備中です。受付窓口・提供期限・返金などの詳細条件は開始前に確定して掲載します。現在は注文・決済を受け付けていません。</div>
         </details>
         <details data-reveal>
           <summary>商品はいつ買えますか？<span class="ic" aria-hidden="true">＋</span></summary>
@@ -540,7 +563,7 @@
         </details>
         <details data-reveal>
           <summary>返金やサポートはありますか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">販売開始時に条件を定めて掲載します。現時点では未定です。</div>
+          <div class="a">サイト本体に初期不具合の修正受付14日間を含み、延長保証90日・操作サポート30日を各5,500円（税込）で追加できます。編集代行・公開支援は別料金です。<a href="#pricing">料金と対象範囲を見る</a>。返金や受付窓口などの詳細条件は販売開始前に掲載します。現在は注文を受け付けていません。</div>
         </details>
       </div>
     </div>
@@ -551,7 +574,7 @@
   <div class="wrap foot-in">
     <div>
       <div class="foot-brand">NAGIPORT MOTION KIT</div>
-      <p class="foot-note">47のサイトテンプレートと7つのセクション作例を公開中。商品は準備中です。このページの料金・構成・文言は検討案です。</p>
+      <p class="foot-note">47のサイトテンプレートと7つのセクション作例を公開中。買い切り・追加支援の料金を掲載しています。販売開始は準備中で、注文・決済は受け付けていません。</p>
     </div>
     <div class="foot-links">
       <button id="reel-replay" type="button">オープニングをもう一度</button>
