@@ -56,3 +56,11 @@
 Moli 1.1.14は標準Canvas APIの`createRadialGradient`が未実装だったため、最終検証はインストール済みChromeへ切り替えました。OpenBot browserは今回の実行環境で利用できず、他のブラウザープラグインは使用していません。
 
 GitHub Pagesの既存方式`main /docs`と、10サイトすべてのURLを維持しています。既存7作例、variantsの15案、別ブランチの作品は変更していません。
+
+
+<!-- VOLUME START -->
+
+## 追加20作 — Volume Collection 1.0.0
+
+既存20作品を保持し、新たに20の用途・構図・操作を追加しました。全40作品は[index.html](index.html)、今回分の個別URL・権利・確認範囲は[VOLUME-COLLECTION.md](VOLUME-COLLECTION.md)を参照してください。
+<!-- VOLUME END -->

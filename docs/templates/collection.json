@@ -98,5 +98,105 @@
     "slug": "aperture-orbit",
     "name": "APERTURE ORBIT",
     "kind": "光学・展示"
+  },
+  {
+    "slug": "vector-air",
+    "name": "VECTOR AIR",
+    "kind": "航空運航シミュレーター"
+  },
+  {
+    "slug": "loom-textile",
+    "name": "LOOM / 色を織る",
+    "kind": "織物配色ラボ"
+  },
+  {
+    "slug": "vault-auction",
+    "name": "VAULT / 古いものの新しい時間",
+    "kind": "ヴィンテージ内覧室"
+  },
+  {
+    "slug": "rally-club",
+    "name": "RALLY CLUB",
+    "kind": "卓球スコアボード"
+  },
+  {
+    "slug": "platform-rail",
+    "name": "PLATFORM / 次の列車で",
+    "kind": "鉄道出発案内"
+  },
+  {
+    "slug": "prism-glass",
+    "name": "PRISM / 光のかたち",
+    "kind": "ガラス彫刻展"
+  },
+  {
+    "slug": "switch-keyboard",
+    "name": "SWITCH / その一打を、自分らしく",
+    "kind": "キーボード構成ラボ"
+  },
+  {
+    "slug": "bloom-florist",
+    "name": "BLOOM / 花を、束ねる",
+    "kind": "花束構成ラボ"
+  },
+  {
+    "slug": "flux-energy",
+    "name": "FLUX / 街をめぐる電気",
+    "kind": "地域電力シミュレーター"
+  },
+  {
+    "slug": "docket-court",
+    "name": "DOCKET / 話すための時間",
+    "kind": "相談日程プレビュー"
+  },
+  {
+    "slug": "atlas-dig",
+    "name": "ATLAS / DIG",
+    "kind": "考古学・発掘区画の閲覧"
+  },
+  {
+    "slug": "capsule-toys",
+    "name": "CAPSULE / FORM",
+    "kind": "幾何玩具・コレクション"
+  },
+  {
+    "slug": "neon-arcade",
+    "name": "NEON / ARCADE",
+    "kind": "ゲーム・スコア記録"
+  },
+  {
+    "slug": "tessera-mosaic",
+    "name": "TESSERA",
+    "kind": "住空間・タイルパターン設計"
+  },
+  {
+    "slug": "fresco-wall",
+    "name": "FRESCO / WALL",
+    "kind": "アート・架空の街の壁画ルート"
+  },
+  {
+    "slug": "folio-comics",
+    "name": "FOLIO / COMICS",
+    "kind": "出版・オリジナルコミック読書"
+  },
+  {
+    "slug": "parcel-logistics",
+    "name": "PARCEL / WORKS",
+    "kind": "物流・倉庫オペレーション"
+  },
+  {
+    "slug": "delta-kitchen",
+    "name": "DELTA / KITCHEN",
+    "kind": "食・人数で変わる共同キッチンのレシピ"
+  },
+  {
+    "slug": "mercury-lab",
+    "name": "MERCURY / LAB",
+    "kind": "教育・元素の展示室"
+  },
+  {
+    "slug": "tempo-dance",
+    "name": "TEMPO / DANCE",
+    "kind": "ダンス・スタジオ時間割"
   }
 ]
