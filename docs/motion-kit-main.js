@@ -15,10 +15,4 @@
   const menu=document.querySelector('.mobile-nav');
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.open=false));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){menu.open=false;menu.querySelector('summary').focus();}});
-  const deck=document.querySelector('.deck');
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
-  let scheduled=false;
-  function update(){scheduled=false;const r=deck.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));deck.style.setProperty('--progress',reduce.matches?'0':p.toFixed(3));}
-  function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(update);}}
-  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);reduce.addEventListener('change',schedule);update();
 })();
