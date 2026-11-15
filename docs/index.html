@@ -1,58 +1,8 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ef"><meta name="robots" content="noindex,nofollow"><title>Nagiport Motion Kit — 事業に似合うWebサイトを。</title><meta name="description" content="58のWebサイトテンプレートから選ぶ、サイト一式の買い切り。編集・公開支援・サポートは必要な分だけ。料金掲載・販売準備中。"><link rel="stylesheet" href="motion-kit-main.css"><link rel="stylesheet" href="pixis-motion.css"><script src="motion-kit-main.js?v=20261030-2" defer></script><script src="pixis-motion.js?v=20261030-2" defer></script><style>.np-purchase-select{margin:30px 0;padding:24px;border:1px solid #889f90;border-radius:8px;background:#edf3ef;color:#183328}.np-purchase-select label{display:block;font-size:16px;font-weight:700;margin-bottom:12px}.np-purchase-select>div{display:flex;gap:12px;flex-wrap:wrap}.np-purchase-select select{font:inherit;min-width:0;flex:1 1 240px;padding:12px;color:#183328;background:white;border:1px solid #889f90}.np-purchase-select button{font:inherit;padding:12px 20px;background:#183328;color:white;border:0;cursor:pointer}.np-purchase-select p{font-size:13px;margin-top:12px}.np-purchase-select :focus-visible{outline:3px solid #167ccc;outline-offset:3px}</style>
-<style id="motion-review">
-/* ===== Motion review layer（追加） =====
-   designbookmark.com/motion の Plan switch / Expand card / Magnetic button / Step progress を
-   観察し、この現行販売ページの実在機能に接続した独自実装。
-   価格・購入フォーム・リンク・条件は変更しない。 */
-:root{--mr-ease:cubic-bezier(.22,.61,.36,1);--mr-spring:cubic-bezier(.34,1.56,.64,1);--mr-base:260ms;--mr-ring:#ffd400}
-
-/* 1) ナビの選択表示（スクロール位置に連動） */
-.desktop-nav a{position:relative;transition:color 180ms var(--mr-ease)}
-.desktop-nav a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 240ms var(--mr-ease)}
-.desktop-nav a[aria-current="true"]::after{transform:scaleX(1)}
-.mobile-nav nav a[aria-current="true"]{font-weight:700;text-decoration:underline;text-underline-offset:.25em}
-
-/* 2) 絞り込みボタンの押下と選択状態 */
-.filters button{transition:background 160ms var(--mr-ease),color 160ms var(--mr-ease),transform 120ms var(--mr-ease)}
-.filters button:active{transform:scale(.97)}
-.filters button:focus-visible{outline:3px solid var(--mr-ring);outline-offset:2px}
-.result-count{transition:opacity 160ms linear}
-.result-count.mr-pulse{opacity:.5}
-
-/* 3) マグネットCTA（主導線だけ） */
-.header-cta{will-change:transform;transition:transform 220ms var(--mr-ease)}
-.header-cta.mr-tracking{transition:transform 90ms linear}
-
-/* 4) FAQ の展開（Expand card） */
-details.mr-anim .mr-body{overflow:hidden;transition:height var(--mr-base) var(--mr-ease)}
-details.mr-anim > summary{cursor:pointer}
-details.mr-anim > summary:focus-visible{outline:3px solid var(--mr-ring);outline-offset:2px}
-
-/* 5) 受け取り手順の段階表示（Step progress） */
-.delivery-steps article{opacity:.5;transition:opacity var(--mr-base) var(--mr-ease),transform var(--mr-base) var(--mr-ease)}
-.delivery-steps article.mr-reached{opacity:1}
-.delivery-steps article.mr-current{transform:translateX(3px)}
-
-/* 6) 購入カードの反応（選択状態の遷移。購入条件は変更しない） */
-.purchase-plan{transition:box-shadow var(--mr-base) var(--mr-ease),transform var(--mr-base) var(--mr-ease)}
-.purchase-plan:hover{transform:translateY(-2px);box-shadow:0 12px 30px #18332a14}
-.purchase-plan:focus-within{outline:2px solid #18332a;outline-offset:3px}
-.purchase-plan .btn-ghost{transition:background 160ms var(--mr-ease),color 160ms var(--mr-ease)}
-
-@media (prefers-reduced-motion: reduce){
-  .desktop-nav a::after,.filters button,.result-count,.header-cta,.purchase-plan,
-  .delivery-steps article,details.mr-anim .mr-body{transition:none!important}
-  .header-cta{transform:none!important}
-  .purchase-plan:hover{transform:none}
-  .delivery-steps article{opacity:1}
-  .filters button:active{transform:none}
-}
-</style>
-</head><body>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ef"><meta name="robots" content="noindex,nofollow"><title>Nagiport Motion Kit — 事業に似合うWebサイトを。</title><meta name="description" content="58のWebサイトテンプレートから選ぶ、サイト一式の買い切り。編集・公開支援・サポートは必要な分だけ。料金掲載・販売中。"><link rel="stylesheet" href="motion-kit-main.css"><link rel="stylesheet" href="pixis-motion.css"><script src="motion-kit-main.js?v=20261030-2" defer></script><script src="pixis-motion.js?v=20261030-2" defer></script><style>.np-purchase-select{margin:30px 0;padding:24px;border:1px solid #889f90;border-radius:8px;background:#edf3ef;color:#183328}.np-purchase-select label{display:block;font-size:16px;font-weight:700;margin-bottom:12px}.np-purchase-select>div{display:flex;gap:12px;flex-wrap:wrap}.np-purchase-select select{font:inherit;min-width:0;flex:1 1 240px;padding:12px;color:#183328;background:white;border:1px solid #889f90}.np-purchase-select button{font:inherit;padding:12px 20px;background:#183328;color:white;border:0;cursor:pointer}.np-purchase-select p{font-size:13px;margin-top:12px}.np-purchase-select :focus-visible{outline:3px solid #167ccc;outline-offset:3px}</style></head><body>
 <a class="skip" href="#main">本文へ</a>
 <header class="site-header"><a class="brand" href="#main" aria-label="Nagiport Motion Kit トップ"><span class="brand-mark" aria-hidden="true">n.</span><span>Nagiport<small>Motion Kit</small></span></a><nav class="desktop-nav" aria-label="主要"><a href="#templates">テンプレート</a><a href="#delivery">受け取り方</a><a href="#pricing">料金・サポート</a><a href="#faq">FAQ</a></nav><a class="header-cta" href="#templates">サイトを選ぶ <span aria-hidden="true">↗</span></a><details class="mobile-nav"><summary aria-label="メニュー">メニュー</summary><nav aria-label="スマホ用"><a href="#templates">テンプレート</a><a href="#delivery">受け取り方</a><a href="#pricing">料金・サポート</a><a href="#faq">FAQ</a></nav></details></header>
 <main id="main"><button class="replay-motion" type="button">登場モーションを再生 <span aria-hidden="true">↻</span></button><section class="home-hero clone-motion" id="study"><div class="container home-hero__container"><!--[--><div class="home-hero__text-holder"><div class="home-hero-heading home-hero__heading"><div><!--[--><!--]--></div><h1 class="home-hero-heading__heading"><span class="home-hero-heading__row home-hero-heading__row--1"><span>あなたの事業に、</span><img alt="" class="heading-preview" height="70" src="business-six/store/assets/preview.webp" width="110"/></span><span class="home-hero-heading__row home-hero-heading__row--1"><span>似合う</span><img alt="" class="heading-preview" height="70" src="business-six/corporate/assets/preview.webp" width="90"/><span>Webサイトを。</span></span></h1></div><div class="text-block generic-html home-hero__tagline">選んで、変えて、動き出す。<br/>サイト一式の買い切り。<br class="mobile-line"/>編集・公開・サポートは必要な分だけ。</div></div><div class="home-hero__cards"><!--[--><a aria-label="企業サイトのデモを見る" class="home-hero-card home-hero__card hero-card-0" data-index="0" href="business-six/corporate/"><!--[--><div class="home-hero-card__logo-holder"><div class="home-hero-card__logo-holder-inner"><strong class="product-name">Corporate</strong></div><div class="text-block generic-html home-hero-card__text-block">事業の強みを、伝える。</div></div><!--]--><span class="card-visual"><span class="visual-window"><span class="window-bar"><i></i><i></i><i></i></span><span class="visual-image"><img alt="" height="667" src="business-six/corporate/assets/preview.webp" width="960"/></span></span><span class="floating-chip">↗</span></span><span class="card-caption">企業・コーポレート <b aria-hidden="true">↗</b></span></a><a aria-label="店舗サイトのデモを見る" class="home-hero-card home-hero__card hero-card-1" data-index="1" href="business-six/store/"><!--[--><div class="home-hero-card__logo-holder"><div class="home-hero-card__logo-holder-inner"><strong class="product-name">Store</strong></div><div class="text-block generic-html home-hero-card__text-block">お店の空気を、届ける。</div></div><!-- --><!-- --><!--]--><span class="card-visual"><span class="visual-window"><span class="window-bar"><i></i><i></i><i></i></span><span class="visual-image"><img alt="" height="667" src="business-six/store/assets/preview.webp" width="960"/></span></span><span class="floating-chip">↗</span></span><span class="card-caption">地域の店舗 <b aria-hidden="true">↗</b></span></a><a aria-label="BtoBサービスのデモを見る" class="home-hero-card home-hero__card hero-card-2" data-index="2" href="business-six/btob/"><!--[--><div class="home-hero-card__logo-holder"><div class="home-hero-card__logo-holder-inner"><strong class="product-name">Service</strong></div><div class="text-block generic-html home-hero-card__text-block">価値が、ひと目でわかる。</div></div><!-- --><!--]--><span class="card-visual"><span class="visual-window"><span class="window-bar"><i></i><i></i><i></i></span><span class="visual-image"><img alt="" height="667" src="business-six/btob/assets/preview.webp" width="960"/></span></span><span class="floating-chip">↗</span></span><span class="card-caption">法人向けサービス <b aria-hidden="true">↗</b></span></a><!--]--></div><!--]--></div></section><section class="floating-cards clone-motion" id="why"><div aria-hidden="true" class="moving-type"><span>Your next chapter.</span></div><div class="container floating-cards__container"><!--[--><!--teleport start--><!--teleport end--><div class="floating-cards__card-grid"><!--[--><div class="floating-cards__card-holder--1 floating-cards__card-holder"><div class="floating-card" data-index="0"><details class="benefit"><summary>ゼロから、作らなくていい。<span aria-hidden="true">+</span></summary><p>58の実画面から、事業に合うサイトを。企業・店舗・採用から、表現豊かな体験まで。</p></details></div></div><div class="floating-cards__card-holder--2 floating-cards__card-holder"><div class="floating-card" data-index="1"><details class="benefit"><summary>ファイルは、あなたの手元に。<span aria-hidden="true">+</span></summary><p>HTML・CSS・JavaScriptと素材、編集ガイドをZIPに。文章や写真を変えて、ご自身のサイトへ。</p></details></div></div><div class="floating-cards__card-holder--3 floating-cards__card-holder"><div class="floating-card" data-index="2"><details class="benefit"><summary>必要な分だけ、頼める。<span aria-hidden="true">+</span></summary><p>文章・画像の編集、公開支援、追加保証、サポート。サイト一式の購入とは別に選べます。</p></details></div></div><!--]--></div><!--]--></div><div class="floating-cta wrap"><svg aria-hidden="true" class="draw-arrow" viewbox="0 0 260 100"><path d="M5 10 Q90 10 100 50 T155 65 Q180 50 240 85 M220 67 L240 85 L215 90"></path></svg><a class="round-link" href="#templates">サイトを見つける <span aria-hidden="true">↗</span></a></div></section>
-<section class="preview-rail wrap" aria-labelledby="rail-title"><div class="section-head"><h2 id="rail-title">こんな事業に。</h2><div class="rail-controls"><button type="button" data-rail="-1" aria-label="前の作例">←</button><button type="button" data-rail="1" aria-label="次の作例">→</button></div></div><div class="rail-track" tabindex="0" role="region" aria-label="汎用サイトの作例"><a href="business-six/corporate/"><img src="business-six/corporate/assets/preview.webp" width="960" height="667" alt="企業サイトの実画面" loading="lazy"><span>企業 <b aria-hidden="true">↗</b></span></a><a href="business-six/btob/"><img src="business-six/btob/assets/preview.webp" width="960" height="667" alt="サービスサイトの実画面" loading="lazy"><span>サービス <b aria-hidden="true">↗</b></span></a><a href="business-six/store/"><img src="business-six/store/assets/preview.webp" width="960" height="667" alt="店舗サイトの実画面" loading="lazy"><span>店舗 <b aria-hidden="true">↗</b></span></a><a href="business-six/recruitment/"><img src="business-six/recruitment/assets/preview.webp" width="960" height="667" alt="採用サイトの実画面" loading="lazy"><span>採用 <b aria-hidden="true">↗</b></span></a><a href="business-six/consultation/"><img src="business-six/consultation/assets/preview.webp" width="960" height="667" alt="専門相談サイトの実画面" loading="lazy"><span>専門相談 <b aria-hidden="true">↗</b></span></a><a href="business-six/portfolio/"><img src="business-six/portfolio/assets/preview.webp" width="960" height="667" alt="個人事業サイトの実画面" loading="lazy"><span>個人事業 <b aria-hidden="true">↗</b></span></a></div></section><section class="collection wrap" id="templates"><div class="section-head"><h2>次のサイト、<br>ここから。</h2><a class="text-link" href="templates/">一覧専用ページ ↗</a></div><div class="catalog-tools"><div class="filters" role="group" aria-label="テンプレートの用途"><button type="button" data-filter="all" aria-pressed="true">すべて</button><button type="button" data-filter="business" aria-pressed="false">企業・店舗・仕事</button><button type="button" data-filter="creative" aria-pressed="false">表現・体験</button></div><label class="search">作品を探す<input type="search" id="work-search" placeholder="例：採用、飲食、SaaS" autocomplete="off"></label></div><p class="result-count" role="status" aria-live="polite">58作品</p><form class="np-purchase-select" action="https://nagiport-delivery-test.soujikyousuke.workers.dev/purchase" method="get"><label for="np-product">納品内容を確認する作品</label><div><select id="np-product" name="template"><option value="relay-logistics">RELAY</option><option value="sora-dental">そら歯科</option><option value="mofu-care">mofu.</option><option value="sumika-renovation">住処設計</option><option value="clear-accounting">CLEAR</option><option value="hatake-market">畑の便り</option><option value="oto-music">oto / 音楽室</option><option value="loop-laundry">LOOP CLEAN</option><option value="hikari-energy">ひかりの設計室</option><option value="stem-florist">STEM / 花と日々</option><option value="fold-showcase">FOLD</option><option value="corporate">企業・コーポレート</option><option value="btob">法人向けサービス</option><option value="store">地域の店舗</option><option value="recruitment">採用・チーム紹介</option><option value="consultation">専門家への相談</option><option value="portfolio">個人のポートフォリオ</option><option value="atelier-flow">Atelier Flow</option><option value="vector-air">VECTOR AIR</option><option value="loom-textile">LOOM / 色を織る</option><option value="vault-auction">VAULT / 古いものの新しい時間</option><option value="rally-club">RALLY CLUB</option><option value="platform-rail">PLATFORM / 次の列車で</option><option value="prism-glass">PRISM / 光のかたち</option><option value="switch-keyboard">SWITCH / その一打を、自分らしく</option><option value="bloom-florist">BLOOM / 花を、束ねる</option><option value="flux-energy">FLUX / 街をめぐる電気</option><option value="docket-court">DOCKET / 話すための時間</option><option value="atlas-dig">ATLAS / DIG</option><option value="capsule-toys">CAPSULE / FORM</option><option value="neon-arcade">NEON / ARCADE</option><option value="tessera-mosaic">TESSERA</option><option value="fresco-wall">FRESCO / WALL</option><option value="folio-comics">FOLIO / COMICS</option><option value="parcel-logistics">PARCEL / WORKS</option><option value="delta-kitchen">DELTA / KITCHEN</option><option value="mercury-lab">MERCURY / LAB</option><option value="tempo-dance">TEMPO / DANCE</option><option value="tidal-console">TIDAL</option><option value="groove-cellar">GROOVE CELLAR</option><option value="ridge-expedition">RIDGE EXPEDITION</option><option value="margin-press">MARGIN PRESS</option><option value="nocturne-cinema">NOCTURNE</option><option value="torque-cycle">TORQUE</option><option value="herbarium-lab">HERBARIUM LAB</option><option value="cinder-roastery">CINDER</option><option value="glyph-foundry">GLYPH</option><option value="aperture-orbit">APERTURE ORBIT</option><option value="ember-table">EMBER TABLE</option><option value="lune-ritual">lune ritual</option><option value="stillwater-lodge">STILLWATER</option><option value="form-atelier">FORM / atelier</option><option value="habitat-living">habitat.</option><option value="orbit-bottle">ORBIT</option><option value="pulse-workspace">pulse</option><option value="mio-objects">MIO / OBJECTS</option><option value="signal-festival">SIGNAL / 27</option><option value="fieldnotes-school">fieldnotes</option></select><button type="submit">納品内容を確認</button></div><p>販売準備中・購入受付は停止しています。作品ごとの版とZIP内容を確認できます。</p></form><div class="work-grid"><a class="work" href="templates/relay-logistics/" data-category="business"><img src="templates/relay-logistics/preview.svg" width="960" height="667" alt="RELAYのデザイン表紙" loading="lazy"><div class="work-copy"><h3>RELAY</h3><p>物流・配送</p><span aria-hidden="true">↗</span></div></a>
+<section class="preview-rail wrap" aria-labelledby="rail-title"><div class="section-head"><h2 id="rail-title">こんな事業に。</h2><div class="rail-controls"><button type="button" data-rail="-1" aria-label="前の作例">←</button><button type="button" data-rail="1" aria-label="次の作例">→</button></div></div><div class="rail-track" tabindex="0" role="region" aria-label="汎用サイトの作例"><a href="business-six/corporate/"><img src="business-six/corporate/assets/preview.webp" width="960" height="667" alt="企業サイトの実画面" loading="lazy"><span>企業 <b aria-hidden="true">↗</b></span></a><a href="business-six/btob/"><img src="business-six/btob/assets/preview.webp" width="960" height="667" alt="サービスサイトの実画面" loading="lazy"><span>サービス <b aria-hidden="true">↗</b></span></a><a href="business-six/store/"><img src="business-six/store/assets/preview.webp" width="960" height="667" alt="店舗サイトの実画面" loading="lazy"><span>店舗 <b aria-hidden="true">↗</b></span></a><a href="business-six/recruitment/"><img src="business-six/recruitment/assets/preview.webp" width="960" height="667" alt="採用サイトの実画面" loading="lazy"><span>採用 <b aria-hidden="true">↗</b></span></a><a href="business-six/consultation/"><img src="business-six/consultation/assets/preview.webp" width="960" height="667" alt="専門相談サイトの実画面" loading="lazy"><span>専門相談 <b aria-hidden="true">↗</b></span></a><a href="business-six/portfolio/"><img src="business-six/portfolio/assets/preview.webp" width="960" height="667" alt="個人事業サイトの実画面" loading="lazy"><span>個人事業 <b aria-hidden="true">↗</b></span></a></div></section><section class="collection wrap" id="templates"><div class="section-head"><h2>次のサイト、<br>ここから。</h2><a class="text-link" href="templates/">一覧専用ページ ↗</a></div><div class="catalog-tools"><div class="filters" role="group" aria-label="テンプレートの用途"><button type="button" data-filter="all" aria-pressed="true">すべて</button><button type="button" data-filter="business" aria-pressed="false">企業・店舗・仕事</button><button type="button" data-filter="creative" aria-pressed="false">表現・体験</button></div><label class="search">作品を探す<input type="search" id="work-search" placeholder="例：採用、飲食、SaaS" autocomplete="off"></label></div><p class="result-count" role="status" aria-live="polite">58作品</p><form class="np-purchase-select" action="https://nagiport-delivery-test.soujikyousuke.workers.dev/purchase" method="get"><label for="np-product">納品内容を確認する作品</label><div><select id="np-product" name="template"><option value="relay-logistics">RELAY</option><option value="sora-dental">そら歯科</option><option value="mofu-care">mofu.</option><option value="sumika-renovation">住処設計</option><option value="clear-accounting">CLEAR</option><option value="hatake-market">畑の便り</option><option value="oto-music">oto / 音楽室</option><option value="loop-laundry">LOOP CLEAN</option><option value="hikari-energy">ひかりの設計室</option><option value="stem-florist">STEM / 花と日々</option><option value="fold-showcase">FOLD</option><option value="corporate">企業・コーポレート</option><option value="btob">法人向けサービス</option><option value="store">地域の店舗</option><option value="recruitment">採用・チーム紹介</option><option value="consultation">専門家への相談</option><option value="portfolio">個人のポートフォリオ</option><option value="atelier-flow">Atelier Flow</option><option value="vector-air">VECTOR AIR</option><option value="loom-textile">LOOM / 色を織る</option><option value="vault-auction">VAULT / 古いものの新しい時間</option><option value="rally-club">RALLY CLUB</option><option value="platform-rail">PLATFORM / 次の列車で</option><option value="prism-glass">PRISM / 光のかたち</option><option value="switch-keyboard">SWITCH / その一打を、自分らしく</option><option value="bloom-florist">BLOOM / 花を、束ねる</option><option value="flux-energy">FLUX / 街をめぐる電気</option><option value="docket-court">DOCKET / 話すための時間</option><option value="atlas-dig">ATLAS / DIG</option><option value="capsule-toys">CAPSULE / FORM</option><option value="neon-arcade">NEON / ARCADE</option><option value="tessera-mosaic">TESSERA</option><option value="fresco-wall">FRESCO / WALL</option><option value="folio-comics">FOLIO / COMICS</option><option value="parcel-logistics">PARCEL / WORKS</option><option value="delta-kitchen">DELTA / KITCHEN</option><option value="mercury-lab">MERCURY / LAB</option><option value="tempo-dance">TEMPO / DANCE</option><option value="tidal-console">TIDAL</option><option value="groove-cellar">GROOVE CELLAR</option><option value="ridge-expedition">RIDGE EXPEDITION</option><option value="margin-press">MARGIN PRESS</option><option value="nocturne-cinema">NOCTURNE</option><option value="torque-cycle">TORQUE</option><option value="herbarium-lab">HERBARIUM LAB</option><option value="cinder-roastery">CINDER</option><option value="glyph-foundry">GLYPH</option><option value="aperture-orbit">APERTURE ORBIT</option><option value="ember-table">EMBER TABLE</option><option value="lune-ritual">lune ritual</option><option value="stillwater-lodge">STILLWATER</option><option value="form-atelier">FORM / atelier</option><option value="habitat-living">habitat.</option><option value="orbit-bottle">ORBIT</option><option value="pulse-workspace">pulse</option><option value="mio-objects">MIO / OBJECTS</option><option value="signal-festival">SIGNAL / 27</option><option value="fieldnotes-school">fieldnotes</option></select><button type="submit">納品内容を確認</button></div><p>作品ごとの版とZIP内容を確認できます。購入へ進めます。</p></form><div class="work-grid"><a class="work" href="templates/relay-logistics/" data-category="business"><img src="templates/relay-logistics/preview.svg" width="960" height="667" alt="RELAYのデザイン表紙" loading="lazy"><div class="work-copy"><h3>RELAY</h3><p>物流・配送</p><span aria-hidden="true">↗</span></div></a>
 <a class="work" href="templates/sora-dental/" data-category="business"><img src="templates/sora-dental/preview.svg" width="960" height="667" alt="そら歯科のデザイン表紙" loading="lazy"><div class="work-copy"><h3>そら歯科</h3><p>歯科・クリニック</p><span aria-hidden="true">↗</span></div></a>
 <a class="work" href="templates/mofu-care/" data-category="business"><img src="templates/mofu-care/preview.svg" width="960" height="667" alt="mofu.のデザイン表紙" loading="lazy"><div class="work-copy"><h3>mofu.</h3><p>ペットケア</p><span aria-hidden="true">↗</span></div></a>
 <a class="work" href="templates/sumika-renovation/" data-category="business"><img src="templates/sumika-renovation/preview.svg" width="960" height="667" alt="住処設計のデザイン表紙" loading="lazy"><div class="work-copy"><h3>住処設計</h3><p>リフォーム</p><span aria-hidden="true">↗</span></div></a>
@@ -109,16 +59,16 @@ details.mr-anim > summary:focus-visible{outline:3px solid var(--mr-ring);outline
 <a class="work" href="templates/mio-objects/" data-category="creative"><img src="templates/mio-objects/assets/preview.webp" width="1440" height="1000" alt="MIO / OBJECTSの実画面プレビュー" loading="lazy"><div class="work-copy"><h3>MIO / OBJECTS</h3><p>クリエイター・ポートフォリオ</p><span aria-hidden="true">↗</span></div></a>
 <a class="work" href="templates/signal-festival/" data-category="creative"><img src="templates/signal-festival/assets/preview.webp" width="1440" height="1000" alt="SIGNAL / 27の実画面プレビュー" loading="lazy"><div class="work-copy"><h3>SIGNAL / 27</h3><p>イベント・カンファレンス</p><span aria-hidden="true">↗</span></div></a>
 <a class="work" href="templates/fieldnotes-school/" data-category="creative"><img src="templates/fieldnotes-school/assets/preview.webp" width="1440" height="1000" alt="fieldnotesの実画面プレビュー" loading="lazy"><div class="work-copy"><h3>fieldnotes</h3><p>教育・クリエイティブスクール</p><span aria-hidden="true">↗</span></div></a></div><p id="no-results" hidden>一致する作品がありません。別のキーワードをお試しください。</p><p class="collection-note">掲載画面はデモです。実績・文章・ブランドは架空のサンプルを含みます。購入後は実際の情報へ変更してください。</p><details class="archive"><summary>セクションの作例も見る（既存7作）</summary><div class="archive-links"><a href="examples/01-hero/">ヒーロー</a><a href="examples/02-landing/">ランディング</a><a href="examples/03-pricing/">料金表</a><a href="examples/04-faq/">FAQ</a><a href="examples/05-contact/">問い合わせデモ</a><a href="examples/06-portfolio/">作品集</a><a href="examples/07-framer-clone/">クローン研究作例</a></div></details></section>
-<section id="delivery" class="delivery"><div class="wrap"><div class="section-head"><h2>買ったあとも、<br>迷わないように。</h2><p>サイトは一式、あなたの手元へ。<br>会員制サービスの利用料ではありません。</p></div><div class="delivery-grid"><article class="parcel"><div class="file-art" aria-hidden="true"><span>index.html</span><span>styles.css</span><span>script.js</span><b>あなたのサイト.zip ↗</b></div><h3>ひとつのZIPで、すべて。</h3><p>サイト本体、素材、編集README、ライセンスをまとめて納品。文章や色の編集箇所をガイドします。</p></article><div class="delivery-steps"><article><span>01</span><div><h3>実画面を見て選ぶ</h3><p>PC・スマホでプレビューし、事業に合う構成を見つけます。</p></div></article><article><span>02</span><div><h3>展開して、自分のサイトへ</h3><p>ファイルを保存して編集。公開先の契約・ドメイン費用は別途必要です。編集作業にはPCを推奨します。</p></div></article><article><span>03</span><div><h3>難しいところだけ、頼む</h3><p>内容の差し替え、公開の設定、操作の質問。必要な支援を追加できます。</p></div></article><p class="small-note">販売開始・受取方法の本番運用は準備中。問い合わせ・購入ボタンなどのデモ機能は、実送信・決済を行いません。</p></div></div></div></section>
+<section id="delivery" class="delivery"><div class="wrap"><div class="section-head"><h2>買ったあとも、<br>迷わないように。</h2><p>サイトは一式、あなたの手元へ。<br>会員制サービスの利用料ではありません。</p></div><div class="delivery-grid"><article class="parcel"><div class="file-art" aria-hidden="true"><span>index.html</span><span>styles.css</span><span>script.js</span><b>あなたのサイト.zip ↗</b></div><h3>ひとつのZIPで、すべて。</h3><p>サイト本体、素材、編集README、ライセンスをまとめて納品。文章や色の編集箇所をガイドします。</p></article><div class="delivery-steps"><article><span>01</span><div><h3>実画面を見て選ぶ</h3><p>PC・スマホでプレビューし、事業に合う構成を見つけます。</p></div></article><article><span>02</span><div><h3>展開して、自分のサイトへ</h3><p>ファイルを保存して編集。公開先の契約・ドメイン費用は別途必要です。編集作業にはPCを推奨します。</p></div></article><article><span>03</span><div><h3>難しいところだけ、頼む</h3><p>内容の差し替え、公開の設定、操作の質問。必要な支援を追加できます。</p></div></article><p class="small-note">購入後の受け取りはZIPダウンロードです。内容と版は各作品ページで確認できます。</p></div></div></div></section>
 <div class="wrap pricing-wrap">  <section class="section" id="pricing">
     <div class="wrap">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Pricing</p>
         <h2>サイトを買う。<br>必要な分だけ、頼む。</h2>
-        <p>サイト1作の買い切りと、任意の編集・公開・サポート。すべて税込・単発料金です。販売開始は準備中で、このページからの注文・決済は受け付けていません。</p>
+        <p>サイト1作の買い切りと、任意の編集・公開・サポート。すべて税込・単発料金です。このページから注文・決済に進めます。</p>
       </div>
       <div class="plan hot purchase-plan" data-reveal>
-        <span class="badge">販売準備中</span>
+        <span class="badge">販売中</span>
         <span class="name">サイト1作・買い切り</span>
         <div class="price">9,800<small>円（税込）</small></div>
         <p class="desc">選んだ1サイトのHTML・CSS・JavaScript・素材・編集ガイドをZIPで納品。納品物に起因する初期不具合の修正受付14日間を含みます。58作すべてのセット料金ではありません。</p>
@@ -135,7 +85,7 @@ details.mr-anim > summary:focus-visible{outline:3px solid var(--mr-ring);outline
           <tr><th scope="row">操作サポート30日</th><td class="support-price">5,500円</td><td>30日間・質問3件まで。操作・編集方法をご案内し、2営業日以内の一次返信が目安です。編集作業は含みません。</td></tr>
         </tbody>
       </table>
-      <p class="pricing-note">自動更新・月額課金はありません。編集代行・公開設定支援は、素材・環境・作業範囲を確認し、見積への合意後に受け付けます。期間はダウンロード提供日から起算。保証は法令上の権利を制限しません。受付窓口・営業日・提供期限・返金などの詳細条件は、販売開始前に掲載します。</p>
+      <p class="pricing-note">自動更新・月額課金はありません。編集代行・公開設定支援は、素材・環境・作業範囲を確認し、見積への合意後に受け付けます。期間はダウンロード提供日から起算。保証は法令上の権利を制限しません。</p>
     </div>
   </section></div><div class="wrap faq-wrap">  <section class="section" id="faq">
     <div class="wrap">
@@ -146,11 +96,11 @@ details.mr-anim > summary:focus-visible{outline:3px solid var(--mr-ring);outline
       <div class="faq">
         <details data-reveal>
           <summary>このページの内容は確定ですか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">サイト買い切りと追加支援の料金・範囲を掲載しています。販売開始は準備中です。受付窓口・提供期限・返金などの詳細条件は開始前に確定して掲載します。現在は注文・決済を受け付けていません。</div>
+          <div class="a">サイト買い切りと追加支援の料金・範囲を掲載しています。販売中です。作品を選ぶと購入画面に進めます。</div>
         </details>
         <details data-reveal>
           <summary>商品はいつ買えますか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">現在準備中です。完成次第、このページで販売を開始します。</div>
+          <div class="a">販売中です。作品一覧から選んで購入できます。</div>
         </details>
         <details data-reveal>
           <summary>プログラミングは必要ですか？<span class="ic" aria-hidden="true">＋</span></summary>
@@ -166,132 +116,9 @@ details.mr-anim > summary:focus-visible{outline:3px solid var(--mr-ring);outline
         </details>
         <details data-reveal>
           <summary>返金やサポートはありますか？<span class="ic" aria-hidden="true">＋</span></summary>
-          <div class="a">サイト本体に初期不具合の修正受付14日間を含み、延長保証90日・操作サポート30日を各5,500円（税込）で追加できます。編集代行・公開支援は別料金です。<a href="#pricing">料金と対象範囲を見る</a>。返金や受付窓口などの詳細条件は販売開始前に掲載します。現在は注文を受け付けていません。</div>
+          <div class="a">サイト本体に初期不具合の修正受付14日間を含み、延長保証90日・操作サポート30日を各5,500円（税込）で追加できます。編集代行・公開支援は別料金です。<a href="#pricing">料金と対象範囲を見る</a>。返金などの条件は購入前の案内をご確認ください。</div>
         </details>
       </div>
     </div>
   </section></div><section class="closing"><p>次のはじまりに、<br>似合うサイトを。</p><a class="round-link" href="#templates">58のプレビューを見る <span aria-hidden="true">↗</span></a></section></main>
-<footer class="wrap"><div class="footer-top"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">n.</span><span>Nagiport<small>Motion Kit</small></span></a><div><a href="#templates">テンプレート</a><a href="#pricing">料金・サポート</a><a href="#faq">FAQ</a></div></div><p>サイト一式の買い切り＋必要な支援。現在は販売準備中で、注文・決済は受け付けていません。</p><p>© 2026 Nagiport Motion Kit</p></footer>
-<script id="motion-review-script">
-/* 追加レイヤー: ナビ追従 / 絞り込みの手応え / マグネットCTA / FAQ展開 / 手順の段階表示。
-   既存の絞り込み・検索・購入フォームの処理には触れない。外部通信なし。 */
-(function () {
-  'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var coarse = window.matchMedia('(pointer: coarse)');
-  var isReduce = function () { return reduce.matches; };
-
-  /* 1) ナビの選択表示（スクロール位置から現在の節を決める） */
-  var links = Array.prototype.slice.call(document.querySelectorAll('.desktop-nav a[href^="#"]'));
-  var pairs = links.map(function (a) {
-    return {a: a, sec: document.querySelector(a.getAttribute('href'))};
-  }).filter(function (x) { return x.sec; });
-  var mobileLinks = Array.prototype.slice.call(document.querySelectorAll('.mobile-nav nav a[href^="#"]'));
-  function spy() {
-    var line = window.innerHeight * 0.4;
-    var current = null;
-    pairs.forEach(function (x) {
-      if (x.sec.getBoundingClientRect().top <= line) current = x.sec.id;
-    });
-    links.concat(mobileLinks).forEach(function (a) {
-      if (current && a.getAttribute('href') === '#' + current) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
-  }
-  window.addEventListener('scroll', spy, { passive: true });
-  window.addEventListener('resize', spy, { passive: true });
-  spy();
-
-  /* 2) 絞り込みの手応え（件数のパルスだけ。表示や件数は既存処理のまま） */
-  var count = document.querySelector('.result-count');
-  function pulse() {
-    if (!count || isReduce()) return;
-    count.classList.add('mr-pulse');
-    setTimeout(function () { count.classList.remove('mr-pulse'); }, 180);
-  }
-  document.addEventListener('click', function (e) {
-    if (e.target.closest('.filters button')) pulse();
-  }, true);
-  var search = document.getElementById('work-search');
-  if (search) search.addEventListener('input', pulse);
-
-  /* 3) マグネットCTA */
-  var cta = document.querySelector('.header-cta');
-  if (cta && !coarse.matches) {
-    var max = 4;
-    cta.addEventListener('pointermove', function (e) {
-      if (isReduce()) return;
-      var r = cta.getBoundingClientRect();
-      var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-      var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-      cta.classList.add('mr-tracking');
-      cta.style.transform = 'translate(' + (dx * max).toFixed(2) + 'px,' + (dy * max).toFixed(2) + 'px)';
-    });
-    cta.addEventListener('pointerleave', function () {
-      cta.classList.remove('mr-tracking');
-      cta.style.transform = '';
-    });
-    cta.addEventListener('blur', function () { cta.style.transform = ''; });
-  }
-
-  /* 4) FAQ の高さアニメ（内容は変えない） */
-  document.querySelectorAll('details').forEach(function (d) {
-    var summary = d.querySelector('summary');
-    if (!summary || d.querySelector(':scope > .mr-body')) return;
-    var body = document.createElement('div');
-    body.className = 'mr-body';
-    while (d.children.length > 1) body.appendChild(d.children[1]);
-    d.appendChild(body);
-    d.classList.add('mr-anim');
-    summary.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (isReduce()) { d.open = !d.open; return; }
-      if (!d.open) {
-        var start = body.offsetHeight;
-        d.open = true;
-        var end = body.scrollHeight;
-        body.style.height = start + 'px';
-        requestAnimationFrame(function () {
-          body.style.height = end + 'px';
-          body.addEventListener('transitionend', function () { body.style.height = 'auto'; }, { once: true });
-        });
-      } else {
-        var h = body.offsetHeight;
-        body.style.height = h + 'px';
-        requestAnimationFrame(function () {
-          body.style.height = '0px';
-          body.addEventListener('transitionend', function () {
-            d.open = false;
-            body.style.height = '';
-          }, { once: true });
-        });
-      }
-    });
-  });
-
-  /* 5) 受け取り手順の段階表示 */
-  var steps = Array.prototype.slice.call(document.querySelectorAll('.delivery-steps article'));
-  if (steps.length) {
-    if (!('IntersectionObserver' in window) || isReduce()) {
-      steps.forEach(function (s) { s.classList.add('mr-reached'); });
-    } else {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) en.target.classList.add('mr-reached');
-        });
-      }, { rootMargin: '0px 0px -25% 0px' });
-      steps.forEach(function (s) { io.observe(s); });
-      window.addEventListener('scroll', function () {
-        var mid = window.innerHeight * 0.6;
-        var current = null;
-        steps.forEach(function (s) {
-          var r = s.getBoundingClientRect();
-          if (r.top < mid && r.bottom > 80) current = s;
-        });
-        steps.forEach(function (s) { s.classList.toggle('mr-current', s === current); });
-      }, { passive: true });
-    }
-  }
-})();
-</script>
-</body></html>
+<footer class="wrap"><div class="footer-top"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">n.</span><span>Nagiport<small>Motion Kit</small></span></a><div><a href="#templates">テンプレート</a><a href="#pricing">料金・サポート</a><a href="#faq">FAQ</a></div></div><p>サイト一式の買い切り＋必要な支援。</p><p>© 2026 Nagiport Motion Kit</p></footer></body></html>
